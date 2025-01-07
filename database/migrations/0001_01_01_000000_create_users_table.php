@@ -14,17 +14,12 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('usercode')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->unsignedBigInteger('division_id')->nullable();
-            $table->string('role')->nullable();
-            $table->string('app_token')->nullable()->unique()->after('password');
+            $table->enum('peran', allowed: ['Ibu', 'Suami', 'Orang Tua','Admin']);
             $table->rememberToken();
             $table->timestamps();
-
-            $table->foreign('division_id')->references('id')->on('divisions')->onDelete('set null');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

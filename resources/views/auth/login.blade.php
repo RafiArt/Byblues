@@ -77,21 +77,21 @@
                                 {{ __('Sign in') }}
                             </button>
                         </div>
-                        <div class="mt-2">
+                        {{-- <div class="mt-2">
                             <a href="{{ route('sso.index') }}">
                                 <button type="button"
                                     class="w-full  p-2 border border-blue-600 text-blue-600 hover:text-white rounded-lg text-center hover:bg-blue-600 transition font-medium">
                                     {{ __('Login with SSO') }}
                                 </button>
                             </a>
-                        </div>
+                        </div> --}}
                     </form>
 
-                    {{-- <div class="text-center mt-6">
+                    <div class="text-center mt-6">
                         <p class="text-gray-500">New on our platform? <a class="text-blue-500" href="/register">Create
                                 an
                                 account</a></p>
-                    </div> --}}
+                    </div>
                 </div>
             </div>
         </div>

@@ -24,16 +24,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'usercode',
-        'division_id',
-        'roles',
-        'app_token'
+        'peran',
     ];
 
-    public function division()
-    {
-        return $this->belongsTo(Division::class);
-    }
 
     public function links()
     {

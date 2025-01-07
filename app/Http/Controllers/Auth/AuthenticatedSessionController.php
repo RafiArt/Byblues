@@ -26,16 +26,13 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+        // Cek kredensial login
         if (Auth::attempt($request->only('email', 'password'))) {
-            $userId = Auth::id(); // Ambil ID user yang sedang login
+            // Ambil ID user yang sedang login
+            $userId = Auth::id();
 
-            // Cari user dari database dan update app_token
+            // Cari user dari database
             $user = User::find($userId);
-            if ($user) {
-                $appToken = Str::random(60);
-                $user->app_token = $appToken;
-                $user->save();
-            }
 
             // Autentikasi pengguna
             $request->authenticate();
@@ -54,6 +51,7 @@ class AuthenticatedSessionController extends Controller
         ]);
     }
 
+
     /**
      * Destroy an authenticated session.
      */
@@ -65,9 +63,11 @@ class AuthenticatedSessionController extends Controller
         // Logout user
         Auth::guard('web')->logout();
 
+        // Jika user ditemukan, hapus informasi terkait app_token (jika ada)
         if ($user) {
-            // Hapus app_token
-            $user->app_token = null;
+            // Tidak perlu lagi mengubah app_token karena kolom tersebut sudah tidak ada
+            // Jika sebelumnya ingin menyimpan perubahan lainnya, Anda bisa melakukannya di sini.
+            // Contoh: $user->other_field = null; // Hapus field lainnya jika ada
             $user->save();
         }
 
@@ -80,4 +80,5 @@ class AuthenticatedSessionController extends Controller
         // Redirect ke halaman utama
         return redirect('/');
     }
+
 }

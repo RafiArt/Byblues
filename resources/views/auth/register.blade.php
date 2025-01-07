@@ -23,12 +23,12 @@
                         </div>
                         <h2 class="text-2xl font-semibold ml-2">Welcome to {{ ENV('APP_NAME') }} <span class="wave"></span></h2>
                     </div>
-                    <p class="text-gray-500 mb-6">Please sign-in to your account</p>
+                    <p class="text-gray-500 mb-3">Please register to your account</p>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <!-- Name -->
-                        <div class="mb-3">
+                        <div class="mb-1.5">
                             <label for="name" class="block text-gray-700">{{ __('Name') }}</label>
                             <input id="name"
                                 class="w-full p-2 border border-blue-400 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 @error('name') border-blue-500 @enderror"
@@ -42,7 +42,7 @@
                         </div>
 
                         <!-- Email Address -->
-                        <div class="mb-3">
+                        <div class="mb-1.5">
                             <label for="email" class="block text-gray-700">{{ __('Email') }}</label>
                             <input id="email"
                                 class="w-full p-2 border border-blue-400 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 @error('email') border-blue-500 @enderror"
@@ -54,8 +54,23 @@
                             <x-input-error :messages="$errors->get('email')" class="mt-2 text-blue-500 text-sm" />
                         </div>
 
+                        <!-- Peran -->
+                        <div class="mb-1.5">
+                            <label for="peran" class="block text-gray-700">{{ __('Peran') }}</label>
+                            <select id="peran"
+                                    name="peran"
+                                    class="w-full p-2 border border-blue-400 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 @error('peran') border-blue-500 @enderror"
+                                    required>
+                                <option value="Ibu" {{ old('peran') == 'Ibu' ? 'selected' : '' }}>Ibu</option>
+                                <option value="Suami" {{ old('peran') == 'Suami' ? 'selected' : '' }}>Suami</option>
+                                <option value="Orang Tua" {{ old('peran') == 'Orang Tua' ? 'selected' : '' }}>Orang Tua</option>
+                            </select>
+                            <x-input-error :messages="$errors->get('peran')" class="mt-2 text-blue-500 text-sm" />
+                        </div>
+
+
                         <!-- Password -->
-                        <div class="mb-3 relative">
+                        <div class="mb-1.5 relative">
                             <label for="password" class="block text-gray-700">{{ __('Password') }}</label>
                             <input id="password"
                                 class="w-full p-2 border border-blue-400 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 @error('password') border-blue-500 @enderror"
@@ -72,7 +87,7 @@
 
 
                         <!-- Confirm Password -->
-                        <div class="mb-3 relative">
+                        <div class="mb-1.5 relative">
                             <label for="password_confirmation" class="block text-gray-700">{{ __('Confirm Password') }}</label>
                             <input id="password_confirmation"
                                 class="w-full p-2 border border-blue-400 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 @error('password_confirmation') border-blue-500 @enderror"
