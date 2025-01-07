@@ -61,14 +61,14 @@
                         </div>
 
                         <!-- Forgot Password Link -->
-                        <div class="flex items-center justify-between">
+                        {{-- <div class="flex items-center justify-between">
                             @if (Route::has('password.request'))
                                 <a class="text-blue-500 text-sm hover:text-blue-700"
                                     href="{{ route('password.request') }}">
                                     {{ __('Forgot Password?') }}
                                 </a>
                             @endif
-                        </div>
+                        </div> --}}
 
                         <!-- Submit Button -->
                         <div class="mt-4">
