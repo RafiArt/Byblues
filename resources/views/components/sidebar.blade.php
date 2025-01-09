@@ -14,9 +14,9 @@
             @if (Auth::user()->hasRole('administrator'))
                 <x-sidebar-item href="/analytics_admin" name="Analytics"><i
                         class="fa-solid fa-chart-simple text-lg"></i></x-sidebar-item>
-                <x-sidebar-item href="/links_admin" name="Links"><i
+                <x-sidebar-item href="#" name="Babyblues"><i
                         class="fa-solid fa-link text-lg"></i></x-sidebar-item>
-                <x-sidebar-item href="/qrcodes_admin" name="QR Codes"><i
+                <x-sidebar-item href="#" name="History"><i
                         class="fa-solid fa-qrcode text-lg"></i></x-sidebar-item>
                 <x-sidebar-item href="/user_management" name="User Management"><i
                         class="fa-solid fa-user text-lg"></i></x-sidebar-item>
@@ -24,8 +24,14 @@
                 <x-sidebar-item href="/analytics" name="Analytics">
                     <i class="fa-solid fa-chart-simple text-lg"></i>
                 </x-sidebar-item>
+                <x-sidebar-item href="#" name="Cek Babyblues">
+                    <i class="fa-solid fa-chart-simple text-lg"></i>
+                </x-sidebar-item>
+                <x-sidebar-item href="#" name="History Cek">
+                    <i class="fa-solid fa-chart-simple text-lg"></i>
+                </x-sidebar-item>
 
-                <!-- Submenu for Links -->
+                {{-- <!-- Submenu for Links -->
                 <li class="relative">
                     <div class="flex items-center justify-between p-1 px-4 rounded-lg hover:bg-gray-200 cursor-pointer"
                         onclick="toggleSubmenu('linksSubmenu', 'linksChevron')">
@@ -97,7 +103,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
             @endif
         </ul>
     </div>
