@@ -25,10 +25,10 @@
                     <i class="fa-solid fa-chart-simple text-lg"></i>
                 </x-sidebar-item>
                 <x-sidebar-item href="#" name="Cek Babyblues">
-                    <i class="fa-solid fa-chart-simple text-lg"></i>
+                    <i class="fa-solid fa-hand-holding-medical  text-lg"></i>
                 </x-sidebar-item>
                 <x-sidebar-item href="#" name="History Cek">
-                    <i class="fa-solid fa-chart-simple text-lg"></i>
+                    <i class="fa-solid fa-receipt text-lg"></i>
                 </x-sidebar-item>
 
                 {{-- <!-- Submenu for Links -->
