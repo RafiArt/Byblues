@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gejala;
 use Illuminate\Http\Request;
 
 class DiagnosaController extends Controller
@@ -19,7 +20,13 @@ class DiagnosaController extends Controller
      */
     public function create()
     {
-        //
+        // Ambil data gejala dari database
+        $gejala = Gejala::where('kategori', '!=', null)  // pastikan kategori tidak kosong
+            ->get()
+            ->groupBy('kategori');  // Kelompokkan berdasarkan kategori
+
+        // Passing data gejala ke view
+        return view('diagnosa.create', compact('gejala'));
     }
 
     /**
