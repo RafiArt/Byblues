@@ -13,12 +13,44 @@ class DiagnosaController extends Controller
      */
     public function index()
     {
+
+        session()->forget(['diagnosa_temp', 'diagnosa_tanggal']);
         return view('diagnosa.index');
     }
 
     /**
      * Show the form for creating a new resource.
      */
+    public function saveTemp(Request $request)
+    {
+        // Ambil data temporary yang sudah ada dari session
+        $existingTempData = session('diagnosa_temp', [
+            'tanggal' => '',
+            'kondisi' => []
+        ]);
+
+        // Gabungkan data kondisi yang baru dengan yang sudah ada
+        $mergedKondisi = array_merge(
+            $existingTempData['kondisi'] ?? [],
+            $request->kondisi ?? []
+        );
+
+        // Buat data temporary yang sudah diupdate
+        $tempData = [
+            'tanggal' => $request->tanggal ?? $existingTempData['tanggal'],
+            'kondisi' => $mergedKondisi
+        ];
+
+        // Simpan data yang sudah digabung ke dalam session
+        session(['diagnosa_temp' => $tempData]);
+        session(['diagnosa_tanggal' => $request->tanggal]);
+        // dd(session('diagnosa_temp'));
+
+        // Arahkan ke kategori berikutnya
+        return redirect()->route('diagnosa.create', ['kategori' => $request->next_kategori]);
+    }
+
+
     public function create(Request $request)
     {
         // Ambil semua kategori yang unik
@@ -50,6 +82,7 @@ class DiagnosaController extends Controller
         // Tentukan kategori sebelumnya dan selanjutnya
         $previousKategori = $currentIndex > 0 ? $kategoriList[$currentIndex - 1] : null;
         $nextKategori = $currentIndex < $kategoriList->count() - 1 ? $kategoriList[$currentIndex + 1] : null;
+
 
         return view('diagnosa.create', compact(
             'gejala',
