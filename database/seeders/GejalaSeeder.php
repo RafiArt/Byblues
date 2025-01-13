@@ -265,12 +265,12 @@ class GejalaSeeder extends Seeder
         FacadesDB::table('gejalas')->insert([
             [
                 'kode' => 'IB001',
-                'keterangan' => 'Apakah kehamilan terjadi karena kemauan ibu atau tidak?',
+                'keterangan' => 'Apakah kehamilan terjadi karena kemauan ibu?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
             ],
             [
                 'kode' => 'IB002',
-                'keterangan' => 'Bagaimana proses kehamilan yang telah dilalui oleh ibu?',
+                'keterangan' => 'Apakah ibu pernah menjalani proses kehamilan sebelumnya?',
                 'kategori' => 'Kesejahteraan Fisik',
             ],
             [
@@ -280,165 +280,187 @@ class GejalaSeeder extends Seeder
             ],
             [
                 'kode' => 'IB004',
-                'keterangan' => 'Apakah lokasi kerja ibu jauh dengan tempat tinggal?',
+                'keterangan' => 'Apakah lokasi kerja ibu jauh dari tempat tinggal?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
             ],
             [
                 'kode' => 'IB005',
-                'keterangan' => 'Apakah ibu ingin menjadi seorang ibu bekerja atau ingin menjadi ibu rumah tangga?',
+                'keterangan' => 'Apakah ibu ingin menjadi seorang ibu bekerja atau ibu rumah tangga?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
             ],
             [
                 'kode' => 'IB006',
-                'keterangan' => 'Apakah ada konflik dalam pernikahan? (bias diperhalus bentuk pertanyaannya)',
+                'keterangan' => 'Apakah ada konflik dalam pernikahan ibu?',
                 'kategori' => 'Hubungan Sosial',
             ],
             [
                 'kode' => 'IB007',
-                'keterangan' => 'Selama kehamilan apakah suami mendampingi ibu (secara fisik atau emosional)?',
+                'keterangan' => 'Apakah suami mendampingi ibu selama kehamilan, baik secara fisik atau emosional?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
             ],
             [
                 'kode' => 'IB008',
-                'keterangan' => 'Bagaimana kondisi finansial ibu dan keluarga?',
+                'keterangan' => 'Apakah kondisi finansial ibu dan keluarga cukup untuk mendukung kehamilan?',
                 'kategori' => 'Kesejahteraan Fisik',
             ],
             [
                 'kode' => 'IB009',
-                'keterangan' => 'Bagaimana jam tidur ibu dalam satu hari?',
+                'keterangan' => 'Apakah ibu tidur cukup dalam satu hari?',
                 'kategori' => 'Kesejahteraan Fisik',
             ],
             [
                 'kode' => 'IB010',
-                'keterangan' => 'Bagaimana nutrisi bagi tubuh ibu selama kehamilan? (apakah lengkap?)',
+                'keterangan' => 'Apakah nutrisi ibu selama kehamilan sudah cukup dan lengkap?',
                 'kategori' => 'Kesejahteraan Fisik',
             ],
             [
                 'kode' => 'IB011',
-                'keterangan' => 'Apakah selama kehamilan ibu memiliki impian untuk proses lahiran yang akan dilalui nanti saat melahirkan? (Caesar/normal)',
+                'keterangan' => 'Apakah ibu memiliki impian tentang proses melahirkan, seperti memilih metode caesar atau normal?',
                 'kategori' => 'Kesejahteraan Emosional',
             ],
             [
                 'kode' => 'IB012',
-                'keterangan' => 'Selama kehamilan apakah ibu mendapat tekanan dari hal apapun? Kalau iya tekanan apa atau dari pihak mana yang ibu rasakan?',
+                'keterangan' => 'Apakah ibu merasakan tekanan selama kehamilan? Jika iya, dari pihak mana?',
                 'kategori' => 'Kesejahteraan Emosional',
             ],
             [
                 'kode' => 'IB013',
-                'keterangan' => 'Bagaimana hubungan ibu dengan orangtua kandung?',
+                'keterangan' => 'Apakah hubungan ibu dengan orang tua kandungnya baik?',
                 'kategori' => 'Hubungan Sosial',
             ],
             [
                 'kode' => 'IB014',
-                'keterangan' => 'Bagaimana hubungan ibu dengan mertua?',
+                'keterangan' => 'Apakah hubungan ibu dengan mertua baik?',
                 'kategori' => 'Hubungan Sosial',
             ],
             [
                 'kode' => 'IB015',
-                'keterangan' => 'Ibu lebih nyaman cerita dengan teman (sahabat) atau dengan keluarga (suami, orangtua, mertua)?',
+                'keterangan' => 'Apakah ibu merasa lebih nyaman berbicara dengan teman (sahabat) atau keluarga (suami, orang tua, mertua)?',
                 'kategori' => 'Hubungan Sosial',
             ],
             [
                 'kode' => 'IB016',
-                'keterangan' => 'Selama kehamilan apakah ibu memiliki support dari orangtua (kandung dan mertua)?',
+                'keterangan' => 'Apakah ibu mendapat dukungan dari orang tua kandung dan mertua selama kehamilan?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
             ],
             [
                 'kode' => 'IB017',
-                'keterangan' => 'Apakah suami memiliki ekspektasi terhadap metode melahirkan yang akan dijalani istri saat melahirkan?',
+                'keterangan' => 'Apakah suami memiliki ekspektasi terhadap metode melahirkan yang akan dijalani ibu?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
             ],
             [
                 'kode' => 'IB018',
-                'keterangan' => 'Apakah suami memiliki ekspektasi terhadap metode melahirkan yang akan dijalani istri saat melahirkan?',
+                'keterangan' => 'Apakah orang tua atau mertua memiliki ekspektasi terkait metode melahirkan ibu?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
-            ], [
+            ],
+            [
                 'kode' => 'IB019',
-                'keterangan' => 'Apakah selama kehamilan istri memiliki waktu yang cukup untuk berolahraga?',
+                'keterangan' => 'Apakah ibu memiliki waktu yang cukup untuk berolahraga selama kehamilan?',
                 'kategori' => 'Kesejahteraan Fisik',
-            ], [
+            ],
+            [
                 'kode' => 'IB020',
-                'keterangan' => 'Bagaimana suami menyikapi perubahan pada bentuk badan istri selama kehamilan dan setelah melahirkan?',
+                'keterangan' => 'Apakah ibu merasa nyaman dengan perubahan bentuk tubuh selama kehamilan dan setelah melahirkan?',
                 'kategori' => 'Kesejahteraan Emosional',
-            ], [
+            ],
+            [
                 'kode' => 'IB021',
-                'keterangan' => 'Bagaimana proses melahirkan yang dijalani istri?',
+                'keterangan' => 'Apakah ibu merasa nyaman dengan proses melahirkan yang telah dilalui?',
                 'kategori' => 'Kesejahteraan Fisik',
-            ], [
+            ],
+            [
                 'kode' => 'IB022',
-                'keterangan' => 'Saat melahirkan, apakah suami mendampingi istri?',
+                'keterangan' => 'Apakah suami mendampingi ibu saat melahirkan?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
-            ], [
+            ],
+            [
                 'kode' => 'IB023',
-                'keterangan' => 'Apakah orangtua (kandung dan mertua) mendampingi saat kelahiran?',
+                'keterangan' => 'Apakah orang tua atau mertua mendampingi ibu saat melahirkan?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
-            ], [
+            ],
+            [
                 'kode' => 'IB024',
-                'keterangan' => 'Bagaimana perasaan suami saat melihat bayi yang dilahirkan oleh istri?',
+                'keterangan' => 'Apakah ibu merasa bahagia saat melihat bayi yang baru dilahirkan?',
                 'kategori' => 'Kesejahteraan Emosional',
-            ], [
+            ],
+            [
                 'kode' => 'IB025',
-                'keterangan' => 'Setelah melahirkan, apakah suami membantu istri dalam merawat bayi?',
+                'keterangan' => 'Apakah ibu menerima bantuan dalam merawat bayi setelah melahirkan?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
-            ], [
+            ],
+            [
                 'kode' => 'IB026',
-                'keterangan' => 'Apakah suami memberikan waktu untuk istri agar memiliki waktu untuk diri sendiri (me-time) setelah melahirkan?',
+                'keterangan' => 'Apakah ibu memiliki waktu untuk dirinya sendiri (me-time) setelah melahirkan?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
-            ], [
+            ],
+            [
                 'kode' => 'IB027',
-                'keterangan' => 'Apakah suami memiliki ekspektasi untuk pemberian ASI pada bayi setelah kelahiran?',
+                'keterangan' => 'Apakah ibu memiliki ekspektasi terhadap pemberian ASI untuk bayi?',
                 'kategori' => 'Kesejahteraan Emosional',
-            ], [
+            ],
+            [
                 'kode' => 'IB028',
-                'keterangan' => 'Apakah suami mendukung pemberian ASI kepada bayi?',
+                'keterangan' => 'Apakah ibu memberikan ASI kepada bayi?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
-            ], [
+            ],
+            [
                 'kode' => 'IB029',
-                'keterangan' => 'Bagaimana proses pemberian ASI oleh istri kepada bayi?',
+                'keterangan' => 'Apakah proses pemberian ASI berjalan lancar?',
                 'kategori' => 'Kesejahteraan Fisik',
-            ], [
+            ],
+            [
                 'kode' => 'IB030',
-                'keterangan' => 'Apakah selama pemberian ASI, istri mengalami rasa sakit pada tubuh?',
+                'keterangan' => 'Apakah ibu merasa sakit tubuh saat memberi ASI?',
                 'kategori' => 'Kesejahteraan Fisik',
-            ], [
+            ],
+            [
                 'kode' => 'IB031',
-                'keterangan' => 'Apakah suami membantu istri dalam proses pengasuhan bayi setelah kelahiran?',
+                'keterangan' => 'Apakah suami membantu ibu dalam proses pengasuhan bayi setelah melahirkan?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
-            ], [
+            ],
+            [
                 'kode' => 'IB032',
-                'keterangan' => 'Bagaimana pembagian waktu pengasuhan bayi antara suami dengan istri?',
+                'keterangan' => 'Apakah waktu pengasuhan bayi dibagi antara ibu dan suami?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
-            ], [
+            ],
+            [
                 'kode' => 'IB033',
-                'keterangan' => 'Bagaimana jam tidur suami setelah kelahiran bayi?',
+                'keterangan' => 'Apakah ibu tidur cukup setelah melahirkan?',
                 'kategori' => 'Kesejahteraan Fisik',
-            ], [
+            ],
+            [
                 'kode' => 'IB034',
-                'keterangan' => 'Apakah suami pernah berkomunikasi dengan istri mengenai proses adaptasi yang dialami setelah kelahiran bayi?',
+                'keterangan' => 'Apakah ibu pernah berbicara dengan suami mengenai proses adaptasi setelah melahirkan?',
                 'kategori' => 'Hubungan Sosial',
-            ], [
+            ],
+            [
                 'kode' => 'IB035',
-                'keterangan' => 'Bagaimana jadwal makan suami setelah kelahiran bayi?',
+                'keterangan' => 'Apakah jadwal makan ibu tetap terjaga setelah melahirkan?',
                 'kategori' => 'Kesejahteraan Fisik',
-            ], [
+            ],
+            [
                 'kode' => 'IB036',
-                'keterangan' => 'Apakah suami merasakan kesulitan dalam menjalani peran sebagai orangtua baru?',
+                'keterangan' => 'Apakah ibu merasa kesulitan menjalani peran sebagai orang tua baru?',
                 'kategori' => 'Kesejahteraan Emosional',
-            ], [
+            ],
+            [
                 'kode' => 'IB037',
-                'keterangan' => 'Apakah suami mengalami perubahan suasana hati setelah kelahiran bayi?',
+                'keterangan' => 'Apakah ibu mengalami perubahan suasana hati setelah melahirkan?',
                 'kategori' => 'Kesejahteraan Emosional',
-            ], [
+            ],
+            [
                 'kode' => 'IB038',
-                'keterangan' => 'Apakah suami merasa kewalahan dalam menjalani peran baru sebagai orangtua?',
+                'keterangan' => 'Apakah ibu merasa kewalahan menjalani peran sebagai orang tua baru?',
                 'kategori' => 'Kesejahteraan Emosional',
-            ], [
+            ],
+            [
                 'kode' => 'IB039',
-                'keterangan' => 'Apakah suami memiliki kecemasan terhadap kondisi kesehatan dan keselamatan bayi?',
+                'keterangan' => 'Apakah ibu cemas tentang kondisi kesehatan dan keselamatan bayi?',
                 'kategori' => 'Kesejahteraan Emosional',
-            ], [
+            ],
+            [
                 'kode' => 'IB040',
-                'keterangan' => 'Apakah suami sering merasa sedih sampai ingin menangis setelah proses persalinan?',
+                'keterangan' => 'Apakah ibu sering merasa sedih atau ingin menangis setelah melahirkan?',
                 'kategori' => 'Kesejahteraan Emosional',
             ],
         ]);
