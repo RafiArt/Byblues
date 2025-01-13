@@ -19,11 +19,11 @@
             @csrf
             <!-- Input Tanggal - Only show on first category -->
             @if($kategoriList->search($currentKategori) === 0)
-            <div class="mb-4">
-                <label for="tanggal" class="block text-sm font-medium text-gray-700">Tanggal</label>
-                <input type="date" id="tanggal" name="tanggal"
-                    class="mt-1 block w-full max-w-sm rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50">
-            </div>
+                <div class="mb-4">
+                    <label for="tanggal" class="block text-sm font-medium text-gray-700">Tanggal dan Waktu</label>
+                    <input type="datetime-local" id="tanggal" name="tanggal"
+                        class="mt-1 block w-full max-w-sm rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50">
+                </div>
             @endif
 
             <!-- Kategori Title -->
@@ -33,11 +33,12 @@
             <div class="overflow-x-auto mb-6">
                 <table class="min-w-full divide-y divide-gray-200 border border-gray-300">
                     <thead class="bg-gray-50">
-                        <tr>
-                            <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">No</th>
-                            <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">Gejala</th>
-                            <th class="px-4 py-2 text-left text-sm font-semibold text-gray-600">Kondisi</th>
+                        <tr class="bg-gray-100">
+                            <th class="px-4 py-2 text-center text-sm font-semibold text-gray-600">No</th>
+                            <th class="px-4 py-2 text-center text-sm font-semibold text-gray-600">Gejala</th>
+                            <th class="px-4 py-2 text-center text-sm font-semibold text-gray-600">Kondisi</th>
                         </tr>
+
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
                         @php $no = 1; @endphp
@@ -73,17 +74,23 @@
                     <div></div>
                 @endif
 
-                @if($nextKategori)
-                    <a href="{{ route('diagnosa.create', ['kategori' => $nextKategori]) }}"
+                <div class="flex gap-4">
+                    <a href="{{route('diagnosa.index')}}"
                         class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors">
-                        Next →
+                        Back
                     </a>
-                @else
-                    <button type="submit"
-                        class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition-colors">
-                        Submit
-                    </button>
-                @endif
+                    @if($nextKategori)
+                        <a href="{{ route('diagnosa.create', ['kategori' => $nextKategori]) }}"
+                            class="bg-teal-500 text-white px-4 py-2 rounded-md hover:bg-teal-600 transition-colors">
+                            Next →
+                        </a>
+                    @else
+                        <button type="submit"
+                            class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition-colors">
+                            Submit
+                        </button>
+                    @endif
+                </div>
             </div>
         </form>
     </div>
