@@ -13,7 +13,7 @@
                 <button type="submit"
                     class="flex items-center gap-2 absolute right-1 top-1/2
                     -translate-y-1/2 bg-blue-600 p-1 lg:p-2 px-2 lg:px-4 rounded hover:bg-blue-800 transition">
-                    <i class="fa-solid fa-link text-lg lg:text-xl text-white"></i>
+                    <i class="fa-solid fa-stethoscope text-lg lg:text-xl text-white"></i>
                     <p class="text-white font-extrabold text-sm lg:text-base">
                         Shorten it!
                     </p>

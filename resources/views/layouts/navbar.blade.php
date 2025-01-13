@@ -1,7 +1,7 @@
 <nav class="relative w-full h-[80px] hidden md:flex items-center justify-center bg-transparent px-4 z-50">
     <div class="w-full h-full max-w-7xl flex items-center justify-between">
         <div class="flex items-center gap-3">
-            <i class="fa-solid fa-link text-3xl text-white"></i>
+            <i class="fa-solid fa-stethoscope text-3xl text-white"></i>
             <h1 class="text-2xl font-bold text-white">SIER SHORT LINK</h1>
         </div>
         <ul class="flex items-center gap-3 h-full text-white">

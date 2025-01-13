@@ -3,7 +3,7 @@
         <div class="w-full grid grid-cols-3 gap-20">
             <div class="w-full flex flex-col">
                 <div class="flex items-center gap-3 mb-4">
-                    <i class="fa-solid fa-link text-4xl text-blue-600"></i>
+                    <i class="fa-solid fa-stethoscope text-4xl text-blue-600"></i>
                     <h1 class="text-4xl font-bold text-blue-600">SIER SHORT LINK</h1>
                 </div>
                 <p>The Smart Way to Simplify Your

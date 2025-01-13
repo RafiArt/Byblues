@@ -5,7 +5,7 @@
             <div class="w-full flex flex-col lg:flex-row items-center gap-3">
                 <button type="button" id="quick-access-btn"
                     class="border-2 p-3 px-5 flex items-center bg-white rounded-lg justify-between w-full lg:w-[18rem] group hover:border-blue-600 transition hover:cursor-pointer">
-                    <i class="fa-solid fa-link text-lg group-hover:text-blue-600 transition"></i>
+                    <i class="fa-solid fa-stethoscope text-lg group-hover:text-blue-600 transition"></i>
                     <h2 class="font-medium group-hover:text-blue-600 transition">Cek Babyblues</h2>
                     <i class="fa-solid fa-chevron-right text-lg group-hover:text-blue-600 transition"></i>
                 </button>
@@ -80,22 +80,36 @@
                 <div class="border p-5 bg-white rounded-lg justify-between w-[14rem] group transition flex-shrink-0 scroll-snap-center">
                     <h3 class="text-3xl font-bold mb-2">{{ $CountLink }}</h3>
                     <div class="flex items-center gap-2">
-                        <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                        <p>Total Links</p>
+                        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                        <p>Total Cek</p>
                     </div>
                 </div>
                 <div class="border p-5 bg-white rounded-lg justify-between w-[14rem] group transition flex-shrink-0 scroll-snap-center">
                     <h3 class="text-3xl font-bold mb-2">{{ $Visitor }}</h3>
                     <div class="flex items-center gap-2">
-                        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
-                        <p>Visitors</p>
+                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <p>Tidak Terjangkit</p>
+                    </div>
+                </div>
+                <div class="border p-5 bg-white rounded-lg justify-between w-[14rem] group transition flex-shrink-0 scroll-snap-center">
+                    <h3 class="text-3xl font-bold mb-2">{{ $VisitorUnique }}</h3>
+                    <div class="flex items-center gap-2">
+                        <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                        <p>Gejala Ringan</p>
+                    </div>
+                </div>
+                <div class="border p-5 bg-white rounded-lg justify-between w-[14rem] group transition flex-shrink-0 scroll-snap-center">
+                    <h3 class="text-3xl font-bold mb-2">{{ $VisitorUnique }}</h3>
+                    <div class="flex items-center gap-2">
+                        <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                        <p>Gejala Sedang</p>
                     </div>
                 </div>
                 <div class="border p-5 bg-white rounded-lg justify-between w-[14rem] group transition flex-shrink-0 scroll-snap-center">
                     <h3 class="text-3xl font-bold mb-2">{{ $VisitorUnique }}</h3>
                     <div class="flex items-center gap-2">
                         <div class="w-2 h-2 bg-red-500 rounded-full"></div>
-                        <p>Unique Visitors</p>
+                        <p>Gejala Berat</p>
                     </div>
                 </div>
             </div>

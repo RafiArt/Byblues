@@ -55,7 +55,7 @@
             <!-- Popular Links Section -->
             <div class="bg-white p-6 rounded-lg shadow w-full h-[500px] flex flex-col">
                 <h2 class="text-lg font-semibold mb-4">
-                    <i class="fas fa-link mr-2"></i> Popular Links
+                    <i class="fas fa-stethoscope mr-2"></i> Popular Links
                 </h2>
                 <div class="space-y-4">
                     @if ($link->isNotEmpty())

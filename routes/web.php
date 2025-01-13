@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\LinkAdminController;
 use App\Http\Controllers\Admin\QrcodeAdminController;
 use App\Http\Controllers\Admin\UserAdminController;
 use App\Http\Controllers\AnalyticController;
+use App\Http\Controllers\DiagnosaController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QrcodeController;
@@ -48,6 +49,9 @@ Route::middleware(['role:user', 'auth'])->group(function () {
     Route::put('/links/{link}/remove-pashphrase', [LinkController::class, 'removePashphrase'])->name('links.removePashphrase');
     Route::put('/links/{link}/remove-time-based', [LinkController::class, 'removeExpirationDate'])->name('links.removeExpirationDate');
 
+    // Diagnosa
+    Route::resource('/diagnosa', DiagnosaController::class);
+    
     // Rute Qrcode
     Route::resource('/qrcodes', QrcodeController::class);
     Route::get('/division_qrcodes', [QrcodeController::class, 'divisionQRcode'])->name('qrcodes.divisionQR');

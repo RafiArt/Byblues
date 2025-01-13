@@ -60,4 +60,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function diagnosas()
+    {
+        return $this->hasMany(Diagnosa::class);
+    }
 }
