@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Gejala;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DiagnosaController extends Controller
 {
@@ -18,15 +19,45 @@ class DiagnosaController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        // Ambil data gejala dari database
-        $gejala = Gejala::where('kategori', '!=', null)  // pastikan kategori tidak kosong
-            ->get()
-            ->groupBy('kategori');  // Kelompokkan berdasarkan kategori
+        // Ambil semua kategori yang unik
+        $kategoriList = Gejala::where('kategori', '!=', null)
+            ->distinct()
+            ->pluck('kategori');
 
-        // Passing data gejala ke view
-        return view('diagnosa.create', compact('gejala'));
+        // Ambil kategori saat ini dari query string atau gunakan yang pertama
+        $currentKategori = $request->query('kategori', $kategoriList->first());
+
+        // Ambil gejala untuk kategori saat ini
+        $gejala = Gejala::where('kategori', $currentKategori)
+            ->where(function($query) {
+                $peran = Auth::user()->peran;
+                if ($peran === 'Ibu') {
+                    $query->where('kode', 'LIKE', 'IB%');
+                } elseif ($peran === 'Suami') {
+                    $query->where('kode', 'LIKE', 'SU%');
+                } elseif ($peran === 'Orang Tua') {
+                    $query->where('kode', 'LIKE', 'OT%');
+                }
+            })
+            ->get()
+            ->groupBy('kategori');
+
+        // Cari indeks kategori saat ini
+        $currentIndex = $kategoriList->search($currentKategori);
+
+        // Tentukan kategori sebelumnya dan selanjutnya
+        $previousKategori = $currentIndex > 0 ? $kategoriList[$currentIndex - 1] : null;
+        $nextKategori = $currentIndex < $kategoriList->count() - 1 ? $kategoriList[$currentIndex + 1] : null;
+
+        return view('diagnosa.create', compact(
+            'gejala',
+            'kategoriList',
+            'currentKategori',
+            'previousKategori',
+            'nextKategori'
+        ));
     }
 
     /**
