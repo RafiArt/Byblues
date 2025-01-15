@@ -280,7 +280,7 @@ class GejalaSeeder extends Seeder
             ],
             [
                 'kode' => 'IB004',
-                'keterangan' => 'Apakah lokasi kerja ibu dekat dengan tempat tinggal?',
+                'keterangan' => 'Apakah lokasi kerja ibu jauh dengan tempat tinggal?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
             ],
             [
@@ -300,12 +300,12 @@ class GejalaSeeder extends Seeder
             ],
             [
                 'kode' => 'IB008',
-                'keterangan' => 'Apakah kondisi finansial ibu dan keluarga cukup untuk mendukung kehamilan?',
+                'keterangan' => 'Apakah kondisi finansial ibu dan keluarga kurang untuk mendukung kehamilan?',
                 'kategori' => 'Kesejahteraan Fisik',
             ],
             [
                 'kode' => 'IB009',
-                'keterangan' => 'Apakah ibu tidur cukup dalam satu hari?',
+                'keterangan' => 'Apakah ibu kurang tidur dalam satu hari?',
                 'kategori' => 'Kesejahteraan Fisik',
             ],
             [
@@ -435,7 +435,7 @@ class GejalaSeeder extends Seeder
             ],
             [
                 'kode' => 'IB035',
-                'keterangan' => 'Apakah jadwal makan ibu tetap terjaga setelah melahirkan?',
+                'keterangan' => 'Apakah jadwal makan ibu berantakan setelah melahirkan?',
                 'kategori' => 'Kesejahteraan Fisik',
             ],
             [

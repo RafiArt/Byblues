@@ -14,10 +14,28 @@ class DiagnosaController extends Controller
      */
     public function index()
     {
-
         session()->forget(['diagnosa_temp', 'diagnosa_tanggal']);
-        return view('diagnosa.index');
+
+        $user = Auth::user();
+        // Ambil data berdasarkan role
+        if ($user->roles[0]->name == 'administrator') {
+            $diagnosas = Diagnosa::all()
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+;
+        }
+        else {
+            // Jika role = user, ambil data berdasarkan user_id
+            $diagnosas = Diagnosa::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+;
+        }
+
+        // Kirim data ke view
+        return view('diagnosa.index', compact('diagnosas'));
     }
+
 
     /**
      * Show the form for creating a new resource.
