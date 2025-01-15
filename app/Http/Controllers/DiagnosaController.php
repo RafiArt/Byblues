@@ -161,94 +161,155 @@ class DiagnosaController extends Controller
         if (Auth::user()->peran == 'Ibu') {
             if ($score >= 13) {
                 $hasil = 'Risiko Tinggi Baby Blues';
-                $solusi = "Rekomendasi Penanganan:\n" .
-                    "* Segera Konsultasi: Lakukan konsultasi dengan psikiater/psikolog untuk evaluasi mendalam dan penanganan intensif.\n" .
-                    "* Terapi Rutin: Ikuti jadwal terapi yang direkomendasikan, minimal 1-2 kali seminggu.\n" .
-                    "* Pengobatan: Ikuti anjuran pengobatan yang diberikan oleh profesional kesehatan.\n" .
-                    "* Monitoring: Catat perubahan mood dan perilaku setiap hari untuk evaluasi treatment.";
+                $solusi = '
+                    <div class="flex flex-col items-start space-y-2">
+                        <span>Rekomendasi Penanganan:</span>
+                        <ul class="list-disc ml-6 space-y-2">
+                            <li>Segera Konsultasi: Lakukan konsultasi dengan psikiater/psikolog untuk evaluasi mendalam dan penanganan intensif.</li>
+                            <li>Terapi Rutin: Ikuti jadwal terapi yang direkomendasikan, minimal 1-2 kali seminggu.</li>
+                            <li>Pengobatan: Ikuti anjuran pengobatan yang diberikan oleh profesional kesehatan.</li>
+                            <li>Monitoring: Catat perubahan mood dan perilaku setiap hari untuk evaluasi treatment.</li>
+                        </ul>
+                    </div>';
             } elseif ($score >= 10 && $score <= 12) {
                 $hasil = 'Risiko Sedang Baby Blues';
-                $solusi = "Rekomendasi Penanganan:\n" .
-                    "* Rencanakan Konsultasi: Catat gejala yang dialami dan buat jadwal konsultasi dengan profesional.\n" .
-                    "* Dokumentasi: Catat pola tidur, makan, dan pemicu stres untuk didiskusikan saat konsultasi.\n" .
-                    "* Support Group: Bergabung dengan kelompok dukungan ibu dengan baby blues.\n" .
-                    "* Manajemen Stres: Terapkan teknik relaksasi dan meditasi yang diajarkan profesional.";
+                $solusi = '
+                    <div class="flex flex-col items-start space-y-2">
+                        <span>Rekomendasi Penanganan:</span>
+                        <ul class="list-disc ml-6 space-y-2">
+                            <li>Rencanakan Konsultasi: Catat gejala yang dialami dan buat jadwal konsultasi dengan profesional.</li>
+                            <li>Dokumentasi: Catat pola tidur, makan, dan pemicu stres untuk didiskusikan saat konsultasi.</li>
+                            <li>Support Group: Bergabung dengan kelompok dukungan ibu dengan baby blues.</li>
+                            <li>Manajemen Stres: Terapkan teknik relaksasi dan meditasi yang diajarkan profesional.</li>
+                        </ul>
+                    </div>';
             } elseif ($score >= 5 && $score <= 9) {
                 $hasil = 'Risiko Rendah Baby Blues';
-                $solusi = "Rekomendasi Penanganan:\n" .
-                    "* Komunitas: Bergabung dengan komunitas ibu baru untuk berbagi pengalaman.\n" .
-                    "* Self-Care: Luangkan waktu untuk aktivitas yang menyenangkan dan menenangkan.\n" .
-                    "* Istirahat Berkualitas: Atur jadwal tidur sesuai dengan jadwal tidur bayi.\n" .
-                    "* Komunikasi: Ungkapkan perasaan dan kekhawatiran kepada orang terdekat.";
+                $solusi = '
+                    <div class="flex flex-col items-start space-y-2">
+                        <span>Rekomendasi Penanganan:</span>
+                        <ul class="list-disc ml-6 space-y-2">
+                            <li>Komunitas: Bergabung dengan komunitas ibu baru untuk berbagi pengalaman.</li>
+                            <li>Self-Care: Luangkan waktu untuk aktivitas yang menyenangkan dan menenangkan.</li>
+                            <li>Istirahat Berkualitas: Atur jadwal tidur sesuai dengan jadwal tidur bayi.</li>
+                            <li>Komunikasi: Ungkapkan perasaan dan kekhawatiran kepada orang terdekat.</li>
+                        </ul>
+                    </div>';
             } else {
                 $hasil = 'Tidak Ada Risiko Baby Blues';
-                $solusi = "Rekomendasi Penanganan:\n" .
-                    "* Persiapan Mental: Ikuti kelas prenatal dan persiapkan mental sejak kehamilan.\n" .
-                    "* Pola Hidup: Pertahankan pola makan sehat dan istirahat yang cukup.\n" .
-                    "* Ekspektasi Realistis: Bangun pemahaman yang realistis tentang peran sebagai ibu baru.\n" .
-                    "* Relaksasi: Pelajari dan praktikkan teknik relaksasi secara rutin.";
+                $solusi = '
+                    <div class="flex flex-col items-start space-y-2">
+                        <span>Rekomendasi Penanganan:</span>
+                        <ul class="list-disc ml-6 space-y-2">
+                            <li>Persiapan Mental: Ikuti kelas prenatal dan persiapkan mental sejak kehamilan.</li>
+                            <li>Pola Hidup: Pertahankan pola makan sehat dan istirahat yang cukup.</li>
+                            <li>Ekspektasi Realistis: Bangun pemahaman yang realistis tentang peran sebagai ibu baru.</li>
+                            <li>Relaksasi: Pelajari dan praktikkan teknik relaksasi secara rutin.</li>
+                        </ul>
+                    </div>';
             }
         } elseif (Auth::user()->peran == 'Suami') {
             if ($score >= 13) {
                 $hasil = 'Risiko Tinggi Baby Blues';
-                $solusi = "Rekomendasi Penanganan:\n" .
-                    "* Pendampingan Medis: Dampingi istri dalam setiap sesi terapi dan konsultasi.\n" .
-                    "* Pengambilalihan Tugas: Ambil alih sebagian besar tanggung jawab pengasuhan dan rumah tangga.\n" .
-                    "* Pemantauan Rutin: Pantau pengobatan dan perkembangan kondisi istri.\n" .
-                    "* Koordinasi: Berkoordinasi dengan tenaga medis tentang cara terbaik mendukung istri.";
+                $solusi = '
+                    <div class="flex flex-col items-start space-y-2">
+                        <span>Rekomendasi Penanganan:</span>
+                        <ul class="list-disc ml-6 space-y-2">
+                            <li>Pendampingan Medis: Dampingi istri dalam setiap sesi terapi dan konsultasi.</li>
+                            <li>Pengambilalihan Tugas: Ambil alih sebagian besar tanggung jawab pengasuhan dan rumah tangga.</li>
+                            <li>Pemantauan Rutin: Pantau pengobatan dan perkembangan kondisi istri.</li>
+                            <li>Koordinasi: Berkoordinasi dengan tenaga medis tentang cara terbaik mendukung istri.</li>
+                        </ul>
+                    </div>';
             } elseif ($score >= 10 && $score <= 12) {
                 $hasil = 'Risiko Sedang Baby Blues';
-                $solusi = "Rekomendasi Penanganan:\n" .
-                    "* Dukungan Konsultasi: Bantu istri merencanakan dan mengatur jadwal konsultasi.\n" .
-                    "* Pembagian Tugas: Ambil lebih banyak tanggung jawab rumah tangga.\n" .
-                    "* Quality Time: Luangkan waktu khusus untuk mendengarkan dan mendukung istri.\n" .
-                    "* Pemantauan: Perhatikan perubahan mood dan perilaku istri.";
+                $solusi = '
+                    <div class="flex flex-col items-start space-y-2">
+                        <span>Rekomendasi Penanganan:</span>
+                        <ul class="list-disc ml-6 space-y-2">
+                            <li>Dukungan Konsultasi: Bantu istri merencanakan dan mengatur jadwal konsultasi.</li>
+                            <li>Pembagian Tugas: Ambil lebih banyak tanggung jawab rumah tangga.</li>
+                            <li>Quality Time: Luangkan waktu khusus untuk mendengarkan dan mendukung istri.</li>
+                            <li>Pemantauan: Perhatikan perubahan mood dan perilaku istri.</li>
+                        </ul>
+                    </div>';
             } elseif ($score >= 5 && $score <= 9) {
                 $hasil = 'Risiko Rendah Baby Blues';
-                $solusi = "Rekomendasi Penanganan:\n" .
-                    "* Bantuan Aktif: Bantu perawatan bayi dan pekerjaan rumah tangga secara proaktif.\n" .
-                    "* Apresiasi: Berikan pujian dan apresiasi atas usaha istri dalam merawat bayi.\n" .
-                    "* Waktu Istirahat: Pastikan istri mendapat waktu istirahat yang cukup.\n" .
-                    "* Lingkungan Positif: Ciptakan suasana rumah yang tenang dan nyaman.";
+                $solusi = '
+                    <div class="flex flex-col items-start space-y-2">
+                        <span>Rekomendasi Penanganan:</span>
+                        <ul class="list-disc ml-6 space-y-2">
+                            <li>Bantuan Aktif: Bantu perawatan bayi dan pekerjaan rumah tangga secara proaktif.</li>
+                            <li>Apresiasi: Berikan pujian dan apresiasi atas usaha istri dalam merawat bayi.</li>
+                            <li>Waktu Istirahat: Pastikan istri mendapat waktu istirahat yang cukup.</li>
+                            <li>Lingkungan Positif: Ciptakan suasana rumah yang tenang dan nyaman.</li>
+                        </ul>
+                    </div>';
             } else {
                 $hasil = 'Tidak Ada Risiko Baby Blues';
-                $solusi = "Rekomendasi Penanganan:\n" .
-                    "* Persiapan: Pelajari cara merawat bayi bersama istri sejak masa kehamilan.\n" .
-                    "* Keterlibatan: Terlibat aktif dalam persiapan kelahiran dan perawatan bayi.\n" .
-                    "* Pemahaman: Pelajari perubahan hormonal dan emosional yang akan dialami istri.\n" .
-                    "* Dukungan: Tunjukkan dukungan emosional dan jadilah pendengar yang baik.";
+                $solusi = '
+                    <div class="flex flex-col items-start space-y-2">
+                        <span>Rekomendasi Penanganan:</span>
+                        <ul class="list-disc ml-6 space-y-2">
+                            <li>Persiapan: Pelajari cara merawat bayi bersama istri sejak masa kehamilan.</li>
+                            <li>Keterlibatan: Terlibat aktif dalam persiapan kelahiran dan perawatan bayi.</li>
+                            <li>Pemahaman: Pelajari perubahan hormonal dan emosional yang akan dialami istri.</li>
+                            <li>Dukungan: Tunjukkan dukungan emosional dan jadilah pendengar yang baik.</li>
+                        </ul>
+                    </div>';
             }
         } elseif (Auth::user()->peran == 'Orang Tua') {
             if ($score >= 13) {
                 $hasil = 'Risiko Tinggi Baby Blues';
-                $solusi = "Rekomendasi Penanganan:\n" .
-                    "* Pengasuhan Intensif: Bantu pengasuhan bayi secara penuh jika diperlukan.\n" .
-                    "* Dukungan Terapi: Dukung proses terapi dan pengobatan secara konsisten.\n" .
-                    "* Pemulihan: Ciptakan lingkungan yang mendukung proses pemulihan.\n" .
-                    "* Koordinasi Medis: Bantu koordinasi dengan tim medis untuk pemantauan kondisi.";
+                $solusi = '
+                    <div class="flex flex-col items-start space-y-2">
+                        <span>Rekomendasi Penanganan:</span>
+                        <ul class="list-disc ml-6 space-y-2">
+                            <li>Pengasuhan Intensif: Bantu pengasuhan bayi secara penuh jika diperlukan.</li>
+                            <li>Dukungan Terapi: Dukung proses terapi dan pengobatan secara konsisten.</li>
+                            <li>Pemulihan: Ciptakan lingkungan yang mendukung proses pemulihan.</li>
+                            <li>Koordinasi Medis: Bantu koordinasi dengan tim medis untuk pemantauan kondisi.</li>
+                        </ul>
+                    </div>';
             } elseif ($score >= 10 && $score <= 12) {
                 $hasil = 'Risiko Sedang Baby Blues';
-                $solusi = "Rekomendasi Penanganan:\n" .
-                    "* Dukungan Konsultasi: Bantu mengatur jadwal dan transportasi untuk konsultasi.\n" .
-                    "* Bantuan Praktis: Berikan bantuan intensif dalam perawatan bayi dan rumah tangga.\n" .
-                    "* Sistem Pendukung: Jadilah sistem pendukung yang stabil dan dapat diandalkan.\n" .
-                    "* Pemahaman: Pahami pentingnya penanganan profesional tanpa menghakimi.";
+                $solusi = '
+                    <div class="flex flex-col items-start space-y-2">
+                        <span>Rekomendasi Penanganan:</span>
+                        <ul class="list-disc ml-6 space-y-2">
+                            <li>Dukungan Konsultasi: Bantu mengatur jadwal dan transportasi untuk konsultasi.</li>
+                            <li>Bantuan Praktis: Berikan bantuan intensif dalam perawatan bayi dan rumah tangga.</li>
+                            <li>Sistem Pendukung: Jadilah sistem pendukung yang stabil dan dapat diandalkan.</li>
+                            <li>Pemahaman: Pahami pentingnya penanganan profesional tanpa menghakimi.</li>
+                        </ul>
+                    </div>';
             } elseif ($score >= 5 && $score <= 9) {
                 $hasil = 'Risiko Rendah Baby Blues';
-                $solusi = "Rekomendasi Penanganan:\n" .
-                    "* Bantuan Fleksibel: Berikan bantuan sesuai kebutuhan tanpa memaksa.\n" .
-                    "* Waktu Istirahat: Tawarkan bantuan agar pasangan bisa beristirahat.\n" .
-                    "* Lingkungan Positif: Hindari kritik dan komentar negatif.\n" .
-                    "* Dukungan Praktis: Bantu pekerjaan rumah tangga sesuai kebutuhan.";
+                $solusi = '
+                    <div class="flex flex-col items-start space-y-2">
+                        <span>Rekomendasi Penanganan:</span>
+                        <ul class="list-disc ml-6 space-y-2">
+                            <li>Bantuan Fleksibel: Berikan bantuan sesuai kebutuhan tanpa memaksa.</li>
+                            <li>Waktu Istirahat: Tawarkan bantuan agar pasangan bisa beristirahat.</li>
+                            <li>Lingkungan Positif: Hindari kritik dan komentar negatif.</li>
+                            <li>Dukungan Praktis: Bantu pekerjaan rumah tangga sesuai kebutuhan.</li>
+                        </ul>
+                    </div>';
             } else {
                 $hasil = 'Tidak Ada Risiko Baby Blues';
-                $solusi = "Rekomendasi Penanganan:\n" .
-                    "* Pengalaman Positif: Berbagi pengalaman pengasuhan yang positif.\n" .
-                    "* Persiapan: Bantu mempersiapkan keperluan bayi tanpa menimbulkan tekanan.\n" .
-                    "* Dukungan Moral: Berikan dukungan moral yang membangun.\n" .
-                    "* Penghargaan: Hormati keputusan pasangan dalam pengasuhan anak.";
+                $solusi = '
+                    <div class="flex flex-col items-start space-y-2">
+                        <span>Rekomendasi Penanganan:</span>
+                        <ul class="list-disc ml-6 space-y-2">
+                            <li>Pengalaman Positif: Berbagi pengalaman pengasuhan yang positif.</li>
+                            <li>Persiapan: Bantu mempersiapkan keperluan bayi tanpa menimbulkan tekanan.</li>
+                            <li>Dukungan Moral: Berikan dukungan moral yang membangun.</li>
+                            <li>Penghargaan: Hormati keputusan pasangan dalam pengasuhan anak.</li>
+                        </ul>
+                    </div>';
             }
         }
+
 
         // Store single record in database
         Diagnosa::create([
@@ -305,8 +366,16 @@ class DiagnosaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        // Find the diagnosa by ID
+        $diagnosa = Diagnosa::findOrFail($id);
+
+        // Delete the diagnosa record
+        $diagnosa->delete();
+
+        // Redirect back with a success message
+        return redirect()->route('diagnosa.index')->with('success', 'Diagnosa deleted successfully');
     }
+
 }

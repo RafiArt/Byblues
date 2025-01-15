@@ -31,20 +31,58 @@
                             <h2 class="font-semibold text-lg lg:text-xl text-gray-900">Diagnosis Details</h2>
                         </div>
                         <!-- Download Button Section -->
-                        <div class="flex items-center gap-1">
-                            <a href="{{ route('diagnosa.show', ['id' => $diagnosa->id]) }}" class="flex items-center gap-2 p-1 px-2 bg-gray-300 rounded hover:bg-blue-600 hover:text-white transition text-gray-700 text-xs lg:text-sm">
-                                <i class="fa-solid fa-circle-info text-lg"></i>
-                                <p class="hidden lg:block">Details</p>
+                        <div class="flex items-center gap-2">
+                            <a href="{{ route('diagnosa.show', $diagnosa->id) }}" class="flex items-center gap-2 p-1 px-2 bg-blue-500 rounded hover:bg-blue-600 hover:text-white transition text-gray-700 text-xs lg:text-sm">
+                                <i class="fa-solid fa-circle-info text-white text-lg"></i>
+                                <p class="hidden lg:block text-white">Details</p>
                             </a>
 
-
-                            <button class="flex items-center gap-2 p-1 px-2 bg-blue-500 rounded hover:bg-blue-600 hover:text-white text-xs lg:text-sm">
-                                <i class="fa-solid fa-download text-white text-lg"></i> <!-- Icon download with white color -->
+                            <!-- Open Modal Button -->
+                            <button id="btn-modal-delete-{{ $diagnosa->id }}" class="flex items-center gap-2 p-1 px-2 bg-red-500 rounded hover:bg-red-600 hover:text-white text-xs lg:text-sm">
+                                <i class="fa-solid fa-trash text-white text-lg"></i>
                             </button>
+                        </div>
 
+                        <!-- Modal HTML Structure -->
+                        <div id="modal-{{ $diagnosa->id }}" class="fixed top-0 hidden flex items-center justify-center right-0 w-full h-screen bg-gray-900 bg-opacity-80 z-[99999]">
+                            <div class="bg-white w-[30rem] p-6 rounded-lg opacity-100 flex items-center justify-center flex-col gap-5">
+                                <i class="fa-solid fa-circle-exclamation text-5xl text-red-500"></i>
+                                <p>Are you sure you want to <span class="font-bold">delete</span> this diagnosa record?</p>
+                                <div class="flex items-center gap-6">
+                                    <button id="cancel-btn-{{ $diagnosa->id }}" type="button"
+                                        class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5">Cancel</button>
 
+                                    <!-- Delete Form -->
+                                    <form action="{{ route('diagnosa.destroy', $diagnosa->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                                            Delete
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+
+
+                        <!-- JavaScript to handle modal visibility -->
+                        <script>
+                            const modal{{ $diagnosa->id }} = document.getElementById('modal-{{ $diagnosa->id }}')
+                            const cancelBtn{{ $diagnosa->id }} = document.getElementById('cancel-btn-{{ $diagnosa->id }}')
+                            const openModal{{ $diagnosa->id }} = document.getElementById('btn-modal-delete-{{ $diagnosa->id }}')
+
+                            // Show modal when the delete button is clicked
+                            openModal{{ $diagnosa->id }}.addEventListener('click', () => {
+                                modal{{ $diagnosa->id }}.classList.toggle('hidden')
+                            })
+
+                            // Hide modal when cancel button is clicked
+                            cancelBtn{{ $diagnosa->id }}.addEventListener('click', () => {
+                                modal{{ $diagnosa->id }}.classList.toggle('hidden')
+                            })
+                        </script>
 
                     <!-- Body Section with CF Value and Hasil -->
                     <div class="p-4">
@@ -221,8 +259,5 @@
             <p class="text-gray-500 mt-4 ">Tidak ada catatan diagnosis yang ditemukan.</p>
         </div>
     @endif
-
-
-
 
 </x-dashboard-layout>
