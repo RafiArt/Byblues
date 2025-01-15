@@ -21,125 +21,102 @@
     </a>
 
     @if ($diagnosas->isNotEmpty())
-        @foreach ($diagnosas as $diagnosa)
-            <div class="w-full mt-3 space-y-2">
-                <!-- Card Wrapper -->
-                <div class="w-full bg-white rounded-lg shadow-lg">
-                    <!-- Header Section -->
-                    <div class="w-full p-4 border-b rounded-t-lg flex items-center justify-between">
-                        <div class="flex-1 flex items-center">
-                            <h2 class="font-semibold text-lg lg:text-xl text-gray-900">Diagnosis Details</h2>
-                        </div>
-                        <!-- Download Button Section -->
-                        <div class="flex items-center gap-2">
-                            <a href="{{ route('diagnosa.show', $diagnosa->id) }}" class="flex items-center gap-2 p-1 px-2 bg-blue-500 rounded hover:bg-blue-600 hover:text-white transition text-gray-700 text-xs lg:text-sm">
-                                <i class="fa-solid fa-circle-info text-white text-lg"></i>
-                                <p class="hidden lg:block text-white">Details</p>
-                            </a>
+    <div class="w-full overflow-x-auto">
+        <table class="w-full bg-white shadow-md rounded-lg overflow-hidden">
+            <thead>
+                <tr class="bg-gray-400 text-gray-600 uppercase text-sm leading-normal">
+                    <th class="py-3 px-4 text-white text-left">No.</th>
+                    <th class="py-3 px-4 text-white text-left">Nama</th>
+                    <th class="py-3 px-4 text-white text-left">Peran</th>
+                    <th class="py-3 px-4 text-white text-left">Hasil</th>
+                    <th class="py-3 px-4 text-white text-left">Tanggal</th>
+                    <th class="py-3 px-4 text-white text-center">Aksi</th>
+                </tr>
+            </thead>
+            <tbody class="text-gray-600 text-sm font-light">
+                @foreach ($diagnosas as $index => $diagnosa)
+                    <tr class="border-b border-gray-200 hover:bg-gray-100">
+                        <td class="py-3 px-4 text-left whitespace-nowrap">
+                            {{ $diagnosas->firstItem() + $index }}
+                        </td>
+                        <td class="py-3 px-4 text-left">
+                            <div class="flex items-center">
+                                {{ optional($diagnosa->user)->name ?? 'N/A' }}
+                            </div>
+                        </td>
+                        <td class="py-3 px-4 text-left">
+                            {{ optional($diagnosa->user)->peran ?? 'N/A' }}
+                        </td>
+                        <td class="py-3 px-4 text-left">
+                            @php
+                                $resultClasses = [
+                                    'Tidak Ada Risiko Baby Blues' => 'bg-green-600',
+                                    'Risiko Rendah Baby Blues' => 'bg-blue-600',
+                                    'Risiko Sedang Baby Blues' => 'bg-yellow-500',
+                                    'Risiko Tinggi Baby Blues' => 'bg-red-600'
+                                ];
+                                $class = $resultClasses[$diagnosa->hasil] ?? 'bg-gray-500';
+                            @endphp
+                            <span class="rounded px-2 py-1 text-white font-semibold {{ $class }}">
+                                {{ $diagnosa->hasil }}
+                            </span>
+                        </td>
+                        <td class="py-3 px-4 text-left">
+                            {{ date('d M Y H:i', strtotime($diagnosa->created_at)) }}
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                            <div class="flex items-center justify-center space-x-2">
+                                <a href="{{ route('diagnosa.show', $diagnosa->id) }}"
+                                   class="w-8 h-8 flex items-center justify-center bg-blue-500 text-white rounded-md transform hover:bg-blue-600 hover:scale-110">
+                                    <i class="fa-solid fa-circle-info"></i>
+                                </a>
+                                <button id="btn-modal-delete-{{ $diagnosa->id }}"
+                                        class="w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-md transform hover:bg-red-600 hover:scale-110">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </div>
 
-                            <!-- Open Modal Button -->
-                            <button id="btn-modal-delete-{{ $diagnosa->id }}" class="flex items-center gap-2 p-1 px-2 bg-red-500 rounded hover:bg-red-600 hover:text-white text-xs lg:text-sm">
-                                <i class="fa-solid fa-trash text-white text-lg"></i>
-                            </button>
-                        </div>
+                            <div id="modal-{{ $diagnosa->id }}" class="fixed top-0 hidden flex items-center justify-center right-0 w-full h-screen bg-gray-900 bg-opacity-80 z-[99999]">
+                                <div class="bg-white w-[30rem] p-6 rounded-lg opacity-100 flex items-center justify-center flex-col gap-5">
+                                    <i class="fa-solid fa-circle-exclamation text-5xl text-red-500"></i>
+                                    <p>Are you sure you want to <span class="font-bold">delete</span> this diagnosa record?</p>
+                                    <div class="flex items-center gap-6">
+                                        <button id="cancel-btn-{{ $diagnosa->id }}" type="button"
+                                            class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5">Cancel</button>
 
-                        <!-- Modal HTML Structure -->
-                        <div id="modal-{{ $diagnosa->id }}" class="fixed top-0 hidden flex items-center justify-center right-0 w-full h-screen bg-gray-900 bg-opacity-80 z-[99999]">
-                            <div class="bg-white w-[30rem] p-6 rounded-lg opacity-100 flex items-center justify-center flex-col gap-5">
-                                <i class="fa-solid fa-circle-exclamation text-5xl text-red-500"></i>
-                                <p>Are you sure you want to <span class="font-bold">delete</span> this diagnosa record?</p>
-                                <div class="flex items-center gap-6">
-                                    <button id="cancel-btn-{{ $diagnosa->id }}" type="button"
-                                        class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5">Cancel</button>
-
-                                    <!-- Delete Form -->
-                                    <form action="{{ route('diagnosa.destroy', $diagnosa->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
-                                            Delete
-                                        </button>
-                                    </form>
+                                        <!-- Delete Form -->
+                                        <form action="{{ route('diagnosa.destroy', $diagnosa->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                                                Delete
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                            <!-- JavaScript to handle modal visibility -->
+                            <script>
+                                const modal{{ $diagnosa->id }} = document.getElementById('modal-{{ $diagnosa->id }}')
+                                const cancelBtn{{ $diagnosa->id }} = document.getElementById('cancel-btn-{{ $diagnosa->id }}')
+                                const openModal{{ $diagnosa->id }} = document.getElementById('btn-modal-delete-{{ $diagnosa->id }}')
 
+                                // Show modal when the delete button is clicked
+                                openModal{{ $diagnosa->id }}.addEventListener('click', () => {
+                                    modal{{ $diagnosa->id }}.classList.toggle('hidden')
+                                })
 
-
-                        <!-- JavaScript to handle modal visibility -->
-                        <script>
-                            const modal{{ $diagnosa->id }} = document.getElementById('modal-{{ $diagnosa->id }}')
-                            const cancelBtn{{ $diagnosa->id }} = document.getElementById('cancel-btn-{{ $diagnosa->id }}')
-                            const openModal{{ $diagnosa->id }} = document.getElementById('btn-modal-delete-{{ $diagnosa->id }}')
-
-                            // Show modal when the delete button is clicked
-                            openModal{{ $diagnosa->id }}.addEventListener('click', () => {
-                                modal{{ $diagnosa->id }}.classList.toggle('hidden')
-                            })
-
-                            // Hide modal when cancel button is clicked
-                            cancelBtn{{ $diagnosa->id }}.addEventListener('click', () => {
-                                modal{{ $diagnosa->id }}.classList.toggle('hidden')
-                            })
-                        </script>
-
-                    <!-- Body Section with CF Value and Hasil -->
-                    <div class="p-4">
-                        <!-- User Info -->
-                        <div>
-                            <h2 class="font-bold text-lg lg:text-xl text-blue-500">{{ optional($diagnosa->user)->name ?? 'N/A' }}</h2>
-
-                        </div>
-                        <div class="mt-2">
-                            <h1 class="text-gray-700 font-semibold text-base flex items-start">
-                                <span>Peran:</span>
-                                <span class="ml-2 text-blue-600 font-bold">{{ optional($diagnosa->user)->peran ?? 'N/A' }}</span>
-                            </h1>
-                        </div>
-
-                        <!-- Diagnosis Result -->
-                        <div class="mt-2">
-                            <p class="text-gray-700 font-semibold text-base flex items-start">
-                                <span>Hasil:</span>
-                                <span class="ml-2">
-                                    @if($diagnosa->hasil == 'Tidak Ada Risiko Baby Blues')
-                                        <span class="rounded px-2 py-1 text-white font-semibold bg-green-600">
-                                            {{ $diagnosa->hasil }}
-                                        </span>
-                                    @elseif($diagnosa->hasil == 'Risiko Rendah Baby Blues')
-                                        <span class="rounded px-2 py-1 text-white font-semibold bg-blue-600">
-                                            {{ $diagnosa->hasil }}
-                                        </span>
-                                    @elseif($diagnosa->hasil == 'Risiko Sedang Baby Blues')
-                                        <span class="rounded px-2 py-1 text-white font-semibold bg-yellow-500">
-                                            {{ $diagnosa->hasil }}
-                                        </span>
-                                    @elseif($diagnosa->hasil == 'Risiko Tinggi Baby Blues')
-                                        <span class="rounded px-2 py-1 text-white font-semibold bg-red-600">
-                                            {{ $diagnosa->hasil }}
-                                        </span>
-                                    @endif
-                                </span>
-                            </p>
-                        </div>
-
-                    </div>
-
-
-                    <!-- Footer Section with Date -->
-                    <div class="w-full bg-gray-50 p-4 border-t flex items-center justify-between rounded-b-lg">
-                        <div class="flex items-center gap-2 text-sm text-gray-400 font-semibold">
-                            <i class="fa-regular fa-calendar text-lg"></i>
-                            <p class="text-sm font-normal text-gray-500">
-                                {{ date('d M Y H:i', strtotime($diagnosa->created_at)) }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endforeach
-
+                                // Hide modal when cancel button is clicked
+                                cancelBtn{{ $diagnosa->id }}.addEventListener('click', () => {
+                                    modal{{ $diagnosa->id }}.classList.toggle('hidden')
+                                })
+                            </script>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
         @if ($diagnosas->total() > 10)
             <div class="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
                 <div class="flex flex-1 justify-between sm:hidden">

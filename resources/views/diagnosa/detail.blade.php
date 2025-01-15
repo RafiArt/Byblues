@@ -118,7 +118,8 @@
                     <!-- Buttons Section -->
                     <div class="mt-4 space-x-2 flex justify-start">
                         <!-- Print Button -->
-                        <button onclick="window.print()" class="bg-blue-500 text-white px-4 py-2 rounded-lg">
+                        <button onclick="window.print()" class="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
+                            <i class="fa-solid fa-print"></i>
                             Print
                         </button>
                         <!-- Back Button -->
