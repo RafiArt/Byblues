@@ -22,10 +22,12 @@ class Diagnosa extends Model
         'tanggal'
     ];
 
+    protected $guarded = [];
+
     // Relationship with User
-    public function users()
+    public function user()  // Ubah dari users ke user karena ini belongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function gejalas()

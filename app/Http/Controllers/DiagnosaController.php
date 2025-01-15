@@ -19,18 +19,17 @@ class DiagnosaController extends Controller
         $user = Auth::user();
         // Ambil data berdasarkan role
         if ($user->roles[0]->name == 'administrator') {
-            $diagnosas = Diagnosa::all()
-            ->orderBy('created_at', 'desc')
-            ->paginate(10);
-;
+            $diagnosas = Diagnosa::with('user') // Include the users relationship
+                ->orderBy('created_at', 'desc')
+                ->paginate(10);
+        } else {
+            // If the role is user, retrieve data based on user_id
+            $diagnosas = Diagnosa::with('user') // Include the users relationship
+                ->where('user_id', $user->id)
+                ->orderBy('created_at', 'desc')
+                ->paginate(10);
         }
-        else {
-            // Jika role = user, ambil data berdasarkan user_id
-            $diagnosas = Diagnosa::where('user_id', $user->id)
-            ->orderBy('created_at', 'desc')
-            ->paginate(10);
-;
-        }
+
 
         // Kirim data ke view
         return view('diagnosa.index', compact('diagnosas'));

@@ -47,10 +47,46 @@
 
                     <!-- Body Section with CF Value and Hasil -->
                     <div class="p-4">
+                        <!-- User Info -->
                         <div>
-                            <p class="text-gray-700 font-semibold text-sm">Hasil: <span class="text-green-600">{{ $diagnosa->hasil }}</span></p>
+                            <h2 class="font-bold text-lg lg:text-xl text-blue-500">{{ optional($diagnosa->user)->name ?? 'N/A' }}</h2>
+
                         </div>
+                        <div class="mt-2">
+                            <h1 class="text-gray-700 font-semibold text-base flex items-start">
+                                <span>Peran:</span>
+                                <span class="ml-2 text-blue-600">{{ optional($diagnosa->user)->peran ?? 'N/A' }}</span>
+                            </h1>
+                        </div>
+
+                        <!-- Diagnosis Result -->
+                        <div class="mt-2">
+                            <p class="text-gray-700 font-semibold text-base flex items-start">
+                                <span>Hasil:</span>
+                                <span class="ml-2">
+                                    @if($diagnosa->hasil == 'Tidak Ada Risiko Baby Blues')
+                                        <span class="rounded px-2 py-1 text-white font-semibold bg-green-600">
+                                            {{ $diagnosa->hasil }}
+                                        </span>
+                                    @elseif($diagnosa->hasil == 'Risiko Rendah Baby Blues')
+                                        <span class="rounded px-2 py-1 text-white font-semibold bg-blue-600">
+                                            {{ $diagnosa->hasil }}
+                                        </span>
+                                    @elseif($diagnosa->hasil == 'Risiko Sedang Baby Blues')
+                                        <span class="rounded px-2 py-1 text-white font-semibold bg-yellow-500">
+                                            {{ $diagnosa->hasil }}
+                                        </span>
+                                    @elseif($diagnosa->hasil == 'Risiko Tinggi Baby Blues')
+                                        <span class="rounded px-2 py-1 text-white font-semibold bg-red-600">
+                                            {{ $diagnosa->hasil }}
+                                        </span>
+                                    @endif
+                                </span>
+                            </p>
+                        </div>
+
                     </div>
+
 
                     <!-- Footer Section with Date -->
                     <div class="w-full bg-gray-50 p-4 border-t flex items-center justify-between">
