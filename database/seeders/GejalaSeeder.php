@@ -280,12 +280,12 @@ class GejalaSeeder extends Seeder
             ],
             [
                 'kode' => 'IB004',
-                'keterangan' => 'Apakah lokasi kerja ibu jauh dari tempat tinggal?',
+                'keterangan' => 'Apakah lokasi kerja ibu dekat dengan tempat tinggal?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
             ],
             [
                 'kode' => 'IB005',
-                'keterangan' => 'Apakah ibu ingin menjadi seorang ibu bekerja atau ibu rumah tangga?',
+                'keterangan' => 'Apakah ibu ingin menjadi seorang ibu rumah tangga?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
             ],
             [
@@ -320,7 +320,7 @@ class GejalaSeeder extends Seeder
             ],
             [
                 'kode' => 'IB012',
-                'keterangan' => 'Apakah ibu merasakan tekanan selama kehamilan? Jika iya, dari pihak mana?',
+                'keterangan' => 'Apakah ibu merasakan tekanan selama kehamilan?',
                 'kategori' => 'Kesejahteraan Emosional',
             ],
             [
@@ -335,7 +335,7 @@ class GejalaSeeder extends Seeder
             ],
             [
                 'kode' => 'IB015',
-                'keterangan' => 'Apakah ibu merasa lebih nyaman berbicara dengan teman (sahabat) atau keluarga (suami, orang tua, mertua)?',
+                'keterangan' => 'Apakah Ibu merasa lebih mudah atau lebih nyaman berbicara dengan teman (sahabat) daripada dengan keluarga (suami, orang tua, mertua)?',
                 'kategori' => 'Hubungan Sosial',
             ],
             [

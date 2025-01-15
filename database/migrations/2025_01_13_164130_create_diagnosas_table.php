@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('diagnosas', function (Blueprint $table) {
             $table->id(); // Primary key
             $table->unsignedBigInteger('user_id'); // Foreign key ke tabel users
-            $table->unsignedBigInteger('gejala_id'); // Foreign key ke tabel gejalas
+            $table->unsignedBigInteger('gejala_id')->nullable(); // Foreign key ke tabel gejalas
             $table->string('hasil'); // Hasil diagnosis
             $table->float('cf_value'); // Nilai certainty factor
             $table->text('solusi'); // Solusi yang diberikan
