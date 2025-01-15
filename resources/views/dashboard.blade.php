@@ -16,21 +16,21 @@
             <!-- First Row (Top Section) -->
             <div class="flex w-full items-center gap-3 overflow-x-auto scroll-snap-x mb-5">
                 <div class="border p-5 bg-white rounded-lg justify-between w-[14rem] group transition flex-shrink-0 scroll-snap-center">
-                    <h3 class="text-3xl font-bold mb-2">{{ $CountLink }}</h3>
+                    <h3 class="text-3xl font-bold mb-2">{{ $CountDiagnosis->total }}</h3>
                     <div class="flex items-center gap-2">
                         <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
                         <p>Total Cek</p>
                     </div>
                 </div>
                 <div class="border p-5 bg-white rounded-lg justify-between w-[14rem] group transition flex-shrink-0 scroll-snap-center">
-                    <h3 class="text-3xl font-bold mb-2">{{ $CountLink }}</h3>
+                    <h3 class="text-3xl font-bold mb-2">{{ $CountDiagnosis->tidak_ada_risiko }}</h3>
                     <div class="flex items-center gap-2">
                         <div class="w-2 h-2 bg-green-500 rounded-full"></div>
                         <p>Tidak Terjangkit</p>
                     </div>
                 </div>
                 <div class="border p-5 bg-white rounded-lg justify-between w-[14rem] group transition flex-shrink-0 scroll-snap-center">
-                    <h3 class="text-3xl font-bold mb-2">{{ $CountLink }}</h3>
+                    <h3 class="text-3xl font-bold mb-2">{{ $CountDiagnosis->risiko_rendah }}</h3>
                     <div class="flex items-center gap-2">
                         <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
                         <p>Gejala Ringan</p>
@@ -41,14 +41,14 @@
             <!-- Second Row (Bottom Section) -->
             <div class="flex w-full items-center gap-3 overflow-x-auto scroll-snap-x mb-5">
                 <div class="border p-5 bg-white rounded-lg justify-between w-[14rem] group transition flex-shrink-0 scroll-snap-center">
-                    <h3 class="text-3xl font-bold mb-2">{{ $Visitor }}</h3>
+                    <h3 class="text-3xl font-bold mb-2">{{ $CountDiagnosis->risiko_sedang }}</h3>
                     <div class="flex items-center gap-2">
                         <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
                         <p>Gejala Sedang</p>
                     </div>
                 </div>
                 <div class="border p-5 bg-white rounded-lg justify-between w-[14rem] group transition flex-shrink-0 scroll-snap-center">
-                    <h3 class="text-3xl font-bold mb-2">{{ $VisitorUnique }}</h3>
+                    <h3 class="text-3xl font-bold mb-2">{{ $CountDiagnosis->risiko_tinggi }}</h3>
                     <div class="flex items-center gap-2">
                         <div class="w-2 h-2 bg-red-500 rounded-full"></div>
                         <p>Gejala Berat</p>
@@ -70,7 +70,6 @@
         </section>
 
         <x-quick-link />
-        <x-quick-qrcode />
     @endrole
 
     @role('administrator')
@@ -78,35 +77,35 @@
             <h1 class="text-base lg:text-lg font-bold mb-3 uppercase">Analytics</h1>
             <div class="flex w-full items-center gap-3 overflow-x-auto scroll-snap-x">
                 <div class="border p-5 bg-white rounded-lg justify-between w-[14rem] group transition flex-shrink-0 scroll-snap-center">
-                    <h3 class="text-3xl font-bold mb-2">{{ $CountLink }}</h3>
+                    <h3 class="text-3xl font-bold mb-2">{{ $CountDiagnosis->total }}</h3>
                     <div class="flex items-center gap-2">
                         <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
                         <p>Total Cek</p>
                     </div>
                 </div>
                 <div class="border p-5 bg-white rounded-lg justify-between w-[14rem] group transition flex-shrink-0 scroll-snap-center">
-                    <h3 class="text-3xl font-bold mb-2">{{ $Visitor }}</h3>
+                    <h3 class="text-3xl font-bold mb-2">{{ $CountDiagnosis->tidak_ada_risiko }}</h3>
                     <div class="flex items-center gap-2">
                         <div class="w-2 h-2 bg-green-500 rounded-full"></div>
                         <p>Tidak Terjangkit</p>
                     </div>
                 </div>
                 <div class="border p-5 bg-white rounded-lg justify-between w-[14rem] group transition flex-shrink-0 scroll-snap-center">
-                    <h3 class="text-3xl font-bold mb-2">{{ $VisitorUnique }}</h3>
+                    <h3 class="text-3xl font-bold mb-2">{{ $CountDiagnosis->risiko_rendah }}</h3>
                     <div class="flex items-center gap-2">
                         <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
                         <p>Gejala Ringan</p>
                     </div>
                 </div>
                 <div class="border p-5 bg-white rounded-lg justify-between w-[14rem] group transition flex-shrink-0 scroll-snap-center">
-                    <h3 class="text-3xl font-bold mb-2">{{ $VisitorUnique }}</h3>
+                    <h3 class="text-3xl font-bold mb-2">{{ $CountDiagnosis->risiko_sedang }}</h3>
                     <div class="flex items-center gap-2">
                         <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
                         <p>Gejala Sedang</p>
                     </div>
                 </div>
                 <div class="border p-5 bg-white rounded-lg justify-between w-[14rem] group transition flex-shrink-0 scroll-snap-center">
-                    <h3 class="text-3xl font-bold mb-2">{{ $VisitorUnique }}</h3>
+                    <h3 class="text-3xl font-bold mb-2">{{ $CountDiagnosis->risiko_tinggi }}</h3>
                     <div class="flex items-center gap-2">
                         <div class="w-2 h-2 bg-red-500 rounded-full"></div>
                         <p>Gejala Berat</p>

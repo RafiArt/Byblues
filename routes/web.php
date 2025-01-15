@@ -39,15 +39,6 @@ Route::middleware(['auth'])->group(function () {
 
 
 Route::middleware(['role:user', 'auth'])->group(function () {
-    Route::get('/division_links', [LinkController::class, 'divisionLink'])->name('links.divisionLink');
-
-    //Rute Link
-    Route::resource('/links', LinkController::class);
-    Route::get('/division_links', [LinkController::class, 'divisionLink'])->name('links.divisionLink');
-    Route::put('/links/{link}/expired-date', [LinkController::class, 'updateExpired'])->name('links.updateExpired');
-    Route::put('/links/{link}/pashphrase', [LinkController::class, 'updatePashphrase'])->name('links.updatePashphrase');
-    Route::put('/links/{link}/remove-pashphrase', [LinkController::class, 'removePashphrase'])->name('links.removePashphrase');
-    Route::put('/links/{link}/remove-time-based', [LinkController::class, 'removeExpirationDate'])->name('links.removeExpirationDate');
 
     // Diagnosa
     Route::resource('/diagnosa', DiagnosaController::class);
