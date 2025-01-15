@@ -52,6 +52,7 @@ Route::middleware(['role:user', 'auth'])->group(function () {
     // Diagnosa
     Route::resource('/diagnosa', DiagnosaController::class);
     Route::post('/diagnosa/save-temp', [DiagnosaController::class, 'saveTemp'])->name('diagnosa.saveTemp');
+    Route::get('/diagnosa/detail/{id}', [DiagnosaController::class, 'show'])->name('diagnosa.show');
 
     // Rute Qrcode
     Route::resource('/qrcodes', QrcodeController::class);

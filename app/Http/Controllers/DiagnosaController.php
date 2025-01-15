@@ -270,7 +270,20 @@ class DiagnosaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $diagnosa = Diagnosa::find($id);
+
+        $user = Auth::user();
+        if (!$diagnosa){
+            abort(404);
+        }
+
+        if ($diagnosa->user_id != $user->id || $user->roles[0]->name == 'administrator' ) {
+            abort(403, 'Unauthorized action.');
+        }
+
+
+
+        return view('diagnosa.detail', data: compact('diagnosa'));
     }
 
     /**

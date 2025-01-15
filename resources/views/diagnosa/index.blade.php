@@ -32,10 +32,11 @@
                         </div>
                         <!-- Download Button Section -->
                         <div class="flex items-center gap-1">
-                            <button class="flex items-center gap-2 p-1 px-2 bg-gray-300 rounded hover:bg-blue-600 hover:text-white transition text-gray-700 text-xs lg:text-sm">
+                            <a href="{{ route('diagnosa.show', ['id' => $diagnosa->id]) }}" class="flex items-center gap-2 p-1 px-2 bg-gray-300 rounded hover:bg-blue-600 hover:text-white transition text-gray-700 text-xs lg:text-sm">
                                 <i class="fa-solid fa-circle-info text-lg"></i>
                                 <p class="hidden lg:block">Details</p>
-                            </button>
+                            </a>
+
 
                             <button class="flex items-center gap-2 p-1 px-2 bg-blue-500 rounded hover:bg-blue-600 hover:text-white text-xs lg:text-sm">
                                 <i class="fa-solid fa-download text-white text-lg"></i> <!-- Icon download with white color -->
@@ -55,7 +56,7 @@
                         <div class="mt-2">
                             <h1 class="text-gray-700 font-semibold text-base flex items-start">
                                 <span>Peran:</span>
-                                <span class="ml-2 text-blue-600">{{ optional($diagnosa->user)->peran ?? 'N/A' }}</span>
+                                <span class="ml-2 text-blue-600 font-bold">{{ optional($diagnosa->user)->peran ?? 'N/A' }}</span>
                             </h1>
                         </div>
 
@@ -89,7 +90,7 @@
 
 
                     <!-- Footer Section with Date -->
-                    <div class="w-full bg-gray-50 p-4 border-t flex items-center justify-between">
+                    <div class="w-full bg-gray-50 p-4 border-t flex items-center justify-between rounded-b-lg">
                         <div class="flex items-center gap-2 text-sm text-gray-400 font-semibold">
                             <i class="fa-regular fa-calendar text-lg"></i>
                             <p class="text-sm font-normal text-gray-500">
