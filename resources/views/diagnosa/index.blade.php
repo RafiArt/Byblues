@@ -31,10 +31,17 @@
                             <h2 class="font-semibold text-lg lg:text-xl text-gray-900">Diagnosis Details</h2>
                         </div>
                         <!-- Download Button Section -->
-                        <div class="flex items-center gap-2">
-                            <button class="bg-blue-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-blue-700 transition duration-300">
-                                <i class="fa-solid fa-download"></i>
+                        <div class="flex items-center gap-1">
+                            <button class="flex items-center gap-2 p-1 px-2 bg-gray-300 rounded hover:bg-blue-600 hover:text-white transition text-gray-700 text-xs lg:text-sm">
+                                <i class="fa-solid fa-circle-info text-lg"></i>
+                                <p class="hidden lg:block">Details</p>
                             </button>
+
+                            <button class="flex items-center gap-2 p-1 px-2 bg-blue-500 rounded hover:bg-blue-600 hover:text-white text-xs lg:text-sm">
+                                <i class="fa-solid fa-download text-white text-lg"></i> <!-- Icon download with white color -->
+                            </button>
+
+
                         </div>
                     </div>
 
