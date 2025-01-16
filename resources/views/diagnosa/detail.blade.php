@@ -116,7 +116,7 @@
                     </h1>
 
                     <!-- Buttons Section -->
-                    <div class="mt-4 space-x-2 flex justify-start">
+                    <div class="mt-4 space-x-2 flex justify-start no-print">
                         <!-- Print Button -->
                         <button onclick="window.print()" class="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
                             <i class="fa-solid fa-print"></i>
@@ -145,7 +145,12 @@
                 position: absolute;
                 top: 0;
                 left: 0;
+                box-shadow: none; /* Menambahkan aturan untuk menghapus shadow */
+            }
+            .no-print {
+                display: none !important;
             }
         }
+
     </style>
 </x-dashboard-layout>
