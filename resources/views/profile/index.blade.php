@@ -25,14 +25,14 @@
 
                 <!-- Role Field -->
                 <div class="mb-4">
-                    <label for="role" class="block text-sm font-medium text-gray-700">Role</label>
-                    <input type="text" name="role" id="role" value="{{ old('role', auth()->user()->roles[0]->name) }}"
+                    <label for="peran" class="block text-sm font-medium text-gray-700">Peran</label>
+                    <input type="text" name="peran" id="peran" value="{{ old('peran', auth()->user()->peran) }}"
                         class="mt-1 p-2 border border-blue-500 rounded w-full" readonly>
                 </div>
                 <div class="mb-4">
                     <label for="division_id" class="block text-sm font-medium text-gray-700">Divisi</label>
-                    <input type="text" name="division_id" id="division_id"
-                           value="{{ old('role', auth()->user()->division->name_divisions ?? 'Guest') }}"
+                    <input type="text" name="role" id="role"
+                           value="{{ old('role', auth()->user()->roles[0]->name) }}"
                            class="mt-1 p-2 border border-blue-500 rounded w-full" readonly>
                 </div>
 
