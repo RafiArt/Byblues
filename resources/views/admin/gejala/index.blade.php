@@ -1,6 +1,6 @@
 <x-dashboard-layout title="Gejala">
         <!-- Search Form -->
-        <form class="flex items-center mb-3 w-full lg:w-1/2" action="{{ route('gejala.index') }}" method="GET">
+        <form class="flex items-center mb-3 w-full lg:w-2/3" action="{{ route('gejala.index') }}" method="GET">
             <div class="flex w-full space-x-3">
                 <!-- Search Input -->
                 <div class="relative w-full"> <!-- Set w-full here -->
@@ -25,7 +25,7 @@
                 </div>
 
                 <!-- Peran Dropdown -->
-                <div class="w-1/2"> <!-- Set w-full here -->
+                <div class="w-full"> <!-- Set w-full here -->
                     <select name="peran" class="w-full px-4 py-2 text-sm border border-blue-500 rounded-md" onchange="this.form.submit()">
                         <option value="">Select Peran</option>
                         <option value="Orang tua" {{ old('peran', $peran) == 'Orang tua' ? 'selected' : '' }}>Orang tua</option>
