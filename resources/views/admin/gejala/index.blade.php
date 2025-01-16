@@ -1,9 +1,9 @@
 <x-dashboard-layout title="Gejala">
         <!-- Search Form -->
-        <form class="flex items-center mb-3" action="{{ route('gejala.index') }}" method="GET">
-            <div class="flex w-full max-w-lg space-x-3">
+        <form class="flex items-center mb-3 w-full lg:w-1/2" action="{{ route('gejala.index') }}" method="GET">
+            <div class="flex w-full space-x-3">
                 <!-- Search Input -->
-                <div class="relative flex-grow">
+                <div class="relative w-full"> <!-- Set w-full here -->
                     <input name="search" type="text"
                            class="w-full pl-4 pr-10 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 border border-blue-500 rounded-md"
                            placeholder="Search Gejala..."
@@ -14,7 +14,7 @@
                 </div>
 
                 <!-- Category Dropdown -->
-                <div class="w-1/3">
+                <div class="w-full"> <!-- Set w-full here -->
                     <select name="kategori" class="w-full px-4 py-2 text-sm border border-blue-500 rounded-md" onchange="this.form.submit()">
                         <option value="">Select Kategori</option>
                         <option value="Kesejahteraan Emosional" {{ old('kategori', $kategori) == 'Kesejahteraan Emosional' ? 'selected' : '' }}>Kesejahteraan Emosional</option>
@@ -25,7 +25,7 @@
                 </div>
 
                 <!-- Peran Dropdown -->
-                <div class="w-1/3">
+                <div class="w-1/2"> <!-- Set w-full here -->
                     <select name="peran" class="w-full px-4 py-2 text-sm border border-blue-500 rounded-md" onchange="this.form.submit()">
                         <option value="">Select Peran</option>
                         <option value="Orang tua" {{ old('peran', $peran) == 'Orang tua' ? 'selected' : '' }}>Orang tua</option>
