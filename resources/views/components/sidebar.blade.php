@@ -14,7 +14,7 @@
             @if (Auth::user()->hasRole('administrator'))
                 <x-sidebar-item href="/analytics_admin" name="Analytics"><i
                         class="fa-solid fa-chart-simple text-lg"></i></x-sidebar-item>
-                <x-sidebar-item href="#" name="Babyblues"><i
+                <x-sidebar-item href="diagnosa_admin" name="Babyblues"><i
                         class="fa-solid fa-hand-holding-medical text-lg"></i></x-sidebar-item>
                 <x-sidebar-item href="/gejala" name="Gejala"><i class="fa-solid fa-laptop-medical"></i></x-sidebar-item>
                 <x-sidebar-item href="#" name="History"><i

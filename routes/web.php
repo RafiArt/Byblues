@@ -2,6 +2,7 @@
 
 use App\Http\Controllers;
 use App\Http\Controllers\Admin\AnalyticsAdminController;
+use App\Http\Controllers\Admin\DiagnosaAdminController;
 use App\Http\Controllers\Admin\LinkAdminController;
 use App\Http\Controllers\Admin\QrcodeAdminController;
 use App\Http\Controllers\Admin\UserAdminController;
@@ -58,6 +59,9 @@ Route::middleware(['role:user', 'auth'])->group(function () {
 Route::middleware(['auth', 'role:administrator'])->group(function () {
     // Rute Gejala
     Route::resource('/gejala', GejalaController::class);
+
+    // Rute Diagnosa Admin
+    Route::resource('/diagnosa_admin', DiagnosaAdminController::class);
 
     // Rute Link
     Route::prefix('links_admin')->as('links_admin.')->group(function () {
