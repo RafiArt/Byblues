@@ -78,6 +78,7 @@ class GejalaController extends Controller
                 'keterangan' => 'required',
                 'kategori' => 'required|in:Kesejahteraan Emosional,Kesejahteraan Fisik,Hubungan Sosial,Peran dan Dukungan Keluarga', // Validasi kategori harus sesuai daftar opsi
             ], [
+                'kode.unique' => 'Kode gejala sudah ada.',
                 'kategori.in' => 'Kategori yang dipilih tidak valid.',
             ]);
 
@@ -96,20 +97,28 @@ class GejalaController extends Controller
 
     public function update(Request $request, Gejala $gejala)
     {
-        $validated = $request->validate([
-            'kode' => 'required|unique:gejalas,kode,' . $gejala->id . '|max:10',
-            'keterangan' => 'required|max:255',
-            'kategori' => 'required|in:Kesejahteraan Emosional,Kesejahteraan Fisik,Hubungan Sosial,Peran dan Dukungan Keluarga',
-        ], [
-            'kode.unique' => 'Kode gejala sudah ada.',
-            'keterangan.max' => 'Keterangan maksimal 255 karakter.',
-        ]);
+        try {
+            // Validate the input
+            $validated = $request->validate([
+                'kode' => 'unique:gejalas,kode,' . $gejala->id . '|max:10', // Unique, excluding current Gejala id
+                'keterangan' => 'max:255',
+                'kategori' => 'in:Kesejahteraan Emosional,Kesejahteraan Fisik,Hubungan Sosial,Peran dan Dukungan Keluarga',
+            ], [
+                'kode.unique' => 'Kode gejala sudah ada.',
+                'keterangan.max' => 'Keterangan maksimal 255 karakter.',
+            ]);
 
-        $gejala->update($validated);
+            // Update the gejala data
+            $gejala->update($validated);
 
-        return redirect()->route('gejala.index')
-            ->with('success', 'Gejala berhasil diperbarui.');
+            // Redirect back with success message
+            return redirect()->route('gejala.index')->with('success', 'Gejala berhasil diupdate.');
+        } catch (\Exception $e) {
+            // Jika ada error, kirimkan pesan error ke session
+            return redirect()->route('gejala.index')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
     }
+
 
     public function destroy(Gejala $gejala)
     {

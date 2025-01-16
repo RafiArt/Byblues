@@ -136,10 +136,48 @@
                                                 class="w-8 h-8 flex items-center justify-center bg-yellow-500 text-white rounded-md transform hover:bg-yellow-600 hover:scale-110">
                                             <i class="fa-solid fa-edit"></i>
                                         </button>
+                                        <x-edit-gejala-modal :id="'editGejalaModal' . $gejala->id" :gejala="$gejala" />
                                         <button id="btn-modal-delete-{{ $gejala->id }}"
-                                                class="w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-md transform hover:bg-red-600 hover:scale-110">
+                                            class="w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-md transform hover:bg-red-600 hover:scale-110">
                                             <i class="fa-solid fa-trash"></i>
                                         </button>
+
+                                        <div id="modal-{{ $gejala->id }}" class="fixed top-0 hidden flex items-center justify-center right-0 w-full h-screen bg-gray-900 bg-opacity-80 z-[99999]">
+                                            <div class="bg-white w-[30rem] p-6 rounded-lg opacity-100 flex items-center justify-center flex-col gap-5">
+                                                <i class="fa-solid fa-circle-exclamation text-5xl text-red-500"></i>
+                                                <p>Are you sure you want to <span class="font-bold">delete</span> this gejala record?</p>
+                                                <div class="flex items-center gap-6">
+                                                    <button id="cancel-btn-{{ $gejala->id }}" type="button"
+                                                        class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5">Cancel</button>
+
+                                                    <!-- Delete Form -->
+                                                    <form action="{{ route('gejala.destroy', $gejala->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                                                            Delete
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- JavaScript to handle modal visibility -->
+                                        <script>
+                                            const modal{{ $gejala->id }} = document.getElementById('modal-{{ $gejala->id }}')
+                                            const cancelBtn{{ $gejala->id }} = document.getElementById('cancel-btn-{{ $gejala->id }}')
+                                            const openModal{{ $gejala->id }} = document.getElementById('btn-modal-delete-{{ $gejala->id }}')
+
+                                            // Show modal when the delete button is clicked
+                                            openModal{{ $gejala->id }}.addEventListener('click', () => {
+                                                modal{{ $gejala->id }}.classList.toggle('hidden')
+                                            })
+
+                                            // Hide modal when cancel button is clicked
+                                            cancelBtn{{ $gejala->id }}.addEventListener('click', () => {
+                                                modal{{ $gejala->id }}.classList.toggle('hidden')
+                                            })
+                                        </script>
+
                                     </div>
                                 </td>
                             </tr>
@@ -267,11 +305,6 @@
                 </div>
         @endif
     <x-add-gejala-modal id="addGejalaModal" />
-
-    <!-- Include Edit Modals -->
-    @foreach($gejalas as $gejala)
-        @include('components.modals.edit-gejala-modal', ['gejala' => $gejala])
-    @endforeach
 
 
 </x-dashboard-layout>
