@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\QrcodeAdminController;
 use App\Http\Controllers\Admin\UserAdminController;
 use App\Http\Controllers\AnalyticController;
 use App\Http\Controllers\DiagnosaController;
+use App\Http\Controllers\GejalaController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QrcodeController;
@@ -55,8 +56,8 @@ Route::middleware(['role:user', 'auth'])->group(function () {
 
 
 Route::middleware(['auth', 'role:administrator'])->group(function () {
-    // Rute Qrcode
-    Route::resource('/qrcodes_admin', QrcodeAdminController::class);
+    // Rute Gejala
+    Route::resource('/gejala', GejalaController::class);
 
     // Rute Link
     Route::prefix('links_admin')->as('links_admin.')->group(function () {

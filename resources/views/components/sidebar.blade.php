@@ -16,6 +16,7 @@
                         class="fa-solid fa-chart-simple text-lg"></i></x-sidebar-item>
                 <x-sidebar-item href="#" name="Babyblues"><i
                         class="fa-solid fa-hand-holding-medical text-lg"></i></x-sidebar-item>
+                <x-sidebar-item href="/gejala" name="Gejala"><i class="fa-solid fa-laptop-medical"></i></x-sidebar-item>
                 <x-sidebar-item href="#" name="History"><i
                         class="fa-solid fa-receipt text-lg"></i></x-sidebar-item>
                 <x-sidebar-item href="/user_management" name="User Management"><i

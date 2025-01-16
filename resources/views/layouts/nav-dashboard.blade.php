@@ -1,4 +1,4 @@
-<nav class="w-full h-[70px] border-b bg-white sticky top-0 p-2 px-4 flex items-center justify-between z-[999]">
+<nav class="w-full h-[70px] border-b bg-white sticky top-0 p-2 px-4 flex items-center justify-between z-[9999999]">
     <div class="flex items-center gap-6">
         <button id="toggleSidebar" title="Toggle Sidebar"
             class="hidden lg:flex items-center justify-center w-8 h-8 rounded-lg hover:bg-gray-200 transition">
