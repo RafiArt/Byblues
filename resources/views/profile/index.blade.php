@@ -30,7 +30,7 @@
                         class="mt-1 p-2 border border-blue-500 rounded w-full" readonly>
                 </div>
                 <div class="mb-4">
-                    <label for="division_id" class="block text-sm font-medium text-gray-700">Divisi</label>
+                    <label for="division_id" class="block text-sm font-medium text-gray-700">Role</label>
                     <input type="text" name="role" id="role"
                            value="{{ old('role', auth()->user()->roles[0]->name) }}"
                            class="mt-1 p-2 border border-blue-500 rounded w-full" readonly>
