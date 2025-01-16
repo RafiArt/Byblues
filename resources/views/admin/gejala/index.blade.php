@@ -1,17 +1,41 @@
 <x-dashboard-layout title="Gejala">
         <!-- Search Form -->
         <form class="flex items-center mb-3" action="{{ route('gejala.index') }}" method="GET">
-            <div class="flex w-full max-w-sm border border-blue-500 rounded-md overflow-hidden">
-                <input name="search" type="text"
-                    class="flex-grow px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 border-none"
-                    placeholder="Search Gejala..."
-                    value="{{ old('search', $search ?? '') }}">
-                <button type="submit"
-                    class="px-4 py-2 text-white bg-blue-500 hover:bg-blue-600">
-                    Search
-                </button>
+            <div class="flex w-full max-w-lg space-x-3">
+                <!-- Search Input -->
+                <div class="relative flex-grow">
+                    <input name="search" type="text"
+                           class="w-full pl-4 pr-10 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 border border-blue-500 rounded-md"
+                           placeholder="Search Gejala..."
+                           value="{{ old('search', $search ?? '') }}">
+                    <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+                        <i class="fas fa-search"></i> <!-- FontAwesome search icon -->
+                    </span>
+                </div>
+
+                <!-- Category Dropdown -->
+                <div class="w-1/3">
+                    <select name="kategori" class="w-full px-4 py-2 text-sm border border-blue-500 rounded-md" onchange="this.form.submit()">
+                        <option value="">Select Kategori</option>
+                        <option value="Kesejahteraan Emosional" {{ old('kategori', $kategori) == 'Kesejahteraan Emosional' ? 'selected' : '' }}>Kesejahteraan Emosional</option>
+                        <option value="Kesejahteraan Fisik" {{ old('kategori', $kategori) == 'Kesejahteraan Fisik' ? 'selected' : '' }}>Kesejahteraan Fisik</option>
+                        <option value="Hubungan Sosial" {{ old('kategori', $kategori) == 'Hubungan Sosial' ? 'selected' : '' }}>Hubungan Sosial</option>
+                        <option value="Peran dan Dukungan Keluarga" {{ old('kategori', $kategori) == 'Peran dan Dukungan Keluarga' ? 'selected' : '' }}>Peran dan Dukungan Keluarga</option>
+                    </select>
+                </div>
+
+                <!-- Peran Dropdown -->
+                <div class="w-1/3">
+                    <select name="peran" class="w-full px-4 py-2 text-sm border border-blue-500 rounded-md" onchange="this.form.submit()">
+                        <option value="">Select Peran</option>
+                        <option value="Orang tua" {{ old('peran', $peran) == 'Orang tua' ? 'selected' : '' }}>Orang tua</option>
+                        <option value="Suami" {{ old('peran', $peran) == 'Suami' ? 'selected' : '' }}>Suami</option>
+                        <option value="Ibu" {{ old('peran', $peran) == 'Ibu' ? 'selected' : '' }}>Ibu</option>
+                    </select>
+                </div>
             </div>
         </form>
+
 
         <!-- Add New gejalas Button -->
         <button type="button"

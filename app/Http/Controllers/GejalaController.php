@@ -11,50 +11,85 @@ class GejalaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $user = Auth::user();
 
-        // Ambil data berdasarkan role
-        if ($user->roles[0]->name == 'administrator') {
-            $gejalas = Gejala::orderBy('created_at', 'desc')->paginate(10);
-            $gejalas->getCollection()->transform(function ($gejala) {
-                // Menentukan peran berdasarkan prefix pada kolom kode
-                if (str_starts_with($gejala->kode, 'OT')) {
-                    $gejala->peran = 'Orang tua';
-                } elseif (str_starts_with($gejala->kode, 'SU')) {
-                    $gejala->peran = 'Suami';
-                } elseif (str_starts_with($gejala->kode, 'IB')) {
-                    $gejala->peran = 'Ibu';
-                } else {
-                    $gejala->peran = 'Tidak diketahui';
-                }
-                return $gejala;
-            });
-        } else {
-            // Jika role adalah user, filter berdasarkan ID pengguna
-            $gejalas = Gejala::where('user_id', $user->id)
-                ->orderBy('created_at', 'desc')
-                ->paginate(10);
+        // Get search query, category, and role filter from the request
+        $search = $request->input('search');
+        $kategori = $request->input('kategori');
+        $peran = $request->input('peran');
 
-            $gejalas->getCollection()->transform(function ($gejala) {
-                // Menentukan peran berdasarkan prefix pada kolom kode
-                if (str_starts_with($gejala->kode, 'OT')) {
-                    $gejala->peran = 'Orang tua';
-                } elseif (str_starts_with($gejala->kode, 'SU')) {
-                    $gejala->peran = 'Suami';
-                } elseif (str_starts_with($gejala->kode, 'IB')) {
-                    $gejala->peran = 'Ibu';
-                } else {
-                    $gejala->peran = 'Tidak diketahui';
-                }
-                return $gejala;
-            });
+        // Query builder
+        $gejalas = Gejala::query();
+
+        // Apply filters
+        if ($user->roles[0]->name == 'administrator') {
+            // If user is an admin, allow all data
+            if ($search) {
+                $gejalas->where('kode', 'like', '%' . $search . '%');
+            }
+            if ($kategori) {
+                $gejalas->where('kategori', $kategori);
+            }
+            if ($peran) {
+                $gejalas->where('kode', 'like', $this->getPeranPrefix($peran) . '%');
+            }
+        } else {
+            // If user is a regular user, filter by user_id
+            $gejalas->where('user_id', $user->id);
+            if ($search) {
+                $gejalas->where('kode', 'like', '%' . $search . '%');
+            }
+            if ($kategori) {
+                $gejalas->where('kategori', $kategori);
+            }
+            if ($peran) {
+                $gejalas->where('kode', 'like', $this->getPeranPrefix($peran) . '%');
+            }
         }
 
-        // Kirim data ke view
-        return view('admin.gejala.index', compact('gejalas'));
+        // Paginate the results
+        $gejalas = $gejalas->orderBy('created_at', 'desc')->paginate(10);
+
+        // Add peran attribute to each gejala
+        $gejalas->getCollection()->transform(function ($gejala) {
+            $gejala->peran = $this->getPeran($gejala->kode);
+            return $gejala;
+        });
+
+        // Return the view with the results and filter values
+        return view('admin.gejala.index', compact('gejalas', 'search', 'kategori', 'peran'));
     }
+
+    // Helper function to get peran based on kode prefix
+    private function getPeran($kode)
+    {
+        if (str_starts_with($kode, 'OT')) {
+            return 'Orang tua';
+        } elseif (str_starts_with($kode, 'SU')) {
+            return 'Suami';
+        } elseif (str_starts_with($kode, 'IB')) {
+            return 'Ibu';
+        }
+        return 'Tidak diketahui';
+    }
+
+    // Helper function to get peran prefix
+    private function getPeranPrefix($peran)
+    {
+        switch ($peran) {
+            case 'Orang tua':
+                return 'OT';
+            case 'Suami':
+                return 'SU';
+            case 'Ibu':
+                return 'IB';
+            default:
+                return '';
+        }
+    }
+
 
 
 
