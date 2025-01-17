@@ -47,13 +47,8 @@ Route::middleware(['role:user', 'auth'])->group(function () {
     Route::post('/diagnosa/save-temp', [DiagnosaController::class, 'saveTemp'])->name('diagnosa.saveTemp');
     Route::get('/diagnosa/detail/{id}', [DiagnosaController::class, 'show'])->name('diagnosa.show');
 
-    // Rute Qrcode
-    Route::resource('/qrcodes', QrcodeController::class);
-    Route::get('/division_qrcodes', [QrcodeController::class, 'divisionQRcode'])->name('qrcodes.divisionQR');
 
-    // Rute Analytics
-    Route::get('/analytics', [AnalyticController::class, 'index'])->name('analytics');
-});
+    });
 
 
 Route::middleware(['auth', 'role:administrator'])->group(function () {
@@ -63,22 +58,8 @@ Route::middleware(['auth', 'role:administrator'])->group(function () {
     // Rute Diagnosa Admin
     Route::resource('/diagnosa_admin', DiagnosaAdminController::class);
 
-    // Rute Link
-    Route::prefix('links_admin')->as('links_admin.')->group(function () {
-        Route::get('/', [LinkAdminController::class, 'index'])->name('index');
-        Route::get('/{link}/edit', [LinkAdminController::class, 'edit'])->name('edit');
-        Route::put('/{link}', [LinkAdminController::class, 'update'])->name('update');
-        Route::delete('/{link}', [LinkAdminController::class, 'destroy'])->name('destroy');
-    });
-
-    // Rute Analytics
-    Route::get('/analytics_admin', [AnalyticsAdminController::class, 'index'])->name('index.analytics');
 
     // Rute Admin
     Route::get('/user_management', [UserAdminController::class, 'index'])->name('admin.user.index');
     Route::put('/user_management/{user}', [UserAdminController::class, 'update'])->name('admin.user.update');
 });
-
-
-
-Route::get('/{short_url}', [Controllers\LinkController::class, 'redirect'])->name('link.redirect');

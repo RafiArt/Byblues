@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <!-- See More Button -->
-                <a href="{{ route('analytics') }}"
+                <a href="{{ route('diagnosa.index') }}"
                     class="flex flex-col justify-center items-center gap-1 ml-2 p-3 cursor-pointer group flex-shrink-0 scroll-snap-center"
                     title="See more">
                     <div

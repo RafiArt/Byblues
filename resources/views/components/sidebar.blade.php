@@ -12,25 +12,25 @@
                 <i class="fa-solid fa-gauge text-lg"></i>
             </x-sidebar-item>
             @if (Auth::user()->hasRole('administrator'))
-                <x-sidebar-item href="/analytics_admin" name="Analytics"><i
-                        class="fa-solid fa-chart-simple text-lg"></i></x-sidebar-item>
-                <x-sidebar-item href="diagnosa_admin" name="Babyblues"><i
+                {{-- <x-sidebar-item href="/analytics_admin" name="Analytics"><i
+                        class="fa-solid fa-chart-simple text-lg"></i></x-sidebar-item> --}}
+                <x-sidebar-item href="diagnosa_admin" name="Diagnosis"><i
                         class="fa-solid fa-hand-holding-medical text-lg"></i></x-sidebar-item>
                 <x-sidebar-item href="/gejala" name="Gejala"><i class="fa-solid fa-laptop-medical"></i></x-sidebar-item>
-                <x-sidebar-item href="#" name="History"><i
-                        class="fa-solid fa-receipt text-lg"></i></x-sidebar-item>
+                {{-- <x-sidebar-item href="#" name="History"><i
+                        class="fa-solid fa-receipt text-lg"></i></x-sidebar-item> --}}
                 <x-sidebar-item href="/user_management" name="User Management"><i
                         class="fa-solid fa-user text-lg"></i></x-sidebar-item>
             @else
-                <x-sidebar-item href="/analytics" name="Analytics">
+                {{-- <x-sidebar-item href="/analytics" name="Analytics">
                     <i class="fa-solid fa-chart-simple text-lg"></i>
-                </x-sidebar-item>
+                </x-sidebar-item> --}}
                 <x-sidebar-item href="/diagnosa" name="Diagnosis">
                     <i class="fa-solid fa-hand-holding-medical  text-lg"></i>
                 </x-sidebar-item>
-                <x-sidebar-item href="#" name="History Cek">
+                {{-- <x-sidebar-item href="#" name="History Cek">
                     <i class="fa-solid fa-receipt text-lg"></i>
-                </x-sidebar-item>
+                </x-sidebar-item> --}}
 
                 {{-- <!-- Submenu for Links -->
                 <li class="relative">
