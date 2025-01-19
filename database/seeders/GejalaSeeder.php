@@ -146,7 +146,7 @@ class GejalaSeeder extends Seeder
             ],
             [
                 'kode' => 'SU006',
-                'keterangan' => 'Bagaimana kondisi finansial keluarga?',
+                'keterangan' => 'Apakah kondisi finansial keluarga kurang baik?',
                 'kategori' => 'Kesejahteraan Fisik',
             ],
             [
@@ -161,7 +161,7 @@ class GejalaSeeder extends Seeder
             ],
             [
                 'kode' => 'SU009',
-                'keterangan' => 'Apakah suami termasuk seorang gamers?',
+                'keterangan' => 'Apakah suami termasuk seorang kurang berinisiasi?',
                 'kategori' => 'Kesejahteraan Emosional',
             ],
             [
@@ -221,12 +221,12 @@ class GejalaSeeder extends Seeder
             ],
             [
                 'kode' => 'SU021',
-                'keterangan' => 'Bagaimana jam tidur suami dan istri?',
+                'keterangan' => 'Apakah jam tidur suami dan istri normal?',
                 'kategori' => 'Kesejahteraan Fisik',
             ],
             [
                 'kode' => 'SU022',
-                'keterangan' => 'Apakah istri sering marah2 tanpa alasan setelah menjadi orangtua baru?',
+                'keterangan' => 'Apakah istri sering marah tanpa alasan setelah menjadi orangtua baru?',
                 'kategori' => 'Kesejahteraan Emosional',
             ],
             [
@@ -241,12 +241,12 @@ class GejalaSeeder extends Seeder
             ],
             [
                 'kode' => 'SU025',
-                'keterangan' => 'Apakah istri memilki bantuan dalam kehidupan sehari2 setelah melahirkan?',
+                'keterangan' => 'Apakah istri memiliki bantuan dalam kehidupan sehari setelah melahirkan?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
             ],
             [
                 'kode' => 'SU026',
-                'keterangan' => 'Apakah suami memilki kelekatan secara emosional dengan istri dan anak?',
+                'keterangan' => 'Apakah suami memiliki kedekatan secara emosional dengan istri dan anak?',
                 'kategori' => 'Kesejahteraan Emosional',
             ],
             [
