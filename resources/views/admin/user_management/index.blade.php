@@ -1,4 +1,4 @@
-<x-dashboard-layout title="User Management Admin">
+<x-dashboard-layout title="User Management">
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
             <thead class="text-xs text-white uppercase bg-blue-600">
@@ -22,10 +22,10 @@
                         </a>
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        <a href="{{ route('admin.user.index', ['sort' => 'division_id', 'direction' => $sortColumn == 'division_id' && $sortDirection == 'asc' ? 'desc' : 'asc']) }}"
+                        <a href="{{ route('admin.user.index', ['sort' => 'peran', 'direction' => $sortColumn == 'peran' && $sortDirection == 'asc' ? 'desc' : 'asc']) }}"
                             class="hover:underline">
-                            Division
-                            @if ($sortColumn == 'division_id')
+                            Peran
+                            @if ($sortColumn == 'peran')
                                 <i class="ml-1 fa-solid fa-arrow-{{ $sortDirection == 'asc' ? 'down' : 'up' }}"></i>
                             @endif
                         </a>
@@ -54,7 +54,7 @@
                             {{ $user->email }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $user->division->name_divisions ?? 'Guest' }}
+                            {{ $user->peran}}
                         </td>
                         <td class="px-6 py-4">
                             {{ $user->roles[0]->name }}

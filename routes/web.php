@@ -2,10 +2,13 @@
 
 use App\Http\Controllers;
 use App\Http\Controllers\Admin\AnalyticsAdminController;
+use App\Http\Controllers\Admin\DiagnosaAdminController;
 use App\Http\Controllers\Admin\LinkAdminController;
 use App\Http\Controllers\Admin\QrcodeAdminController;
 use App\Http\Controllers\Admin\UserAdminController;
 use App\Http\Controllers\AnalyticController;
+use App\Http\Controllers\DiagnosaController;
+use App\Http\Controllers\GejalaController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QrcodeController;
@@ -38,45 +41,25 @@ Route::middleware(['auth'])->group(function () {
 
 
 Route::middleware(['role:user', 'auth'])->group(function () {
-    Route::get('/division_links', [LinkController::class, 'divisionLink'])->name('links.divisionLink');
 
-    //Rute Link
-    Route::resource('/links', LinkController::class);
-    Route::get('/division_links', [LinkController::class, 'divisionLink'])->name('links.divisionLink');
-    Route::put('/links/{link}/expired-date', [LinkController::class, 'updateExpired'])->name('links.updateExpired');
-    Route::put('/links/{link}/pashphrase', [LinkController::class, 'updatePashphrase'])->name('links.updatePashphrase');
-    Route::put('/links/{link}/remove-pashphrase', [LinkController::class, 'removePashphrase'])->name('links.removePashphrase');
-    Route::put('/links/{link}/remove-time-based', [LinkController::class, 'removeExpirationDate'])->name('links.removeExpirationDate');
+    // Diagnosa
+    Route::resource('/diagnosa', DiagnosaController::class);
+    Route::post('/diagnosa/save-temp', [DiagnosaController::class, 'saveTemp'])->name('diagnosa.saveTemp');
+    Route::get('/diagnosa/detail/{id}', [DiagnosaController::class, 'show'])->name('diagnosa.show');
 
-    // Rute Qrcode
-    Route::resource('/qrcodes', QrcodeController::class);
-    Route::get('/division_qrcodes', [QrcodeController::class, 'divisionQRcode'])->name('qrcodes.divisionQR');
 
-    // Rute Analytics
-    Route::get('/analytics', [AnalyticController::class, 'index'])->name('analytics');
-});
+    });
 
 
 Route::middleware(['auth', 'role:administrator'])->group(function () {
-    // Rute Qrcode
-    Route::resource('/qrcodes_admin', QrcodeAdminController::class);
+    // Rute Gejala
+    Route::resource('/gejala', GejalaController::class);
 
-    // Rute Link
-    Route::prefix('links_admin')->as('links_admin.')->group(function () {
-        Route::get('/', [LinkAdminController::class, 'index'])->name('index');
-        Route::get('/{link}/edit', [LinkAdminController::class, 'edit'])->name('edit');
-        Route::put('/{link}', [LinkAdminController::class, 'update'])->name('update');
-        Route::delete('/{link}', [LinkAdminController::class, 'destroy'])->name('destroy');
-    });
+    // Rute Diagnosa Admin
+    Route::resource('/diagnosa_admin', DiagnosaAdminController::class);
 
-    // Rute Analytics
-    Route::get('/analytics_admin', [AnalyticsAdminController::class, 'index'])->name('index.analytics');
 
     // Rute Admin
     Route::get('/user_management', [UserAdminController::class, 'index'])->name('admin.user.index');
     Route::put('/user_management/{user}', [UserAdminController::class, 'update'])->name('admin.user.update');
 });
-
-
-
-Route::get('/{short_url}', [Controllers\LinkController::class, 'redirect'])->name('link.redirect');

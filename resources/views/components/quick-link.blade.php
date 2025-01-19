@@ -1,6 +1,6 @@
 <div id="quick-link-form"
     class="hidden flex items-center justify-center bg-gray-600 fixed top-0 left-0 w-full h-screen z-[99999] bg-opacity-40">
-    <form action="{{ route('links.store') }}" method="POST" class="w-full flex flex-col items-center justify-center ">
+    <form action="#" method="POST" class="w-full flex flex-col items-center justify-center ">
         @csrf
         <div class="flex flex-col gap-3 w-full lg:w-[30rem] bg-white p-6 pb-2 rounded-t-lg  text-gray-600">
             <div class="flex items-center justify-between ">

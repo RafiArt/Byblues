@@ -16,7 +16,7 @@
             <div class="w-full">
                 <div class="flex items-center mb-3">
                     <div class="bg-blue-500 w-8 h-8 rounded-full flex items-center justify-center">
-                        <i class="fas fa-link text-white"></i>
+                        <i class="fas fa-stethoscope text-white"></i>
                     </div>
                     <h2 class="text-2xl font-semibold ml-2">Welcome to {{ ENV('APP_NAME') }} <span class="wave"></span></h2>
                 </div>

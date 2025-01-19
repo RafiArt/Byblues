@@ -2,13 +2,14 @@
     <div class="flex items-center justify-between">
         <x-bottom-nav-link href="/" icon="fa-gauge">Dashboard</x-bottom-nav-link>
         @if (Auth::user()->hasRole('user'))
-            <x-bottom-nav-link href="/analytics" icon="fa-chart-simple">Analytics</x-bottom-nav-link>
-            <x-bottom-nav-link href="/links" icon="fa-link">Links</x-bottom-nav-link>
-            <x-bottom-nav-link href="/qrcodes" icon="fa-qrcode">QRCodes</x-bottom-nav-link>
+            {{-- <x-bottom-nav-link href="/analytics" icon="fa-chart-simple">Analytics</x-bottom-nav-link> --}}
+            <x-bottom-nav-link href="/diagnosa" icon="fa-hand-holding-medical ">Diagnosis</x-bottom-nav-link>
+            <x-bottom-nav-link href="/profile" icon="fa-user ">Profile</x-bottom-nav-link>
+            {{-- <x-bottom-nav-link href="/qrcodes" icon="fa-qrcode">QRCodes</x-bottom-nav-link> --}}
         @else
-            <x-bottom-nav-link href="/analytics_admin" icon="fa-chart-simple">Analytics</x-bottom-nav-link>
-            <x-bottom-nav-link href="/links_admin" icon="fa-link">Links</x-bottom-nav-link>
-            <x-bottom-nav-link href="/qrcodes_admin" icon="fa-qrcode">QRCodes</x-bottom-nav-link>
+            {{-- <x-bottom-nav-link href="/analytics_admin" icon="fa-chart-simple">Analytics</x-bottom-nav-link> --}}
+            <x-bottom-nav-link href="/diagnosa_admin" icon="fa-hand-holding-medical">Diagnosis</x-bottom-nav-link>
+            <x-bottom-nav-link href="/gejala" icon="fa-laptop-medical">Gejala</x-bottom-nav-link>
             <x-bottom-nav-link href="/user_management" icon="fa-user">User</x-bottom-nav-link>
         @endif
     </div>

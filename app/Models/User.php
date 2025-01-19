@@ -60,4 +60,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    protected $guarded = [];
+
+    public function diagnosas()
+    {
+        return $this->hasMany(Diagnosa::class, 'user_id');
+    }
 }

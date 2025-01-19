@@ -4,22 +4,24 @@
     <div class="bg-gray-100 p-4 lg:p-0 w-full h-screen flex flex-col items-center justify-center">
         <div class="bg-white shadow-lg rounded-lg flex overflow-hidden w-full lg:w-[80rem] lg:h-[40rem]">
             <div class="flex-1 hidden lg:flex rounded-lg items-center justify-center bg-blue-700 m-4 relative"
-                style="flex: 3; background-image: url('{{ asset('a.webp') }}'); background-position: center; background-repeat: no-repeat; background-size: cover;">
-                <!-- Transparent overlay with 70% transparency -->
-                <div class="absolute inset-0 bg-white bg-opacity-70"></div>
+                style="flex: 3; background-image: url('{{ asset('blues.webp') }}'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+
+                <!-- Grey transparent overlay on top of the background -->
+                <div class="absolute inset-0 bg-gray-500 bg-opacity-40"></div> <!-- Grey overlay with transparency -->
+
                 <!-- Logo SIER and text centered on top of the background -->
-                <div class="relative z-20 flex flex-col items-center">
-                    <img src="{{ asset('logosier.png') }}" alt="Logo SIER" class="w-24 h-36">
-                    <!-- Text below the logo, above the overlay -->
-                    <span class="mt-4 text-black font-bold text-2xl" style="font-family: 'Source Sans 3', sans-serif;">PT
-                        Surabaya Industrial Estate Rungkut</span>
+                <div class="flex flex-col items-center justify-center relative z-10"> <!-- Added z-10 to bring this content to the front -->
+                    <div class="bg-blue-500 w-28 h-28 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-stethoscope text-white text-5xl"></i> <!-- Increased icon size -->
+                    </div>
+                    <p class="text-white text-3xl font-bold">Byblues</p> <!-- Increased text size -->
                 </div>
             </div>
             <div class="flex-1 flex items-center justify-center p-6 md:p-10" style="flex: 2;">
                 <div class="w-full">
                     <div class="flex items-center mb-3">
                         <div class="bg-blue-500 w-8 h-8 rounded-full flex items-center justify-center">
-                            <i class="fas fa-link text-white"></i>
+                            <i class="fas fa-stethoscope text-white"></i>
                         </div>
                         <h2 class="text-2xl font-semibold ml-2">Welcome to {{ ENV('APP_NAME') }} <span class="wave"></span></h2>
                     </div>

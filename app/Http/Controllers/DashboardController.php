@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Diagnosa;
 use Spatie\Permission\Traits\HasRoles;
 use App\Models\ClickTracking;
 use App\Models\Link;
@@ -13,32 +14,31 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $user = Auth::user(); // Ambil user yang sedang login
+        $user = Auth::user();
 
-        // Cek apakah user memiliki role 'administrator' menggunakan hasRole dari Spatie
         if ($user->roles[0]->name == 'administrator') {
-            // Jika user memiliki role 'administrator', ambil semua data
-            $CountLink = Link::count();
-            $Visitor = Link::sum('clicks');
-            $VisitorUnique = ClickTracking::distinct('ip_address')->count('ip_address');
-            $divisionLinksCount = 0;
-            $qrcodesDivisions = 0;
+            $CountDiagnosis = (object) [
+                'total' => Diagnosa::count(),
+                'tidak_ada_risiko' => Diagnosa::where('hasil', 'Tidak Ada Risiko Baby Blues')->count(),
+                'risiko_rendah' => Diagnosa::where('hasil', 'Risiko Rendah Baby Blues')->count(),
+                'risiko_sedang' => Diagnosa::where('hasil', 'Risiko Sedang Baby Blues')->count(),
+                'risiko_tinggi' => Diagnosa::where('hasil', 'Risiko Tinggi Baby Blues')->count()
+            ];
         } else {
-            // Jika user memiliki role selain 'administrator', ambil data berdasarkan user_id
-            // tanpa menggunakan division_id
-
-            $CountLink = Link::where('user_id', $user->id)->count();
-            $Visitor = Link::where('user_id', $user->id)->sum('clicks');
-            $VisitorUnique = ClickTracking::whereIn('link_id', Link::where('user_id', $user->id)->pluck('id'))
-                ->distinct('ip_address')
-                ->count('ip_address');
-
-            // Untuk qrcodesDivisions, tidak perlu lagi menggunakan division_id
-            $qrcodesDivisions = Qrcodes::where('user_id', $user->id)->count();
-            $divisionLinksCount = 0; // Hapus penggunaan division_id
+            $CountDiagnosis = (object) [
+                'total' => Diagnosa::where('user_id', $user->id)->count(),
+                'tidak_ada_risiko' => Diagnosa::where('user_id', $user->id)
+                    ->where('hasil', 'Tidak Ada Risiko Baby Blues')->count(),
+                'risiko_rendah' => Diagnosa::where('user_id', $user->id)
+                    ->where('hasil', 'Risiko Rendah Baby Blues')->count(),
+                'risiko_sedang' => Diagnosa::where('user_id', $user->id)
+                    ->where('hasil', 'Risiko Sedang Baby Blues')->count(),
+                'risiko_tinggi' => Diagnosa::where('user_id', $user->id)
+                    ->where('hasil', 'Risiko Tinggi Baby Blues')->count()
+            ];
         }
 
-        return view('dashboard', compact('CountLink', 'Visitor', 'VisitorUnique', 'divisionLinksCount', 'qrcodesDivisions'));
+        return view('dashboard', compact('CountDiagnosis'));
     }
 
 

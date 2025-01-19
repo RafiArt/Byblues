@@ -2,7 +2,7 @@
     class="w-[18rem] h-screen bg-white border-r border-gray-200 shadow-lg px-4 lg:block sticky top-0 hidden">
     <div class="h-[70px] w-full flex items-center justify-center py-4">
         <a href="/" class="flex items-center gap-3">
-            <i class="fa-solid fa-link text-3xl text-blue-600"></i>
+            <i class="fa-solid fa-stethoscope  text-3xl text-blue-600"></i>
             <h1 id="logo-text" class="text-2xl font-bold text-blue-600">{{ ENV('APP_NAME') . env('APP_DOMAIN') }}</h1>
         </a>
     </div>
@@ -12,20 +12,27 @@
                 <i class="fa-solid fa-gauge text-lg"></i>
             </x-sidebar-item>
             @if (Auth::user()->hasRole('administrator'))
-                <x-sidebar-item href="/analytics_admin" name="Analytics"><i
-                        class="fa-solid fa-chart-simple text-lg"></i></x-sidebar-item>
-                <x-sidebar-item href="/links_admin" name="Links"><i
-                        class="fa-solid fa-link text-lg"></i></x-sidebar-item>
-                <x-sidebar-item href="/qrcodes_admin" name="QR Codes"><i
-                        class="fa-solid fa-qrcode text-lg"></i></x-sidebar-item>
+                {{-- <x-sidebar-item href="/analytics_admin" name="Analytics"><i
+                        class="fa-solid fa-chart-simple text-lg"></i></x-sidebar-item> --}}
+                <x-sidebar-item href="diagnosa_admin" name="Diagnosis"><i
+                        class="fa-solid fa-hand-holding-medical text-lg"></i></x-sidebar-item>
+                <x-sidebar-item href="/gejala" name="Gejala"><i class="fa-solid fa-laptop-medical"></i></x-sidebar-item>
+                {{-- <x-sidebar-item href="#" name="History"><i
+                        class="fa-solid fa-receipt text-lg"></i></x-sidebar-item> --}}
                 <x-sidebar-item href="/user_management" name="User Management"><i
                         class="fa-solid fa-user text-lg"></i></x-sidebar-item>
             @else
-                <x-sidebar-item href="/analytics" name="Analytics">
+                {{-- <x-sidebar-item href="/analytics" name="Analytics">
                     <i class="fa-solid fa-chart-simple text-lg"></i>
+                </x-sidebar-item> --}}
+                <x-sidebar-item href="/diagnosa" name="Diagnosis">
+                    <i class="fa-solid fa-hand-holding-medical  text-lg"></i>
                 </x-sidebar-item>
+                {{-- <x-sidebar-item href="#" name="History Cek">
+                    <i class="fa-solid fa-receipt text-lg"></i>
+                </x-sidebar-item> --}}
 
-                <!-- Submenu for Links -->
+                {{-- <!-- Submenu for Links -->
                 <li class="relative">
                     <div class="flex items-center justify-between p-1 px-4 rounded-lg hover:bg-gray-200 cursor-pointer"
                         onclick="toggleSubmenu('linksSubmenu', 'linksChevron')">
@@ -97,7 +104,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
             @endif
         </ul>
     </div>
