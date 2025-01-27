@@ -28,7 +28,7 @@
                 <div class="w-full"> <!-- Set w-full here -->
                     <select name="peran" class="w-full px-4 py-2 text-sm border border-blue-500 rounded-md" onchange="this.form.submit()">
                         <option value="">Select Peran</option>
-                        <option value="Orang tua" {{ old('peran', $peran) == 'Orang tua' ? 'selected' : '' }}>Orang tua</option>
+                        <option value="Orang Terdekat" {{ old('peran', $peran) == 'Orang Terdekat' ? 'selected' : '' }}>Orang Terdekat</option>
                         <option value="Suami" {{ old('peran', $peran) == 'Suami' ? 'selected' : '' }}>Suami</option>
                         <option value="Ibu" {{ old('peran', $peran) == 'Ibu' ? 'selected' : '' }}>Ibu</option>
                     </select>

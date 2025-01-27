@@ -82,7 +82,7 @@ class DiagnosaController extends Controller
                     $query->where('kode', 'LIKE', 'IB%');
                 } elseif ($peran === 'Suami') {
                     $query->where('kode', 'LIKE', 'SU%');
-                } elseif ($peran === 'Orang Tua') {
+                } elseif ($peran === 'Orang Terdekat') {
                     $query->where('kode', 'LIKE', 'OT%');
                 }
             })
@@ -258,7 +258,7 @@ class DiagnosaController extends Controller
                         </ul>
                     </div>';
             }
-        } elseif (Auth::user()->peran == 'Orang Tua') {
+        } elseif (Auth::user()->peran == 'Orang Terdekat') {
             if ($score >= 13) {
                 $hasil = 'Risiko Tinggi Baby Blues';
                 $solusi = '

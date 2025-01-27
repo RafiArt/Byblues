@@ -13,109 +13,135 @@ class GejalaSeeder extends Seeder
      */
     public function run()
     {
-        // Data untuk Orang Tua
+        // Data untuk Orang Terdekat
         FacadesDB::table('gejalas')->insert([
             [
                 'kode' => 'OT001',
-                'keterangan' => 'Apakah anak memiliki riwayat penyakit mental?',
+                'keterangan' => 'Apakah orang terdekat melihat ibu memiliki riwayat penyakit mental?',
                 'kategori' => 'Kesejahteraan Emosional',
             ],
             [
                 'kode' => 'OT002',
-                'keterangan' => 'Apakah orangtua memiliki ekspektasi terhadap metode melahirkan yang akan ibu lalui?',
+                'keterangan' => 'Apakah orang terdekat memiliki ekspektasi terhadap metode melahirkan yang akan dilalui?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
             ],
             [
                 'kode' => 'OT003',
-                'keterangan' => 'Apakah orangtua membantu anak pada saat menjalani proses kehamilan?',
+                'keterangan' => 'Apakah orang terdekat melihat ibu menerima bantuan selama proses kehamilan?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
             ],
             [
                 'kode' => 'OT004',
-                'keterangan' => 'Apakah orangtua membantu anak setelah anak menjalani proses persalinan?',
+                'keterangan' => 'Apakah orang terdekat melihat ibu menerima bantuan setelah melahirkan?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
             ],
             [
                 'kode' => 'OT005',
-                'keterangan' => 'Apakah orangtua memberikan support terhadap anak setelah anak menjadi orangtua baru?',
+                'keterangan' => 'Apakah orang terdekat melihat ibu mendapatkan dukungan setelah menjadi orangtua baru?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
             ],
             [
                 'kode' => 'OT006',
-                'keterangan' => 'Apakah anak sering berkeluh kesah mengenai kondisinya selama proses kehamilan?',
+                'keterangan' => 'Apakah orang terdekat melihat ibu sering berkeluh kesah mengenai kondisinya selama proses kehamilan?',
                 'kategori' => 'Kesejahteraan Emosional',
             ],
             [
                 'kode' => 'OT007',
-                'keterangan' => 'Apakah anak sering berkeluh kesah mengenai kondisinya setelah proses persalinan?',
+                'keterangan' => 'Apakah orang terdekat melihat ibu sering berkeluh kesah mengenai kondisinya setelah proses persalinan?',
                 'kategori' => 'Kesejahteraan Emosional',
             ],
             [
                 'kode' => 'OT008',
-                'keterangan' => 'Apakah anak sering merasa cemas atau khawatir setelah melahirkan?',
+                'keterangan' => 'Apakah orang terdekat melihat ibu sering merasa cemas atau khawatir setelah melahirkan?',
                 'kategori' => 'Kesejahteraan Emosional',
             ],
             [
                 'kode' => 'OT009',
-                'keterangan' => 'Apakah anak mengalami perubahan suasana hati yang drastis setelah melahirkan?',
+                'keterangan' => 'Apakah orang terdekat melihat ibu mengalami perubahan suasana hati yang drastis setelah melahirkan?',
                 'kategori' => 'Kesejahteraan Emosional',
             ],
             [
                 'kode' => 'OT010',
-                'keterangan' => 'Apakah anak merasa sangat lelah meskipun sudah cukup istirahat?',
+                'keterangan' => 'Apakah orang terdekat melihat ibu merasa sangat lelah meskipun sudah cukup istirahat?',
                 'kategori' => 'Kesejahteraan Fisik',
             ],
             [
                 'kode' => 'OT011',
-                'keterangan' => 'Apakah anak sering merasa sedih atau menangis tanpa alasan yang jelas?',
+                'keterangan' => 'Apakah orang terdekat melihat ibu sering merasa sedih atau menangis tanpa alasan yang jelas?',
                 'kategori' => 'Kesejahteraan Emosional',
             ],
             [
                 'kode' => 'OT012',
-                'keterangan' => 'Apakah anak kehilangan minat pada aktivitas yang biasanya disukai?',
+                'keterangan' => 'Apakah orang terdekat melihat ibu kehilangan minat pada aktivitas yang biasanya disukai?',
                 'kategori' => 'Kesejahteraan Emosional',
             ],
             [
                 'kode' => 'OT013',
-                'keterangan' => 'Apakah anak merasa kesulitan untuk terhubung dengan bayinya?',
+                'keterangan' => 'Apakah orang terdekat melihat ibu merasa kesulitan untuk terhubung dengan bayinya?',
                 'kategori' => 'Kesejahteraan Emosional',
             ],
             [
                 'kode' => 'OT014',
-                'keterangan' => 'Apakah anak merasa tidak berharga atau merasa bersalah sebagai ibu?',
+                'keterangan' => 'Apakah orang terdekat melihat ibu merasa tidak berharga atau merasa bersalah sebagai ibu?',
                 'kategori' => 'Kesejahteraan Emosional',
             ],
             [
                 'kode' => 'OT015',
-                'keterangan' => 'Apakah anak mengalami perubahan nafsu makan, seperti makan terlalu banyak atau kehilangan selera makan?',
+                'keterangan' => 'Apakah orang terdekat melihat ibu mengalami perubahan nafsu makan, seperti makan terlalu banyak atau kehilangan selera makan?',
                 'kategori' => 'Kesejahteraan Fisik',
             ],
             [
                 'kode' => 'OT016',
-                'keterangan' => 'Apakah anak merasa terisolasi atau kesepian meskipun ada dukungan dari keluarga?',
+                'keterangan' => 'Apakah orang terdekat melihat ibu merasa terisolasi atau kesepian meskipun ada dukungan dari keluarga?',
                 'kategori' => 'Hubungan Sosial',
             ],
             [
                 'kode' => 'OT017',
-                'keterangan' => 'Apakah anak mengeluh tentang kesulitan tidur atau insomnia?',
+                'keterangan' => 'Apakah orang terdekat melihat ibu mengeluh tentang kesulitan tidur atau insomnia?',
                 'kategori' => 'Kesejahteraan Fisik',
             ],
             [
                 'kode' => 'OT018',
-                'keterangan' => 'Apakah anak sering merasa mudah marah atau tersinggung?',
+                'keterangan' => 'Apakah orang terdekat melihat ibu sering merasa mudah marah atau tersinggung?',
                 'kategori' => 'Kesejahteraan Emosional',
             ],
             [
                 'kode' => 'OT019',
-                'keterangan' => 'Apakah anak merasa tertekan dengan tanggung jawab baru sebagai ibu?',
+                'keterangan' => 'Apakah orang terdekat melihat ibu merasa tertekan dengan tanggung jawab baru sebagai ibu?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
             ],
             [
                 'kode' => 'OT020',
-                'keterangan' => 'Apakah anak merasa sulit untuk meminta bantuan atau dukungan dari orang lain?',
+                'keterangan' => 'Apakah orang terdekat melihat ibu merasa sulit untuk meminta bantuan atau dukungan dari orang lain?',
                 'kategori' => 'Peran dan Dukungan Keluarga',
             ],
+            [
+                'kode' => 'OT021',
+                'keterangan' => 'Apakah orang terdekat melihat ibu merasa tertekan atau cemas tanpa alasan yang jelas setelah melahirkan?',
+                'kategori' => 'Kesejahteraan Emosional',
+            ],
+            [
+                'kode' => 'OT022',
+                'keterangan' => 'Apakah orang terdekat melihat ibu merasa sangat sensitif terhadap komentar atau pendapat orang lain?',
+                'kategori' => 'Kesejahteraan Emosional',
+            ],
+            [
+                'kode' => 'OT023',
+                'keterangan' => 'Apakah orang terdekat melihat ibu merasa tidak mampu mengatasi tuntutan menjadi ibu baru?',
+                'kategori' => 'Kesejahteraan Emosional',
+            ],
+            [
+                'kode' => 'OT024',
+                'keterangan' => 'Apakah orang terdekat melihat ibu merasa sangat cemas atau khawatir tentang kemampuan dirinya sebagai seorang ibu?',
+                'kategori' => 'Kesejahteraan Emosional',
+            ],
+            [
+                'kode' => 'OT025',
+                'keterangan' => 'Apakah orang terdekat melihat ibu merasa sering kesulitan dalam mengelola perasaan atau emosinya setelah melahirkan?',
+                'kategori' => 'Kesejahteraan Emosional',
+            ],
         ]);
+
 
         // Data untuk Suami
         FacadesDB::table('gejalas')->insert([

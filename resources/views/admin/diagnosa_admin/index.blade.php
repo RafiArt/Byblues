@@ -20,7 +20,7 @@
             <div class="w-1/3">
                 <select name="peran" class="w-full px-4 py-2 text-sm border border-blue-500 rounded-md">
                     <option value="">Select Peran</option>
-                    <option value="Orang tua" {{ request('peran') == 'Orang tua' ? 'selected' : '' }}>Orang tua</option>
+                    <option value="Orang Terdekat" {{ request('peran') == 'Orang Terdekat' ? 'selected' : '' }}>Orang Terdekat</option>
                     <option value="Suami" {{ request('peran') == 'Suami' ? 'selected' : '' }}>Suami</option>
                     <option value="Ibu" {{ request('peran') == 'Ibu' ? 'selected' : '' }}>Ibu</option>
                 </select>
