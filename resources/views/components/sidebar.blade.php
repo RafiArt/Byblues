@@ -8,7 +8,7 @@
     </div>
     <div class="mt-5 w-full flex flex-col text-sm">
         <ul id="sidebar-items" class="flex flex-col gap-2">
-            <x-sidebar-item href="/" name="Dashboard">
+            <x-sidebar-item href="{{ route('dashboard') }}" name="Dashboard">
                 <i class="fa-solid fa-gauge text-lg"></i>
             </x-sidebar-item>
             @if (Auth::user()->hasRole('administrator'))

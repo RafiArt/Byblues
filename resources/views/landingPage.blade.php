@@ -25,27 +25,25 @@
             class="w-full relative z-10 md:h-screen flex items-center justify-center bg-gradient-to-r from-blue-800 to bg-blue-700 md:mt-[-80px] px-4 overflow-hidden">
             <div class="w-full  max-w-7xl mx-auto grid md:grid-cols-2">
                 <div class="w-full flex justify-center flex-col">
-                    <h1 class="text-5xl font-bold text-white mb-2 z-40">Welcome to SIER Short Link</h1>
-                    <p class="text-white  text-3xl mb-6">The Smart Way to Simplify <span class="underline">Your
-                            Digital
-                            Connections!</span>
+                    <h1 class="text-5xl font-bold text-white mb-2 z-40">Welcome to BYBLUES</h1>
+                    <p class="text-white  text-3xl mb-6">A Smart Solution to <span class="underline">Quickly and Effectively Detecting Baby Blues!</span>
                     </p>
                     <div class="flex gap-8 mb-12">
                         <div class="space-y-2 ">
                             <div class="flex items-center gap-3">
                                 <i class="fa-solid fa-check text-green-500 text-lg"></i>
-                                <p class="text-white">Generate short link</p>
+                                <p class="text-white">Diagnosis Babyblues</p>
                             </div>
                             <div class="flex items-center gap-3">
                                 <i class="fa-solid fa-check text-green-500 text-lg"></i>
-                                <p class="text-white">Custom Short URLs</p>
+                                <p class="text-white">Konsultasi Babyblues</p>
                             </div>
                             <div class="flex items-center gap-3">
                                 <i class="fa-solid fa-check text-green-500 text-lg"></i>
-                                <p class="text-white">Generate QR Code</p>
+                                <p class="text-white">Rekomendasi Penanganan Babyblues</p>
                             </div>
                         </div>
-                        <div class="space-y-2 mb-6">
+                        {{-- <div class="space-y-2 mb-6">
 
                             <div class="flex items-center gap-3">
                                 <i class="fa-solid fa-check text-green-500 text-lg"></i>
@@ -55,15 +53,15 @@
                                 <i class="fa-solid fa-check text-green-500 text-lg"></i>
                                 <p class="text-white">Analytics Dashboard</p>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
-                    <a href="/"
+                    <a href="/register"
                         class="bg-orange-500 text-white text-lg py-3 px-9 rounded-lg hover:bg-orange-400  transition w-fit font-bold">
-                        Short Your Link
+                        Get Start
                     </a>
                 </div>
                 <div class="flex items-center justify-end">
-                    <img src="{{ asset('image_landingpage.png') }}" class="w-[550px] z-40" alt="image landingpage">
+                    <img src="{{ asset('tp.png') }}" class="w-[550px] z-40" alt="image landingpage">
                 </div>
             </div>
             <i class="fa-solid fa-certificate text-blue-300 opacity-20 text-9xl absolute top-[6rem] left-16"></i>
@@ -73,8 +71,7 @@
         </section>
         <section class="w-full  bg-gray-100 py-20 px-4">
             <div class="w-full max-w-4xl mx-auto text-center mb-10 md:mb-20">
-                <h1 class="text-4xl font-bold text-center">Learn about the features that help your digital
-                    connection!</h1>
+                <h1 class="text-4xl font-bold text-center">Learn about the features that help your diagnosis!</h1>
             </div>
             <div class="w-full max-w-4xl mx-auto flex flex-col gap-4 md:gap-10">
                 <div class="w-full  grid md:grid-cols-2  bg-white p-10 rounded-lg shadow-lg">

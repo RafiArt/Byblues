@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::fallback(function () {
     return response()->view('errors.404', [], 404);
 });
+Route::get('/', [Controllers\HomeController::class, 'index'])->name('home.index');
 Route::get('/I/{short_url}', [Controllers\WithpasswordController::class, 'index'])->name('confirm-password.index');
 Route::post('/I/{short_url}', [Controllers\WithpasswordController::class, 'redirect'])->name('confirm-password.redirect');
 
@@ -28,7 +29,7 @@ require __DIR__ . '/auth.php';
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', [Controllers\DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [Controllers\DashboardController::class, 'index'])->name('dashboard');
 
     // Rute Profile
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');

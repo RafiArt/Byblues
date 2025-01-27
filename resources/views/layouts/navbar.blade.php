@@ -2,12 +2,10 @@
     <div class="w-full h-full max-w-7xl flex items-center justify-between">
         <div class="flex items-center gap-3">
             <i class="fa-solid fa-stethoscope text-3xl text-white"></i>
-            <h1 class="text-2xl font-bold text-white">SIER SHORT LINK</h1>
+            <h1 class="text-2xl font-bold text-white">Byblues</h1>
         </div>
         <ul class="flex items-center gap-3 h-full text-white">
             <li><a href="/" class="block py-2 px-4 font-semibold rounded hover:bg-blue-950 transition">Home</a>
-            </li>
-            <li><a href="/" class="block py-2 px-4 font-semibold rounded hover:bg-blue-950 transition">Shortener</a>
             </li>
             <li><a href="/" class="block py-2 px-4 font-semibold rounded hover:bg-blue-950 transition">About</a>
             </li>
