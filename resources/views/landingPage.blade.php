@@ -150,7 +150,7 @@
                         <h1 class="text-8xl font-[800] text-yellow-500">03.</h1>
                     </div>
                     <div>
-                        <h1 class="text-3xl font-extrabold mb-4">Report Analys</h1>
+                        <h1 class="text-3xl font-extrabold mb-4">Report Analyst</h1>
                         <p class="text-lg">The results are then processed using the Certainty Factor (CF) method in the Report Analysis feature. This method categorizes the user's condition into four levels: Tidak Berisiko, Risiko Rendah, Risiko Sedang, and Risiko Berat. If the analysis indicates Severe Risk, a contact person will be provided, guiding the user to a psychologist for further consultation and support.</p>
                     </div>
                 </div>

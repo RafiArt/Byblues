@@ -1,4 +1,3 @@
-{{-- sidebar-item.blade.php --}}
 @props(['href', 'name'])
 <li>
     <a href="{{ $href }}" {{ $attributes->except('href') }} class="hover:cursor-pointer">
@@ -11,7 +10,8 @@
             if ($name === 'Dashboard') {
                 $isActive = $currentRoute === 'dashboard' || $currentPath === 'dashboard';
             } else {
-                $isActive = $currentRoute === trim($href, '/') || $currentPath === trim($href, '/');
+                // Check if the current path starts with the base path (e.g., /news)
+                $isActive = Str::startsWith($currentPath, trim($href, '/'));
             }
         @endphp
 
