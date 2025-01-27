@@ -66,6 +66,13 @@
                         </td>
                         <td class="py-3 px-4 text-center">
                             <div class="flex items-center justify-center space-x-2">
+                                <!-- Tombol Edit -->
+                                <a href="{{ route('news.edit', $article->id) }}"
+                                   class="w-8 h-8 flex items-center justify-center bg-blue-500 text-white rounded-md transform hover:bg-blue-600 hover:scale-110">
+                                    <i class="fa-solid fa-pencil-alt"></i>
+                                </a>
+
+                                <!-- Tombol Delete -->
                                 <button id="btn-modal-delete-{{ $article->id }}"
                                         class="w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-md transform hover:bg-red-600 hover:scale-110">
                                     <i class="fa-solid fa-trash"></i>
@@ -110,6 +117,7 @@
                                 })
                             </script>
                         </td>
+
                     </tr>
                 @endforeach
             </tbody>
