@@ -20,7 +20,7 @@
 
 <body>
     @include('layouts.navbar')
-    <main class="w-full">
+    <main class="w-full flex flex-col min-h-screen pb-10">
         <section
             class="w-full relative z-10 md:h-screen flex items-center justify-center bg-gradient-to-r from-blue-800 to bg-blue-700 md:mt-[-80px] px-4 overflow-hidden">
             <div class="w-full  max-w-7xl mx-auto grid md:grid-cols-2">
@@ -156,18 +156,30 @@
                 </div>
             </div>
         </section>
-        <section class="w-full h-screen py-20">
-            <div class="w-full max-w-2xl mx-auto">
+        <section class="w-full py-20 mb-10" id="berita">
+            <div class="w-full max-w-6xl mx-auto">
                 <h1 class="mb-20 text-4xl font-bold text-center">Berita Terkini</h1>
-                <div>
-                    <div class="border flex justify-center">
-                        <div class="w-40 h-40 overflow-hidden object-center rounded-full">
-                            <img src="{{ asset('person/person1.png') }}" alt="">
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    @foreach ($news as $article)
+                        <div class="bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden flex flex-col">
+                            @if($article->image_url)
+                                <img src="{{ $article->image_url }}" alt="{{ $article->title }}" class="w-full h-48 object-cover rounded-t-md">
+                            @else
+                                <img src="/images/no-image.jpg" alt="No Image" class="w-full h-48 object-cover rounded-t-md">
+                            @endif
+                            <div class="p-5 flex-1">
+                                <h2 class="text-xl font-semibold mb-4">{{ $article->title }}</h2>
+                                <p class="text-gray-700 mb-1">{{ Str::limit($article->content, 20) }}</p>
+                                <a href="{{ route('news.show', $article->id) }}" class="text-blue-600 hover:underline">Read More</a>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>
+
+
     </main>
     @include('layouts.footer')
 </body>

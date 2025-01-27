@@ -145,6 +145,15 @@ class NewsController extends Controller
         return view('news.edit', compact('article'));
     }
 
+    public function show($id)
+    {
+        // Mencari artikel berdasarkan ID
+        $news = News::findOrFail($id);
+
+        // Mengirim data artikel ke view edit
+        return view('news.view', data: compact('news'));
+    }
+
 
     public function destroy($id)
     {

@@ -29,7 +29,6 @@
                     <h2 class="text-lg font-semibold mb-5">Help</h2>
                     <div class="w-full flex flex-col gap-4">
                         <a href="#" class="hover:underline w-fit text-sm">Contact Us</a>
-                        <a href="#" class="hover:underline w-fit text-sm">FAQ</a>
                     </div>
                 </div>
             </div>

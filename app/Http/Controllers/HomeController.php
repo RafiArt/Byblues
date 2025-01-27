@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,7 +12,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view("landingPage");
+        $news = News::orderBy("created_at","desc")->paginate(6);
+        return view("landingPage", compact("news"));
     }
 
     /**

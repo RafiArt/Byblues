@@ -76,4 +76,4 @@ Route::middleware(['auth', 'role:administrator'])->group(function () {
 });
 
 
-// Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
+Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
