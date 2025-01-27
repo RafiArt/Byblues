@@ -76,36 +76,30 @@
             <div class="w-full max-w-4xl mx-auto flex flex-col gap-4 md:gap-10">
                 <div class="w-full  grid md:grid-cols-2  bg-white p-10 rounded-lg shadow-lg">
                     <div class="space-y-4">
-                        <h1 class="text-3xl font-bold">01. Generate Short Link</h1>
-                        <p>Create short, shareable links in seconds. Enhance your long URLs with one click, and share
-                            them anywhere to increase engagement. Personalize links as needed and ensure your links
-                            always look professional.</p>
+                        <h1 class="text-3xl font-bold">01. Diagnosis Babyblues</h1>
+                        <p>Baby blues diagnosis involves evaluating symptoms like anxiety, irritability, or fatigue after childbirth. It typically lasts a few days to two weeks and is considered normal, but still requires medical attention.</p>
                     </div>
                     <div class="flex justify-end">
-                        <img src="{{ asset('shortlink_ilsutration.svg') }}" alt="" class="w-[18rem]">
+                        <img src="{{ asset('1.svg') }}" alt="" class="w-[18rem]">
                     </div>
                 </div>
                 <div class="w-full  grid md:grid-cols-2  bg-white p-10 rounded-lg shadow-lg">
                     <div class="flex justify-start">
-                        <img src="{{ asset('qrcodegenerate_ilustration.svg') }}" alt="" class="w-[18rem]">
+                        <img src="{{ asset('3.svg') }}" alt="" class="w-[18rem]">
                     </div>
                     <div class="space-y-4">
-                        <h1 class="text-3xl font-bold">02. Generate QR Code</h1>
-                        <p>Create instant QR codes from your links for easy access and sharing. Just enter a URL, and
-                            we'll generate a QR code ready to use in print, presentations, or events. Fast and practical
-                            access, anytime and anywhere.</p>
+                        <h1 class="text-3xl font-bold">02. Konsultasi Babyblues</h1>
+                        <p>A baby blues consultation involves discussing with healthcare professionals such as psychologists. It is essential to receive emotional support, assess the mother's condition, and determine if further treatment is needed.</p>
                     </div>
 
                 </div>
                 <div class="w-full  grid md:grid-cols-2  bg-white p-10 rounded-lg shadow-lg">
                     <div class="space-y-4">
-                        <h1 class="text-3xl font-bold">03. Analytics Dashboard</h1>
-                        <p>Monitor the performance of each link with our Analytics Dashboard. Get real-time insights
-                            into the number of clicks, user location, devices used, and access times. Improve your
-                            strategy with in-depth, easy-to-understand data.</p>
+                        <h1 class="text-3xl font-bold">03. Rekomendasi Penanganan Babyblues</h1>
+                        <p> Managing baby blues includes getting enough rest, having social support from family, and engaging in relaxation activities. If symptoms persist or worsen, therapy or medication from a professional may be necessary to prevent a more serious condition like postpartum depression.</p>
                     </div>
                     <div class="flex justify-end">
-                        <img src="{{ asset('dashboardanalytics_ilustration.svg') }}" alt="" class="w-[20rem]">
+                        <img src="{{ asset('2.svg') }}" alt="" class="w-[15rem]">
                     </div>
                 </div>
             </div>
@@ -132,17 +126,15 @@
                 </div>
                 <div class="grid grid-cols-3 items-center">
                     <div>
-                        <h1 class="text-3xl font-extrabold mb-4">Create New Short Link</h1>
-                        <p class="text-lg">You enter the link of your 'long' product or article to shorten it, then
-                            customize it to make it simple and easy to remember. Then, you can easily and quickly share
-                            your shortened link.</p>
+                        <h1 class="text-3xl font-extrabold mb-4">Diagnosa</h1>
+                        <p class="text-lg">The Diagnosis Feature helps users assess their emotional well-being after childbirth by asking a series of questions. Users respond with YA, BISA JADI, or TIDAK based on their experiences, and the system evaluates the potential presence and severity of baby blues.</p>
                     </div>
 
                     <div class="flex items-center justify-center">
                         <h1 class="text-8xl font-[800] text-yellow-500">02.</h1>
                     </div>
                     <div class="w-[]">
-                        <img src="{{ asset('yourshortlink_ilustrator.svg') }}" alt="" class="w-[30rem]">
+                        <img src="{{ asset('stress.svg') }}" alt="" class="w-[30rem]">
                     </div>
                 </div>
                 <div class="flex items-center justify-center flex-col gap-9 mt-10">
@@ -152,22 +144,21 @@
                 </div>
                 <div class="grid grid-cols-3 items-center">
                     <div class="w-[]">
-                        <img src="{{ asset('QR Code-amico.svg') }}" alt="" class="w-[20rem]">
+                        <img src="{{ asset('doctor.svg') }}" alt="" class="w-[20rem]">
                     </div>
                     <div class="flex items-center justify-center">
                         <h1 class="text-8xl font-[800] text-yellow-500">03.</h1>
                     </div>
                     <div>
-                        <h1 class="text-3xl font-extrabold mb-4">Share a short link or download a QR code.</h1>
-                        <p class="text-lg">Easily share short links or download QR codes for faster access. A practical
-                            option for sharing information across digital platforms or print media.</p>
+                        <h1 class="text-3xl font-extrabold mb-4">Report Analys</h1>
+                        <p class="text-lg">The results are then processed using the Certainty Factor (CF) method in the Report Analysis feature. This method categorizes the user's condition into four levels: Tidak Berisiko, Risiko Rendah, Risiko Sedang, and Risiko Berat. If the analysis indicates Severe Risk, a contact person will be provided, guiding the user to a psychologist for further consultation and support.</p>
                     </div>
                 </div>
             </div>
         </section>
         <section class="w-full h-screen py-20">
             <div class="w-full max-w-2xl mx-auto">
-                <h1 class="mb-20 text-4xl font-bold text-center">What do our users say about SIER Short Link?</h1>
+                <h1 class="mb-20 text-4xl font-bold text-center">Berita Terkini</h1>
                 <div>
                     <div class="border flex justify-center">
                         <div class="w-40 h-40 overflow-hidden object-center rounded-full">
