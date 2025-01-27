@@ -30,8 +30,10 @@
                 <tr class="bg-gray-400 text-gray-600 uppercase text-sm leading-normal">
                     <th class="py-3 px-4 text-white text-left">No.</th>
                     <th class="py-3 px-4 text-white text-left">Title</th>
-                    <th class="py-3 px-4 text-white text-left">Category</th>
+                    <th class="py-3 px-4 text-white text-left">Content</th>
+                    <th class="py-3 px-4 text-white text-left">Author</th>
                     <th class="py-3 px-4 text-white text-left">Published Date</th>
+                    <th class="py-3 px-4 text-white text-left">Image</th>
                     <th class="py-3 px-4 text-white text-center">Actions</th>
                 </tr>
             </thead>
@@ -47,30 +49,37 @@
                             </div>
                         </td>
                         <td class="py-3 px-4 text-left">
-                            {{ $article->category }}
+                            {{ $article->content }}
+                        </td>
+                        <td class="py-3 px-4 text-left">
+                            {{ $article->author }}
                         </td>
                         <td class="py-3 px-4 text-left">
                             {{ date('d M Y', strtotime($article->created_at)) }}
                         </td>
+                        <td class="py-3 px-4 text-left">
+                            @if($article->image_url)
+                                <img src="{{ $article->image_url }}" alt="{{$article->title}}" class="w-20 h-20 object-cover rounded-md">
+                            @else
+                                <img src="/images/no-image.jpg" alt="No Image" class="w-20 h-20 object-cover rounded-md">
+                            @endif
+                        </td>
                         <td class="py-3 px-4 text-center">
                             <div class="flex items-center justify-center space-x-2">
-                                <a href="{{ route('news.show', $article->id) }}"
-                                   class="w-8 h-8 flex items-center justify-center bg-blue-500 text-white rounded-md transform hover:bg-blue-600 hover:scale-110">
-                                    <i class="fa-solid fa-circle-info"></i>
-                                </a>
                                 <button id="btn-modal-delete-{{ $article->id }}"
                                         class="w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-md transform hover:bg-red-600 hover:scale-110">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
                             </div>
 
+                            <!-- Modal -->
                             <div id="modal-{{ $article->id }}" class="fixed top-0 hidden flex items-center justify-center right-0 w-full h-screen bg-gray-900 bg-opacity-80 z-[99999]">
                                 <div class="bg-white w-[30rem] p-6 rounded-lg opacity-100 flex items-center justify-center flex-col gap-5">
                                     <i class="fa-solid fa-circle-exclamation text-5xl text-red-500"></i>
                                     <p>Are you sure you want to <span class="font-bold">delete</span> this news article?</p>
                                     <div class="flex items-center gap-6">
                                         <button id="cancel-btn-{{ $article->id }}" type="button"
-                                            class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5">Cancel</button>
+                                                class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5">Cancel</button>
 
                                         <!-- Delete Form -->
                                         <form action="{{ route('news.destroy', $article->id) }}" method="POST">
@@ -83,6 +92,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <!-- JavaScript to handle modal visibility -->
                             <script>
                                 const modal{{ $article->id }} = document.getElementById('modal-{{ $article->id }}')
@@ -105,6 +115,7 @@
             </tbody>
         </table>
     </div>
+
 
     @if ($news->total() > 10)
         <div class="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">

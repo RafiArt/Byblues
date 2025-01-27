@@ -19,7 +19,7 @@ Route::fallback(function () {
     return response()->view('errors.404', [], 404);
 });
 Route::get('/', [Controllers\HomeController::class, 'index'])->name('home.index');
-// Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
+
 Route::get('/I/{short_url}', [Controllers\WithpasswordController::class, 'index'])->name('confirm-password.index');
 Route::post('/I/{short_url}', [Controllers\WithpasswordController::class, 'redirect'])->name('confirm-password.redirect');
 
@@ -74,3 +74,6 @@ Route::middleware(['auth', 'role:administrator'])->group(function () {
     Route::get('/user_management', [UserAdminController::class, 'index'])->name('admin.user.index');
     Route::put('/user_management/{user}', [UserAdminController::class, 'update'])->name('admin.user.update');
 });
+
+
+// Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
