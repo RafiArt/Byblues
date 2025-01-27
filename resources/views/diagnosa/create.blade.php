@@ -59,7 +59,8 @@
                                                        name="kondisi[{{ $item->kode }}]"
                                                        value="ya"
                                                        {{ session('diagnosa_temp.kondisi.' . $item->kode) === 'ya' ? 'checked' : '' }}
-                                                       class="form-radio h-4 w-4 text-blue-600 condition-radio">
+                                                       class="form-radio h-4 w-4 text-blue-600 condition-radio"
+                                                       onchange="autoSaveCondition(this)">
                                                 <span class="ml-2 text-sm text-gray-600">Ya</span>
                                             </label>
                                             <label class="inline-flex items-center">
@@ -67,7 +68,8 @@
                                                        name="kondisi[{{ $item->kode }}]"
                                                        value="bisa jadi"
                                                        {{ session('diagnosa_temp.kondisi.' . $item->kode) === 'bisa jadi' ? 'checked' : '' }}
-                                                       class="form-radio h-4 w-4 text-yellow-600 condition-radio">
+                                                       class="form-radio h-4 w-4 text-yellow-600 condition-radio"
+                                                       onchange="autoSaveCondition(this)">
                                                 <span class="ml-2 text-sm text-gray-600">Bisa&nbsp;Jadi</span>
                                             </label>
                                             <label class="inline-flex items-center">
@@ -75,7 +77,8 @@
                                                        name="kondisi[{{ $item->kode }}]"
                                                        value="tidak"
                                                        {{ session('diagnosa_temp.kondisi.' . $item->kode) === 'tidak' ? 'checked' : '' }}
-                                                       class="form-radio h-4 w-4 text-red-600 condition-radio">
+                                                       class="form-radio h-4 w-4 text-red-600 condition-radio"
+                                                       onchange="autoSaveCondition(this)">
                                                 <span class="ml-2 text-sm text-gray-600">Tidak</span>
                                             </label>
                                         </div>
@@ -120,6 +123,24 @@
     </div>
 
     <script>
+        // Function to auto-save condition to session
+        function autoSaveCondition(radio) {
+            const formData = new FormData();
+            formData.append('_token', document.querySelector('input[name="_token"]').value);
+            formData.append('kondisi[' + radio.name.match(/\[(.*?)\]/)[1] + ']', radio.value);
+            formData.append('tanggal', document.querySelector('input[name="tanggal"]').value);
+
+            fetch('{{ route("diagnosa.saveTemp") }}', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            });
+
+            updateButtonState();
+        }
+
         // Function to check if all conditions are filled
         function checkAllConditionsFilled() {
             const radioGroups = document.querySelectorAll('input[type="radio"]');
