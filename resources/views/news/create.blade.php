@@ -41,7 +41,7 @@
                     @enderror
                 </div>
 
-                <div class="flex justify-between gap-4 mb-4 w-1/4">
+                <div class="flex justify-between gap-4 mb-4 w-1/8 lg:w-1/4">
                     <!-- Back Button -->
                     <a href="{{ route('news.index') }}" class="w-full sm:w-1/2 p-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-300 text-center">
                         Kembali

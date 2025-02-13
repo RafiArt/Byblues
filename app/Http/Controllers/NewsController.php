@@ -9,10 +9,18 @@ use Illuminate\Support\Str;
 
 class NewsController extends Controller
 {
-    public function index()
+    public function index(request $request)
     {
-        $news = News::orderBy("created_at","desc")->paginate(10);
-        return view("news.index",compact("news"));
+        $query = News::query()->orderBy('created_at', 'desc');
+
+        // Cek apakah ada parameter 'search' yang dikirim melalui request
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where('title', 'like', '%' . $search . '%');
+        }
+
+        $news = $query->paginate(10);
+        return view('news.index', compact('news'));
     }
 
     public function create()
