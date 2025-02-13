@@ -22,7 +22,7 @@
 
     <main class="w-full flex flex-col min-h-screen pb-10">
         <!-- Hero Section -->
-        <section class="w-full relative z-10 lg:h-screen flex items-center justify-center bg-gradient-to-r from-blue-800 to bg-blue-700 lg:mt-[-80px] px-4 py-20 lg:py-0 overflow-hidden">
+        <section class="w-full relative z-10 lg:h-screen flex items-center justify-center bg-gradient-to-r from-blue-800 to bg-blue-700 lg:mt-[-80px] px-4 py-8 lg:py-0 overflow-hidden">
             <div class="w-full max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-0">
                 <div class="w-full flex justify-center flex-col text-center lg:text-left">
                     <h1 class="text-3xl lg:text-5xl font-bold text-white mb-2 z-40">Welcome to BYBLUES</h1>
