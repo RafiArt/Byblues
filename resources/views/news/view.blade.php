@@ -20,14 +20,14 @@
 
 @include('layouts.navbar')
 
-<div class="container mx-auto py-10 px-4">
-    <nav class="flex mb-6 text-sm text-gray-600">
+<div class="container mx-auto py-10 px-4"> 
+    <div class="flex mb-6 text-sm text-gray-600">
         <a href="/" class="hover:text-blue-500">Home</a>
         <span class="mx-2">/</span>
         <a href="/" class="hover:text-blue-500">Berita</a>
         <span class="mx-2">/</span>
         <span class="font-semibold text-blue-950">{{ $news->title }}</span>
-    </nav>
+    </div>
     <!-- Berita -->
     <div class="bg-white rounded-lg shadow-lg p-6">
         <!-- Title, Author, Created_at -->
