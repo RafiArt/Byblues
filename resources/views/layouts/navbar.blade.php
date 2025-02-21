@@ -37,11 +37,11 @@
         </div>
         <div id="mobile-menu" class="hidden fixed top-[80px] left-0 right-0 bg-[#1e40af] w-full z-50 overflow-visible">
             <div class="px-4 py-3 space-y-4">
-                <a href="/" class="block text-white hover:bg-blue-950 hover:text-white py-2 px-4 rounded {{ $activePage === '/' ? 'bg-white text-[#1e40af]' : '' }}">Home</a>
-                <a href="/about" class="block text-white hover:bg-blue-950 hover:text-white py-2 px-4 rounded {{ $activePage === 'about' ? 'bg-white text-[#1e40af]' : '' }}">About</a>
+                <a href="/" class="block hover:bg-blue-950 py-2 px-4 rounded {{ $activePage === '/' ? 'bg-blue-950 text-white' : 'text-black' }}">Home</a>
+                <a href="/about" class="block hover:bg-blue-950 py-2 px-4 rounded {{ $activePage === 'about' ? 'bg-blue-950 text-black' : 'text-white' }}">About</a>
                 <div class="pt-4 border-t border-gray-200">
-                    <a href="/login" class="block w-full text-center bg-white text-[#1e40af] hover:bg-gray-200 hover:text-[#1e40af]  py-2 rounded-lg mb-2">Login</a>
-                    <a href="/register" class="block w-full text-center border-2 border-white hover:bg-gray-200 hover:text-[#1e40af] text-white  py-2 rounded-lg">Register</a>
+                    <a href="/login" class="block w-full text-center bg-white text-[#1e40af] hover:bg-gray-200 hover:text-[#1e40af] py-2 rounded-lg mb-2">Login</a>
+                    <a href="/register" class="block w-full text-center border-2 border-white hover:bg-gray-200 hover:text-[#1e40af] text-white py-2 rounded-lg">Register</a>
                 </div>
             </div>
         </div>
@@ -49,8 +49,27 @@
 </nav>
 
 <script>
-    document.getElementById('mobile-menu-button').addEventListener('click', function() {
-        const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // Toggle menu when button is clicked
+    mobileMenuButton.addEventListener('click', function(event) {
+        event.stopPropagation(); // Prevent click from bubbling to document
         mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close menu when clicking anywhere else on the document
+    document.addEventListener('click', function(event) {
+        const isClickInsideMenu = mobileMenu.contains(event.target);
+        const isClickOnButton = mobileMenuButton.contains(event.target);
+
+        if (!isClickInsideMenu && !isClickOnButton && !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+        }
+    });
+
+    // Prevent menu from closing when clicking inside it
+    mobileMenu.addEventListener('click', function(event) {
+        event.stopPropagation();
     });
 </script>
