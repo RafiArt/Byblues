@@ -27,7 +27,7 @@
     <div class="w-full overflow-x-auto">
         <table class="w-full bg-white shadow-md rounded-lg overflow-hidden">
             <thead>
-                <tr class="bg-gray-400 text-gray-600 uppercase text-sm leading-normal">
+                <tr class="bg-blue-600 text-white uppercase text-sm leading-normal">
                     <th class="py-3 px-4 text-white text-left">No.</th>
                     <th class="py-3 px-4 text-white text-left">Title</th>
                     <th class="py-3 px-4 text-white text-left">Content</th>
