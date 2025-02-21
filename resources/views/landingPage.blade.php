@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,180 +7,179 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="stylesheet" href="{{asset('fontawesome-free-6.7.1-web/css/all.min.css')}}" />
-
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-
-    <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
-    @include('layouts.navbar')
-    <main class="w-full">
-        <section
-            class="w-full relative z-10 md:h-screen flex items-center justify-center bg-gradient-to-r from-blue-800 to bg-blue-700 md:mt-[-80px] px-4 overflow-hidden">
-            <div class="w-full  max-w-7xl mx-auto grid md:grid-cols-2">
-                <div class="w-full flex justify-center flex-col">
-                    <h1 class="text-5xl font-bold text-white mb-2 z-40">Welcome to SIER Short Link</h1>
-                    <p class="text-white  text-3xl mb-6">The Smart Way to Simplify <span class="underline">Your
-                            Digital
-                            Connections!</span>
-                    </p>
-                    <div class="flex gap-8 mb-12">
-                        <div class="space-y-2 ">
+
+
+    <!-- Desktop Navigation -->
+    <div class="lg:block">
+        @include('layouts.navbar')
+    </div>
+
+    <main class="w-full flex flex-col min-h-screen pb-10">
+        <!-- Hero Section -->
+        <section class="w-full relative z-10 lg:h-screen flex items-center justify-center bg-gradient-to-r from-blue-800 to bg-blue-700 lg:mt-[-80px] px-4 py-8 lg:py-0 overflow-hidden">
+            <div class="w-full max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-0">
+                <div class="w-full flex justify-center flex-col text-center lg:text-left">
+                    <h1 class="text-3xl lg:text-5xl font-bold text-white mb-2 z-40">Welcome to BYBLUES</h1>
+                    <p class="text-white text-xl lg:text-3xl mb-6">A Smart Solution to <span class="underline">Quickly and Effectively Detecting Baby Blues!</span></p>
+                    <div class="flex flex-col gap-8 mb-12 lg:ml-0 ml-6 ">
+                        <div class="space-y-2">
                             <div class="flex items-center gap-3">
                                 <i class="fa-solid fa-check text-green-500 text-lg"></i>
-                                <p class="text-white">Generate short link</p>
+                                <p class="text-white">Diagnosis Babyblues</p>
                             </div>
                             <div class="flex items-center gap-3">
                                 <i class="fa-solid fa-check text-green-500 text-lg"></i>
-                                <p class="text-white">Custom Short URLs</p>
+                                <p class="text-white">Konsultasi Babyblues</p>
                             </div>
                             <div class="flex items-center gap-3">
                                 <i class="fa-solid fa-check text-green-500 text-lg"></i>
-                                <p class="text-white">Generate QR Code</p>
+                                <p class="text-white">Rekomendasi Penanganan Babyblues</p>
                             </div>
                         </div>
-                        <div class="space-y-2 mb-6">
-
-                            <div class="flex items-center gap-3">
-                                <i class="fa-solid fa-check text-green-500 text-lg"></i>
-                                <p class="text-white">Expiration Date for Links</p>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <i class="fa-solid fa-check text-green-500 text-lg"></i>
-                                <p class="text-white">Analytics Dashboard</p>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="/"
-                        class="bg-orange-500 text-white text-lg py-3 px-9 rounded-lg hover:bg-orange-400  transition w-fit font-bold">
-                        Short Your Link
-                    </a>
-                </div>
-                <div class="flex items-center justify-end">
-                    <img src="{{ asset('image_landingpage.png') }}" class="w-[550px] z-40" alt="image landingpage">
-                </div>
-            </div>
-            <i class="fa-solid fa-certificate text-blue-300 opacity-20 text-9xl absolute top-[6rem] left-16"></i>
-            <div
-                class="w-[40rem] h-[40rem] bg-gradient-to-tr from-blue-100/5 to-blue-500 rounded-full absolute -bottom-[8rem] -right-[8rem] opacity-20">
-            </div>
-        </section>
-        <section class="w-full  bg-gray-100 py-20 px-4">
-            <div class="w-full max-w-4xl mx-auto text-center mb-10 md:mb-20">
-                <h1 class="text-4xl font-bold text-center">Learn about the features that help your digital
-                    connection!</h1>
-            </div>
-            <div class="w-full max-w-4xl mx-auto flex flex-col gap-4 md:gap-10">
-                <div class="w-full  grid md:grid-cols-2  bg-white p-10 rounded-lg shadow-lg">
-                    <div class="space-y-4">
-                        <h1 class="text-3xl font-bold">01. Generate Short Link</h1>
-                        <p>Create short, shareable links in seconds. Enhance your long URLs with one click, and share
-                            them anywhere to increase engagement. Personalize links as needed and ensure your links
-                            always look professional.</p>
-                    </div>
-                    <div class="flex justify-end">
-                        <img src="{{ asset('shortlink_ilsutration.svg') }}" alt="" class="w-[18rem]">
-                    </div>
-                </div>
-                <div class="w-full  grid md:grid-cols-2  bg-white p-10 rounded-lg shadow-lg">
-                    <div class="flex justify-start">
-                        <img src="{{ asset('qrcodegenerate_ilustration.svg') }}" alt="" class="w-[18rem]">
-                    </div>
-                    <div class="space-y-4">
-                        <h1 class="text-3xl font-bold">02. Generate QR Code</h1>
-                        <p>Create instant QR codes from your links for easy access and sharing. Just enter a URL, and
-                            we'll generate a QR code ready to use in print, presentations, or events. Fast and practical
-                            access, anytime and anywhere.</p>
-                    </div>
-
-                </div>
-                <div class="w-full  grid md:grid-cols-2  bg-white p-10 rounded-lg shadow-lg">
-                    <div class="space-y-4">
-                        <h1 class="text-3xl font-bold">03. Analytics Dashboard</h1>
-                        <p>Monitor the performance of each link with our Analytics Dashboard. Get real-time insights
-                            into the number of clicks, user location, devices used, and access times. Improve your
-                            strategy with in-depth, easy-to-understand data.</p>
-                    </div>
-                    <div class="flex justify-end">
-                        <img src="{{ asset('dashboardanalytics_ilustration.svg') }}" alt="" class="w-[20rem]">
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="w-full bg-white py-20">
-            <div class="w-full max-w-5xl mx-auto flex flex-col items-center">
-                <h1 class="text-center text-4xl font-bold mb-20">How It Works?</h1>
-                <div class="grid grid-cols-3 items-center">
-                    <div class="w-[]">
-                        <img src="{{ asset('Tablet login-amico.svg') }}" alt="" class="w-[20rem]">
-                    </div>
-                    <div class="flex items-center justify-center">
-                        <h1 class="text-8xl font-[800] text-yellow-500">01.</h1>
                     </div>
                     <div>
-                        <h1 class="text-3xl font-extrabold mb-4">Login</h1>
-                        <p class="text-lg">Login to your account using your email and password.</p>
+                        <a href="/register" class="bg-orange-500 text-white text-lg py-3 px-9 rounded-lg hover:bg-orange-400 transition w-fit font-bold">
+                            Get Start
+                        </a>
                     </div>
                 </div>
-                <div class="flex items-center justify-center flex-col gap-9 mb-10">
+                <div class="flex items-center justify-center lg:justify-end">
+                    <img src="{{ asset('tp.png') }}" class="w-[300px] lg:w-[550px] z-40" alt="image landingpage">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="w-full bg-gray-100 py-20 px-4" id="features">
+            <div class="w-full max-w-4xl mx-auto text-center mb-10 lg:mb-20">
+                <h1 class="text-2xl lg:text-4xl font-bold">Learn about the features that help your diagnosis!</h1>
+            </div>
+            <div class="w-full max-w-4xl mx-auto flex flex-col gap-4 lg:gap-10">
+                <!-- Card 1 -->
+                <div class="w-full grid lg:grid-cols-2 bg-white p-6 lg:p-10 rounded-lg shadow-lg min-h-[300px]">
+                    <div class="space-y-4 flex flex-col justify-center">
+                        <h1 class="text-xl lg:text-3xl font-bold">01. Diagnosis Babyblues</h1>
+                        <p class="text-gray-600">Baby blues diagnosis involves evaluating symptoms like anxiety, irritability, or fatigue after childbirth. It typically lasts a few days to two weeks and is considered normal, but still requires medical attention.</p>
+                    </div>
+                    <div class="flex items-center justify-center lg:justify-end h-[250px]">
+                        <img src="{{ asset('1.svg') }}" alt="" class="h-full w-auto object-contain">
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="w-full grid lg:grid-cols-2 bg-white p-6 lg:p-10 rounded-lg shadow-lg min-h-[300px]">
+                    <div class="flex items-center justify-center lg:justify-start order-2 lg:order-1 h-[250px]">
+                        <img src="{{ asset('3.svg') }}" alt="" class="h-full w-auto object-contain">
+                    </div>
+                    <div class="space-y-4 flex flex-col justify-center order-1 lg:order-2">
+                        <h1 class="text-xl lg:text-3xl font-bold">02. Konsultasi Babyblues</h1>
+                        <p class="text-gray-600">A baby blues consultation involves discussing with healthcare professionals such as psychologists. It is essential to receive emotional support, assess the mother's condition, and determine if further treatment is needed.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="w-full grid lg:grid-cols-2 bg-white p-6 lg:p-10 rounded-lg shadow-lg min-h-[300px]">
+                    <div class="space-y-4 flex flex-col justify-center">
+                        <h1 class="text-xl lg:text-3xl font-bold whitespace-nowrap">03. Rekomendasi Penanganan</h1>
+                        <p class="text-gray-600">Managing baby blues includes getting enough rest, having social support from family, and engaging in relaxation activities. If symptoms persist or worsen, therapy or medication from a professional may be necessary to prevent a more serious condition like postpartum depression.</p>
+                    </div>
+                    <div class="flex items-center justify-center lg:justify-end h-[250px]">
+                        <img src="{{ asset('2.svg') }}" alt="" class="h-full w-auto object-contain">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="w-full bg-white py-20" id="how-it-works">
+            <div class="w-full max-w-5xl mx-auto flex flex-col items-center px-4">
+                <h1 class="text-center text-3xl lg:text-4xl font-bold mb-20">How It Works?</h1>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-0 items-center">
+                    <div class="flex justify-center">
+                        <img src="{{ asset('Tablet login-amico.svg') }}" alt="" class="w-[200px] lg:w-[20rem]">
+                    </div>
+                    <div class="hidden lg:flex items-center justify-center">
+                        <h1 class="text-6xl lg:text-8xl font-[800] text-yellow-500">01.</h1>
+                    </div>
+                    <div class="text-center lg:text-left">
+                        <h1 class="text-2xl lg:text-3xl font-extrabold mb-4">Login</h1>
+                        <p class="text-base lg:text-lg">Login to your account using your email and password.</p>
+                    </div>
+                </div>
+                <div class="hidden lg:flex items-center justify-center flex-col gap-9 mb-10">
                     <div class="w-3 h-3 rounded-full bg-gray-300"></div>
                     <div class="w-4 h-4 rounded-full bg-gray-300"></div>
                     <div class="w-3 h-3 rounded-full bg-gray-300"></div>
                 </div>
-                <div class="grid grid-cols-3 items-center">
-                    <div>
-                        <h1 class="text-3xl font-extrabold mb-4">Create New Short Link</h1>
-                        <p class="text-lg">You enter the link of your 'long' product or article to shorten it, then
-                            customize it to make it simple and easy to remember. Then, you can easily and quickly share
-                            your shortened link.</p>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-0 items-center">
+                    {{-- Image Section - First on mobile, Last on desktop --}}
+                    <div class="flex justify-center lg:order-3 order-1">
+                        <img src="{{ asset('stress.svg') }}" alt="" class="w-[200px] lg:w-[20rem]">
                     </div>
 
-                    <div class="flex items-center justify-center">
-                        <h1 class="text-8xl font-[800] text-yellow-500">02.</h1>
+                    {{-- Number Section - Second on both --}}
+                    <div class="hidden lg:flex items-center justify-center order-2">
+                        <h1 class="text-6xl lg:text-8xl font-[800] text-yellow-500">02.</h1>
                     </div>
-                    <div class="w-[]">
-                        <img src="{{ asset('yourshortlink_ilustrator.svg') }}" alt="" class="w-[30rem]">
+
+                    {{-- Text Section - Last on mobile, First on desktop --}}
+                    <div class="text-center lg:text-left lg:order-1 order-3">
+                        <h1 class="text-2xl lg:text-3xl font-extrabold mb-4">Diagnosa</h1>
+                        <p class="text-base lg:text-lg">The Diagnosis Feature helps users assess their emotional well-being after childbirth by asking a series of questions. Users respond with YA, BISA JADI, or TIDAK based on their experiences, and the system evaluates the potential presence and severity of baby blues.</p>
                     </div>
                 </div>
-                <div class="flex items-center justify-center flex-col gap-9 mt-10">
+                <div class="hidden lg:flex items-center justify-center flex-col gap-9 mb-10">
                     <div class="w-3 h-3 rounded-full bg-gray-300"></div>
                     <div class="w-4 h-4 rounded-full bg-gray-300"></div>
                     <div class="w-3 h-3 rounded-full bg-gray-300"></div>
                 </div>
-                <div class="grid grid-cols-3 items-center">
-                    <div class="w-[]">
-                        <img src="{{ asset('QR Code-amico.svg') }}" alt="" class="w-[20rem]">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-0 items-center">
+                    <div class="flex justify-center">
+                        <img src="{{ asset('doctor.svg') }}" alt="" class="w-[200px] lg:w-[20rem]">
                     </div>
-                    <div class="flex items-center justify-center">
-                        <h1 class="text-8xl font-[800] text-yellow-500">03.</h1>
+                    <div class="hidden lg:flex items-center justify-center">
+                        <h1 class="text-6xl lg:text-8xl font-[800] text-yellow-500">03.</h1>
                     </div>
-                    <div>
-                        <h1 class="text-3xl font-extrabold mb-4">Share a short link or download a QR code.</h1>
-                        <p class="text-lg">Easily share short links or download QR codes for faster access. A practical
-                            option for sharing information across digital platforms or print media.</p>
+                    <div class="text-center lg:text-left">
+                        <h1 class="text-2xl lg:text-3xl font-extrabold mb-4">Report Analyst</h1>
+                        <p class="text-base lg:text-lg">The results are then processed using the Certainty Factor (CF) method in the Report Analysis feature. This method categorizes the user's condition into four levels: Tidak Berisiko, Risiko Rendah, Risiko Sedang, and Risiko Berat. If the analysis indicates Severe Risk, a contact person wwill be provided, guiding the user to a psychologist for further consultation and support.</p>
                     </div>
                 </div>
+                <!-- Similar responsive adjustments for other steps -->
             </div>
         </section>
-        <section class="w-full h-screen py-20">
-            <div class="w-full max-w-2xl mx-auto">
-                <h1 class="mb-20 text-4xl font-bold text-center">What do our users say about SIER Short Link?</h1>
-                <div>
-                    <div class="border flex justify-center">
-                        <div class="w-40 h-40 overflow-hidden object-center rounded-full">
-                            <img src="{{ asset('person/person1.png') }}" alt="">
+
+        <!-- News Section -->
+        <section class="w-full py-20 mb-10 px-4" id="berita">
+            <div class="w-full max-w-6xl mx-auto">
+                <h1 class="mb-20 text-3xl lg:text-4xl font-bold text-center">Berita Terkini</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10">
+                    @foreach ($news as $article)
+                        <div class="bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden flex flex-col">
+                            @if($article->image_url)
+                                <img src="{{ $article->image_url }}" alt="{{ $article->title }}" class="w-full h-48 object-cover">
+                            @else
+                                <img src="/images/no-image.jpg" alt="No Image" class="w-full h-48 object-cover">
+                            @endif
+                            <div class="p-5 flex-1">
+                                <h2 class="text-xl font-semibold mb-4">{{ $article->title }}</h2>
+                                <p class="text-gray-700 mb-1">{{ Str::limit($article->content, 20) }}</p>
+                                <a href="{{ route('news.show', $article->id) }}" class="text-blue-600 hover:underline">Read More</a>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>
     </main>
-    @include('layouts.footer')
-</body>
 
+    @include('layouts.footer')
+
+</body>
 </html>
