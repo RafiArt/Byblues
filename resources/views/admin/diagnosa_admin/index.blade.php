@@ -20,7 +20,7 @@
             <div class="w-1/3">
                 <select name="peran" class="w-full px-4 py-2 text-sm border border-blue-500 rounded-md">
                     <option value="">Select Peran</option>
-                    <option value="Orang tua" {{ request('peran') == 'Orang tua' ? 'selected' : '' }}>Orang tua</option>
+                    <option value="Orang Terdekat" {{ request('peran') == 'Orang Terdekat' ? 'selected' : '' }}>Orang Terdekat</option>
                     <option value="Suami" {{ request('peran') == 'Suami' ? 'selected' : '' }}>Suami</option>
                     <option value="Ibu" {{ request('peran') == 'Ibu' ? 'selected' : '' }}>Ibu</option>
                 </select>
@@ -56,7 +56,7 @@
     <div class="w-full overflow-x-auto">
         <table class="w-full bg-white shadow-md rounded-lg overflow-hidden">
             <thead>
-                <tr class="bg-gray-400 text-gray-600 uppercase text-sm leading-normal">
+                <tr class="bg-blue-600 text-white uppercase text-sm leading-normal">
                     <th class="py-3 px-4 text-white text-left">No.</th>
                     <th class="py-3 px-4 text-white text-left">Nama</th>
                     <th class="py-3 px-4 text-white text-left">Peran</th>

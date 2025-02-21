@@ -65,7 +65,7 @@
                                     required>
                                 <option value="Ibu" {{ old('peran') == 'Ibu' ? 'selected' : '' }}>Ibu</option>
                                 <option value="Suami" {{ old('peran') == 'Suami' ? 'selected' : '' }}>Suami</option>
-                                <option value="Orang Tua" {{ old('peran') == 'Orang Tua' ? 'selected' : '' }}>Orang Tua</option>
+                                <option value="Orang Terdekat" {{ old('peran') == 'Orang Terdekat' ? 'selected' : '' }}>Orang Terdekat</option>
                             </select>
                             <x-input-error :messages="$errors->get('peran')" class="mt-2 text-blue-500 text-sm" />
                         </div>

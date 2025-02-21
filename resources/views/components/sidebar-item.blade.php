@@ -1,12 +1,25 @@
+@props(['href', 'name'])
 <li>
-    <a {{ $attributes }} class="hover:cursor-pointer">
-        <div
-            class="{{ ($href === '/' ? request()->path() === '/' : str_starts_with(request()->url(), url($href))) ? 'text-blue-500 bg-blue-100' : 'hover:bg-gray-200' }} flex items-center gap-2 p-1 px-4 rounded-lg font-semibold transition">
+    <a href="{{ $href }}" {{ $attributes->except('href') }} class="hover:cursor-pointer">
+        @php
+            $isActive = false;
+            $currentRoute = request()->route()->getName();
+            $currentPath = request()->path();
+
+            // Handle dashboard special case
+            if ($name === 'Dashboard') {
+                $isActive = $currentRoute === 'dashboard' || $currentPath === 'dashboard';
+            } else {
+                // Check if the current path starts with the base path (e.g., /news)
+                $isActive = Str::startsWith($currentPath, trim($href, '/'));
+            }
+        @endphp
+
+        <div class="{{ $isActive ? 'text-blue-500 bg-blue-100' : 'hover:bg-gray-200' }} flex items-center gap-2 p-1 px-4 rounded-lg font-semibold transition">
             <div class="w-6 overflow-hidden flex items-center justify-center">
                 {{ $slot }}
             </div>
-            <p
-                class="{{ ($href === '/' ? request()->path() === '/' : str_starts_with(request()->url(), url($href))) ? 'text-blue-500 font-extrabold' : '' }} sidebar-title transition-all">
+            <p class="{{ $isActive ? 'text-blue-500 font-extrabold' : '' }} sidebar-title transition-all">
                 {{ $name }}
             </p>
         </div>

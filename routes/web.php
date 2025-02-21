@@ -10,6 +10,7 @@ use App\Http\Controllers\AnalyticController;
 use App\Http\Controllers\DiagnosaController;
 use App\Http\Controllers\GejalaController;
 use App\Http\Controllers\LinkController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QrcodeController;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::fallback(function () {
     return response()->view('errors.404', [], 404);
 });
+Route::get('/', [Controllers\HomeController::class, 'index'])->name('home.index');
+
 Route::get('/I/{short_url}', [Controllers\WithpasswordController::class, 'index'])->name('confirm-password.index');
 Route::post('/I/{short_url}', [Controllers\WithpasswordController::class, 'redirect'])->name('confirm-password.redirect');
 
@@ -28,7 +31,7 @@ require __DIR__ . '/auth.php';
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', [Controllers\DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [Controllers\DashboardController::class, 'index'])->name('dashboard');
 
     // Rute Profile
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -58,8 +61,19 @@ Route::middleware(['auth', 'role:administrator'])->group(function () {
     // Rute Diagnosa Admin
     Route::resource('/diagnosa_admin', DiagnosaAdminController::class);
 
+    //Rute News
+    Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+    Route::get('/news/create', [NewsController::class, 'create'])->name('news.create');
+    Route::post('/news', [NewsController::class, 'store'])->name('news.store');
+    Route::get('/news/{id}/edit', [NewsController::class, 'edit'])->name('news.edit');
+    Route::put('/news/{id}', [NewsController::class, 'update'])->name('news.update');
+    Route::delete('/news/{id}', [NewsController::class, 'destroy'])->name('news.destroy');
+
 
     // Rute Admin
     Route::get('/user_management', [UserAdminController::class, 'index'])->name('admin.user.index');
     Route::put('/user_management/{user}', [UserAdminController::class, 'update'])->name('admin.user.update');
 });
+
+
+Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
