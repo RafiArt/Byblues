@@ -26,7 +26,7 @@
         <p class="text-gray-500 mb-4"> <!-- Increased bottom margin -->
             Sorry but the page you are looking for does not exist!
         </p>
-        <a href="{{ url('/') }}" class="mt-6 px-6 py-2 bg-orange-500 text-white rounded-full"> <!-- Increased top margin -->
+        <a href="{{ url()->previous() }}" class="mt-6 px-6 py-2 bg-orange-500 text-white rounded-full"> <!-- Increased top margin -->
             Back to homepage
         </a>
     </div>

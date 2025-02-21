@@ -66,7 +66,7 @@ class GejalaController extends Controller
     private function getPeran($kode)
     {
         if (str_starts_with($kode, 'OT')) {
-            return 'Orang tua';
+            return 'Orang Terdekat';
         } elseif (str_starts_with($kode, 'SU')) {
             return 'Suami';
         } elseif (str_starts_with($kode, 'IB')) {
@@ -79,7 +79,7 @@ class GejalaController extends Controller
     private function getPeranPrefix($peran)
     {
         switch ($peran) {
-            case 'Orang tua':
+            case 'Orang Terdekat':
                 return 'OT';
             case 'Suami':
                 return 'SU';

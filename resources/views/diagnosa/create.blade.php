@@ -16,9 +16,9 @@
         </div>
 
         @if($nextKategori)
-            <form action="{{ route('diagnosa.saveTemp') }}" method="POST">
+            <form action="{{ route('diagnosa.saveTemp') }}" method="POST" id="diagnosisForm">
         @else
-            <form action="{{ route('diagnosa.store') }}" method="POST">
+            <form action="{{ route('diagnosa.store') }}" method="POST" id="diagnosisForm">
         @endif
             @csrf
             <!-- Input Tanggal - Only show on first category -->
@@ -53,13 +53,35 @@
                                     <td class="px-4 py-2 text-sm text-gray-600">{{ $no++ }}</td>
                                     <td class="px-4 py-2 text-sm text-gray-600">{{ $item->keterangan }}</td>
                                     <td class="px-4 py-2">
-                                        <select name="kondisi[{{ $item->kode }}]"
-                                            class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50">
-                                            <option value="">Pilih</option>
-                                            <option value="ya" {{ session('diagnosa_temp.kondisi.' . $item->kode) === 'ya' ? 'selected' : '' }}>Ya</option>
-                                            <option value="bisa jadi" {{ session('diagnosa_temp.kondisi.' . $item->kode) === 'bisa jadi' ? 'selected' : '' }}>Bisa Jadi</option>
-                                            <option value="tidak" {{ session('diagnosa_temp.kondisi.' . $item->kode) === 'tidak' ? 'selected' : '' }}>Tidak</option>
-                                        </select>
+                                        <div class="flex items-center justify-center gap-4">
+                                            <label class="inline-flex items-center">
+                                                <input type="radio"
+                                                       name="kondisi[{{ $item->kode }}]"
+                                                       value="ya"
+                                                       {{ session('diagnosa_temp.kondisi.' . $item->kode) === 'ya' ? 'checked' : '' }}
+                                                       class="form-radio h-4 w-4 text-blue-600 condition-radio"
+                                                       onchange="autoSaveCondition(this)">
+                                                <span class="ml-2 text-sm text-gray-600">Ya</span>
+                                            </label>
+                                            <label class="inline-flex items-center">
+                                                <input type="radio"
+                                                       name="kondisi[{{ $item->kode }}]"
+                                                       value="bisa jadi"
+                                                       {{ session('diagnosa_temp.kondisi.' . $item->kode) === 'bisa jadi' ? 'checked' : '' }}
+                                                       class="form-radio h-4 w-4 text-yellow-600 condition-radio"
+                                                       onchange="autoSaveCondition(this)">
+                                                <span class="ml-2 text-sm text-gray-600">Bisa&nbsp;Jadi</span>
+                                            </label>
+                                            <label class="inline-flex items-center">
+                                                <input type="radio"
+                                                       name="kondisi[{{ $item->kode }}]"
+                                                       value="tidak"
+                                                       {{ session('diagnosa_temp.kondisi.' . $item->kode) === 'tidak' ? 'checked' : '' }}
+                                                       class="form-radio h-4 w-4 text-red-600 condition-radio"
+                                                       onchange="autoSaveCondition(this)">
+                                                <span class="ml-2 text-sm text-gray-600">Tidak</span>
+                                            </label>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
@@ -71,12 +93,11 @@
             <!-- Navigation Buttons -->
             <div class="flex justify-between mt-6">
                 <a href="{{route('diagnosa.index')}}"
-                        class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors">
-                        Back
-                    </a>
+                    class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors">
+                    Back
+                </a>
 
                 <div class="flex gap-4">
-
                     @if($previousKategori)
                         <a href="{{ route('diagnosa.create', ['kategori' => $previousKategori]) }}"
                             class="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 transition-colors">
@@ -86,13 +107,13 @@
                         <div></div>
                     @endif
                     @if($nextKategori)
-                        <button type="submit" name="next_kategori" value="{{ $nextKategori }}"
-                            class="bg-teal-500 text-white px-4 py-2 rounded-md hover:bg-teal-600 transition-colors">
+                        <button type="submit" name="next_kategori" value="{{ $nextKategori }}" id="nextButton"
+                            class="bg-gray-300 text-white px-4 py-2 rounded-md cursor-not-allowed" disabled>
                             Next →
                         </button>
                     @else
-                        <button type="submit"
-                            class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition-colors">
+                        <button type="submit" id="submitButton"
+                            class="bg-gray-300 text-white px-4 py-2 rounded-md cursor-not-allowed" disabled>
                             Submit
                         </button>
                     @endif
@@ -100,4 +121,65 @@
             </div>
         </form>
     </div>
+
+    <script>
+        // Function to auto-save condition to session
+        function autoSaveCondition(radio) {
+            const formData = new FormData();
+            formData.append('_token', document.querySelector('input[name="_token"]').value);
+            formData.append('kondisi[' + radio.name.match(/\[(.*?)\]/)[1] + ']', radio.value);
+            formData.append('tanggal', document.querySelector('input[name="tanggal"]').value);
+
+            fetch('{{ route("diagnosa.saveTemp") }}', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            });
+
+            updateButtonState();
+        }
+
+        // Function to check if all conditions are filled
+        function checkAllConditionsFilled() {
+            const radioGroups = document.querySelectorAll('input[type="radio"]');
+            const groupNames = new Set();
+            radioGroups.forEach(radio => groupNames.add(radio.name));
+
+            let allChecked = true;
+            groupNames.forEach(name => {
+                const checked = document.querySelector(`input[name="${name}"]:checked`);
+                if (!checked) {
+                    allChecked = false;
+                }
+            });
+
+            return allChecked;
+        }
+
+        // Function to update button state
+        function updateButtonState() {
+            const nextButton = document.getElementById('nextButton') || document.getElementById('submitButton');
+            const isAllFilled = checkAllConditionsFilled();
+
+            if (isAllFilled) {
+                nextButton.disabled = false;
+                nextButton.classList.remove('bg-gray-300', 'cursor-not-allowed');
+                nextButton.classList.add('bg-teal-500', 'hover:bg-teal-600');
+            } else {
+                nextButton.disabled = true;
+                nextButton.classList.remove('bg-teal-500', 'hover:bg-teal-600');
+                nextButton.classList.add('bg-gray-300', 'cursor-not-allowed');
+            }
+        }
+
+        // Add event listeners to all radio buttons
+        document.querySelectorAll('.condition-radio').forEach(radio => {
+            radio.addEventListener('change', updateButtonState);
+        });
+
+        // Initial check on page load
+        updateButtonState();
+    </script>
 </x-dashboard-layout>
