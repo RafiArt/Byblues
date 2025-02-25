@@ -26,7 +26,7 @@
                     <h2 class="text-lg font-semibold mb-5">Menus</h2>
                     <div class="w-full flex flex-col gap-4">
                         <a href="#" class="hover:underline w-fit text-sm">Home</a>
-                        <a href="/abot" class="hover:underline w-fit text-sm">About</a>
+                        <a href="/about" class="hover:underline w-fit text-sm">About</a>
                         <a href="/login" class="hover:underline w-fit text-sm">Login</a>
                         <a href="/register" class="hover:underline w-fit text-sm">Register</a>
                     </div>
@@ -34,14 +34,14 @@
                 <div>
                     <h2 class="text-lg font-semibold mb-5">Services</h2>
                     <div class="w-full flex flex-col gap-4">
-                        <a href="#" class="hover:underline w-fit text-sm">Diagnosis Babyblues</a>
-                        <a href="#" class="hover:underline w-fit text-sm">Konsultasi Babyblues</a>
+                        <a href="/login" class="hover:underline w-fit text-sm">Diagnosis Babyblues</a>
+                        <a href="/login" class="hover:underline w-fit text-sm">Konsultasi Babyblues</a>
                     </div>
                 </div>
                 <div>
                     <h2 class="text-lg font-semibold mb-5">Help</h2>
                     <div class="w-full flex flex-col gap-4">
-                        <a href="#" class="hover:underline w-fit text-sm">Contact Us</a>
+                        <a href="/about" class="hover:underline w-fit text-sm">Contact Us</a>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@
 
         {{-- Copyright --}}
         <div class="w-full">
-            <p class="text-center text-gray-800 text-sm">Copyright © 2025 Byblues.</p>
+            <p class="text-center text-gray-800 text-sm">Copyright Rafech.dev © 2025 Byblues.</p>
         </div>
     </div>
 </footer>

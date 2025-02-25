@@ -26,7 +26,7 @@
             <div class="w-full max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-0">
                 <div class="w-full flex justify-center flex-col text-center lg:text-left">
                     <h1 class="text-3xl lg:text-5xl font-bold text-white mb-2 z-40">Welcome to BYBLUES</h1>
-                    <p class="text-white text-xl lg:text-3xl mb-6">A Smart Solution to <span class="underline">Quickly and Effectively Detecting Baby Blues!</span></p>
+                    <p class="text-white text-xl lg:text-3xl mb-6">Solusi Cerdas untuk <span class="underline">Mendeteksi Baby Blues dengan Cepat dan Efektif!</span></p>
                     <div class="flex flex-col gap-8 mb-12 lg:ml-0 ml-6 ">
                         <div class="space-y-2">
                             <div class="flex items-center gap-3">
@@ -45,7 +45,7 @@
                     </div>
                     <div>
                         <a href="/register" class="bg-orange-500 text-white text-lg py-3 px-9 rounded-lg hover:bg-orange-400 transition w-fit font-bold">
-                            Get Start
+                            Mulai
                         </a>
                     </div>
                 </div>
@@ -58,14 +58,14 @@
         <!-- Features Section -->
         <section class="w-full bg-gray-100 py-20 px-4" id="features">
             <div class="w-full max-w-4xl mx-auto text-center mb-10 lg:mb-20">
-                <h1 class="text-2xl lg:text-4xl font-bold">Learn about the features that help your diagnosis!</h1>
+                <h1 class="text-2xl lg:text-4xl font-bold">Pelajari tentang fitur yang membantu diagnosis Anda!</h1>
             </div>
             <div class="w-full max-w-4xl mx-auto flex flex-col gap-4 lg:gap-10">
                 <!-- Card 1 -->
                 <div class="w-full grid lg:grid-cols-2 bg-white p-6 lg:p-10 rounded-lg shadow-lg min-h-[300px]">
                     <div class="space-y-4 flex flex-col justify-center">
                         <h1 class="text-xl lg:text-3xl font-bold">01. Diagnosis Babyblues</h1>
-                        <p class="text-gray-600">Baby blues diagnosis involves evaluating symptoms like anxiety, irritability, or fatigue after childbirth. It typically lasts a few days to two weeks and is considered normal, but still requires medical attention.</p>
+                        <p class="text-gray-600">Diagnosis baby blues melibatkan evaluasi gejala seperti kecemasan, mudah tersinggung, atau kelelahan setelah melahirkan. Biasanya berlangsung beberapa hari hingga dua minggu dan dianggap normal, namun tetap memerlukan perhatian medis.</p>
                     </div>
                     <div class="flex items-center justify-center lg:justify-end h-[250px]">
                         <img src="{{ asset('1.svg') }}" alt="" class="h-full w-auto object-contain">
@@ -79,7 +79,7 @@
                     </div>
                     <div class="space-y-4 flex flex-col justify-center order-1 lg:order-2">
                         <h1 class="text-xl lg:text-3xl font-bold">02. Konsultasi Babyblues</h1>
-                        <p class="text-gray-600">A baby blues consultation involves discussing with healthcare professionals such as psychologists. It is essential to receive emotional support, assess the mother's condition, and determine if further treatment is needed.</p>
+                        <p class="text-gray-600">Konsultasi baby blues melibatkan diskusi dengan profesional kesehatan seperti psikolog. Penting untuk menerima dukungan emosional, menilai kondisi ibu, dan menentukan apakah perawatan lebih lanjut diperlukan.</p>
                     </div>
                 </div>
 
@@ -87,7 +87,7 @@
                 <div class="w-full grid lg:grid-cols-2 bg-white p-6 lg:p-10 rounded-lg shadow-lg min-h-[300px]">
                     <div class="space-y-4 flex flex-col justify-center">
                         <h1 class="text-xl lg:text-3xl font-bold whitespace-nowrap">03. Rekomendasi Penanganan</h1>
-                        <p class="text-gray-600">Managing baby blues includes getting enough rest, having social support from family, and engaging in relaxation activities. If symptoms persist or worsen, therapy or medication from a professional may be necessary to prevent a more serious condition like postpartum depression.</p>
+                        <p class="text-gray-600">Mengelola baby blues antara lain dengan istirahat yang cukup, mendapat dukungan sosial dari keluarga, dan melakukan aktivitas relaksasi. Jika gejalanya menetap atau memburuk, terapi atau pengobatan dari profesional mungkin diperlukan untuk mencegah kondisi yang lebih serius seperti depresi pascapersalinan.</p>
                     </div>
                     <div class="flex items-center justify-center lg:justify-end h-[250px]">
                         <img src="{{ asset('2.svg') }}" alt="" class="h-full w-auto object-contain">
@@ -99,7 +99,7 @@
         <!-- How It Works Section -->
         <section class="w-full bg-white py-20" id="how-it-works">
             <div class="w-full max-w-5xl mx-auto flex flex-col items-center px-4">
-                <h1 class="text-center text-3xl lg:text-4xl font-bold mb-20">How It Works?</h1>
+                <h1 class="text-center text-3xl lg:text-4xl font-bold mb-20">Bagaimana Cara Kerjanya?</h1>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-0 items-center">
                     <div class="flex justify-center">
                         <img src="{{ asset('Tablet login-amico.svg') }}" alt="" class="w-[200px] lg:w-[20rem]">
@@ -109,7 +109,7 @@
                     </div>
                     <div class="text-center lg:text-left">
                         <h1 class="text-2xl lg:text-3xl font-extrabold mb-4">Login</h1>
-                        <p class="text-base lg:text-lg">Login to your account using your email and password.</p>
+                        <p class="text-base lg:text-lg">Masuk ke akun Anda menggunakan email dan kata sandi Anda.</p>
                     </div>
                 </div>
                 <div class="hidden lg:flex items-center justify-center flex-col gap-9 mb-10">
@@ -131,7 +131,7 @@
                     {{-- Text Section - Last on mobile, First on desktop --}}
                     <div class="text-center lg:text-left lg:order-1 order-3">
                         <h1 class="text-2xl lg:text-3xl font-extrabold mb-4">Diagnosa</h1>
-                        <p class="text-base lg:text-lg">The Diagnosis Feature helps users assess their emotional well-being after childbirth by asking a series of questions. Users respond with YA, BISA JADI, or TIDAK based on their experiences, and the system evaluates the potential presence and severity of baby blues.</p>
+                        <p class="text-base lg:text-lg">Fitur Diagnosis membantu pengguna menilai kesejahteraan emosional mereka setelah melahirkan dengan mengajukan serangkaian pertanyaan. Pengguna merespons dengan YA, BISA JADI, atau TIDAK berdasarkan pengalaman mereka, dan sistem mengevaluasi potensi kehadiran dan tingkat keparahan baby blues.</p>
                     </div>
                 </div>
                 <div class="hidden lg:flex items-center justify-center flex-col gap-9 mb-10">
@@ -147,8 +147,8 @@
                         <h1 class="text-6xl lg:text-8xl font-[800] text-yellow-500">03.</h1>
                     </div>
                     <div class="text-center lg:text-left">
-                        <h1 class="text-2xl lg:text-3xl font-extrabold mb-4">Report Analyst</h1>
-                        <p class="text-base lg:text-lg">The results are then processed using the Certainty Factor (CF) method in the Report Analysis feature. This method categorizes the user's condition into four levels: Tidak Berisiko, Risiko Rendah, Risiko Sedang, and Risiko Berat. If the analysis indicates Severe Risk, a contact person wwill be provided, guiding the user to a psychologist for further consultation and support.</p>
+                        <h1 class="text-2xl lg:text-3xl font-extrabold mb-4">Analis Laporan</h1>
+                        <p class="text-base lg:text-lg">Hasilnya kemudian diolah menggunakan metode Kepastian Faktor (CF) pada fitur Analisis Laporan. Metode ini mengkategorikan kondisi pengguna ke dalam empat tingkatan: Tidak Berisiko, Risiko Rendah, Risiko Sedang, dan Risiko Berat. Jika analisis menunjukkan Risiko Parah, orang yang dapat dihubungi akan disediakan, memandu pengguna ke psikolog untuk konsultasi dan dukungan lebih lanjut.</p>
                     </div>
                 </div>
                 <!-- Similar responsive adjustments for other steps -->

@@ -19,9 +19,10 @@ Route::fallback(function () {
     return response()->view('errors.404', [], 404);
 });
 Route::get('/', [Controllers\HomeController::class, 'index'])->name('home.index');
+Route::get('/about', [Controllers\HomeController::class, 'about'])->name('home.about');
 
-Route::get('/I/{short_url}', [Controllers\WithpasswordController::class, 'index'])->name('confirm-password.index');
-Route::post('/I/{short_url}', [Controllers\WithpasswordController::class, 'redirect'])->name('confirm-password.redirect');
+// Route::get('/I/{short_url}', [Controllers\WithpasswordController::class, 'index'])->name('confirm-password.index');
+// Route::post('/I/{short_url}', [Controllers\WithpasswordController::class, 'redirect'])->name('confirm-password.redirect');
 
 require __DIR__ . '/auth.php';
 // Route::get('/login/sso', [Controllers\SSOController::class, "index"])->name('sso.index');
