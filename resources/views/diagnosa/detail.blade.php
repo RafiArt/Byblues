@@ -37,7 +37,6 @@
                 </div>
             </div>
 
-
             <div class="w-full bg-gray-50 p-4 border-t flex items-center justify-between rounded-b-lg">
                 <div class="flex-1 flex flex-col">
                     <h2 class="font-bold text-lg lg:text-xl text-grey-700">Hasil Diagnosa:</h2>
@@ -131,6 +130,9 @@
             </div>
         </div>
     </div>
+    <a href="https://wa.me/6285335669905" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg transition-all duration-300 z-50 no-print">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+    </a>
 
     <!-- Print CSS -->
     <style>
@@ -151,6 +153,5 @@
                 display: none !important;
             }
         }
-
     </style>
 </x-dashboard-layout>
