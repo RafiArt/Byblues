@@ -1,6 +1,6 @@
 <x-dashboard-layout title="Dashboard">
     @role('user')
-        <section class="mb-5">
+        {{-- <section class="mb-5">
             <h1 class="text-base lg:text-lg font-bold mb-3 uppercase">Quick Access</h1>
             <div class="w-full flex flex-col lg:flex-row items-center gap-3">
                 <button type="button" id="quick-access-btn"
@@ -10,7 +10,7 @@
                     <i class="fa-solid fa-chevron-right text-lg group-hover:text-blue-600 transition"></i>
                 </button>
             </div>
-        </section>
+        </section> --}}
         <section class="w-full mb-5">
             <h1 class="text-base lg:text-lg font-bold mb-3 uppercase">Analytics</h1>
             <!-- First Row (Top Section) -->
