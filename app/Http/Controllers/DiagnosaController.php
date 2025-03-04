@@ -278,9 +278,9 @@ class DiagnosaController extends Controller
                         <span><strong>Rekomendasi Penanganan</strong>:</span>
                         <ul class="list-disc ml-6 space-y-2">
                             <li><strong>Dukungan Konsultasi</strong>: Bantu mengatur jadwal dan transportasi untuk konsultasi.</li>
-                            <li><strong>Bantuan Praktis</strong>: Berikan bantuan intensif dalam perawatan bayi dan rumah tangga.</li>
+                            <li><strong>Bantuan Praktis</strong>: Berikan bantuan intensif dalam perawatan bayi.</li>
                             <li><strong>Sistem Pendukung</strong>: Jadilah sistem pendukung yang stabil dan dapat diandalkan.</li>
-                            <li><strong>Pemahaman</strong>: Pahami pentingnya penanganan profesional tanpa menghakimi.</li>
+                            <li><strong>Perhatikan</strong>: Perhatikan perubahan pola makan, istirahat, mood dan perilaku ibu.</li>
                         </ul>
                     </div>';
             } elseif ($score >= 5 && $score <= 9) {
@@ -290,9 +290,9 @@ class DiagnosaController extends Controller
                         <span><strong>Rekomendasi Penanganan</strong>:</span>
                         <ul class="list-disc ml-6 space-y-2">
                             <li><strong>Bantuan Fleksibel</strong>: Berikan bantuan sesuai kebutuhan tanpa memaksa.</li>
-                            <li><strong>Waktu Istirahat</strong>: Tawarkan bantuan agar pasangan bisa beristirahat.</li>
+                            <li><strong>Waktu Istirahat</strong>: Tawarkan bantuan agar ibu bisa beristirahat.</li>
                             <li><strong>Lingkungan Positif</strong>: Hindari kritik dan komentar negatif.</li>
-                            <li><strong>Dukungan Praktis</strong>: Bantu pekerjaan rumah tangga sesuai kebutuhan.</li>
+                            <li><strong>Dukungan Praktis</strong>: Bantu biar bisa jadi pendengar yang baik untuk ibu.</li>
                         </ul>
                     </div>';
             } else {
@@ -304,7 +304,7 @@ class DiagnosaController extends Controller
                             <li><strong>Pengalaman Positif</strong>: Berbagi pengalaman pengasuhan yang positif.</li>
                             <li><strong>Persiapan</strong>: Bantu mempersiapkan keperluan bayi tanpa menimbulkan tekanan.</li>
                             <li><strong>Dukungan Moral</strong>: Berikan dukungan moral yang membangun.</li>
-                            <li><strong>Penghargaan</strong>: Hormati keputusan pasangan dalam pengasuhan anak.</li>
+                            <li><strong>Penghargaan</strong>: Hormati keputusan ibu dalam pengasuhan anak.</li>
                         </ul>
                     </div>';
             }
