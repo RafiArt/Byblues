@@ -331,7 +331,7 @@ class GejalaSeeder extends Seeder
             ],
             [
                 'kode' => 'IB009',
-                'keterangan' => 'Apakah ibu kurang tidur dalam satu hari?',
+                'keterangan' => 'Apakah ibu sering kurang tidur dalam satu hari?',
                 'kategori' => 'Kesejahteraan Fisik',
             ],
             [
