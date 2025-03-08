@@ -276,7 +276,7 @@ class DiagnosaController extends Controller
                         <ul class="list-disc ml-6 space-y-2">
                             <li>Bantu pengasuhan bayi secara penuh.</li>
                             <li>Koordinasi dengan tim medis untuk pemantauan.</li>
-                            <li>Ciptakan lingkungan aman dan nyaman.</li>
+                            <li>Ciptakan lingkungan yang aman dan nyaman.</li>
                             <li>Hindari kritikan atau tekanan tambahan.</li>
                         </ul>
                     </div>';
