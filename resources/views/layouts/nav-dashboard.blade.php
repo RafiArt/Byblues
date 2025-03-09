@@ -25,32 +25,6 @@
                     </div>
                 </a>
             </li>
-            @unless(Auth::user()->roles[0]->name == 'administrator')
-                <li class="block lg:hidden">
-                    <a href="/division_links">
-                        <button type="submit" class="w-full p-2 py-1 block hover:bg-gray-200 rounded transition">
-                            <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 overflow-hidden flex items-center justify-center">
-                                    <i class="fa-solid fa-building-user text-lg text-blue-500"></i>
-                                </div>
-                                <p class="font-semibold text-sm text-blue-500">Links Division</p>
-                            </div>
-                        </button>
-                    </a>
-                </li>
-                <li class="block lg:hidden">
-                    <a href="/division_qrcodes">
-                        <button type="submit" class="w-full p-2 py-1 block hover:bg-gray-200 rounded transition">
-                            <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 overflow-hidden flex items-center justify-center">
-                                    <i class="fa-solid fa-qrcode text-lg text-blue-500"></i>
-                                </div>
-                                <p class="font-semibold text-sm text-blue-500">QR Division</p>
-                            </div>
-                        </button>
-                    </a>
-                </li>
-            @endunless
             <li>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
