@@ -159,7 +159,7 @@ class DiagnosaController extends Controller
 
         // Determine risk level and recommendations
         if (Auth::user()->peran == 'Ibu') {
-            if ($score >= 13) {
+            if ($score >= 20) {
                 $hasil = 'Risiko Tinggi Baby Blues';
                 $solusi = '
                     <div class="flex flex-col items-start space-y-2">
@@ -174,7 +174,7 @@ class DiagnosaController extends Controller
                             <li>• Hindari isolasi sosial, tetap terhubung dengan support system.</li>
                         </ul>
                     </div>';
-            } elseif ($score >= 10 && $score <= 12) {
+            } elseif ($score >= 14 && $score <= 19) {
                 $hasil = 'Risiko Sedang Baby Blues';
                 $solusi = '
                     <div class="flex flex-col items-start space-y-2">
@@ -189,7 +189,7 @@ class DiagnosaController extends Controller
                             <li>• Lakukan aktivitas menyenangkan minimal 30 menit sehari.</li>
                         </ul>
                     </div>';
-            } elseif ($score >= 5 && $score <= 9) {
+            } elseif ($score >= 10 && $score <= 13) {
                 $hasil = 'Risiko Rendah Baby Blues';
                 $solusi = '
                     <div class="flex flex-col items-start space-y-2">
@@ -217,7 +217,7 @@ class DiagnosaController extends Controller
                     </div>';
             }
         } elseif (Auth::user()->peran == 'Suami') {
-            if ($score >= 13) {
+            if ($score >= 20) {
                 $hasil = 'Risiko Tinggi Baby Blues';
                 $solusi = '
                     <div class="flex flex-col items-start space-y-2">
@@ -229,7 +229,7 @@ class DiagnosaController extends Controller
                             <li>• Pantau kondisi istri secara konsisten.</li>
                         </ul>
                     </div>';
-            } elseif ($score >= 10 && $score <= 12) {
+            } elseif ($score >= 14 && $score <= 19) {
                 $hasil = 'Risiko Sedang Baby Blues';
                 $solusi = '
                     <div class="flex flex-col items-start space-y-2">
@@ -242,7 +242,7 @@ class DiagnosaController extends Controller
                             <li>• Berikan apresiasi dan dukungan positif</li>
                         </ul>
                     </div>';
-            } elseif ($score >= 5 && $score <= 9) {
+            } elseif ($score >= 10 && $score <= 13) {
                 $hasil = 'Risiko Rendah Baby Blues';
                 $solusi = '
                     <div class="flex flex-col items-start space-y-2">
@@ -268,7 +268,7 @@ class DiagnosaController extends Controller
                     </div>';
             }
         } elseif (Auth::user()->peran == 'Orang Terdekat') {
-            if ($score >= 13) {
+            if ($score >= 20) {
                 $hasil = 'Risiko Tinggi Baby Blues';
                 $solusi = '
                     <div class="flex flex-col items-start space-y-2">
@@ -280,7 +280,7 @@ class DiagnosaController extends Controller
                             <li>• Hindari kritikan atau tekanan tambahan.</li>
                         </ul>
                     </div>';
-            } elseif ($score >= 10 && $score <= 12) {
+            } elseif ($score >= 14 && $score <= 19) {
                 $hasil = 'Risiko Sedang Baby Blues';
                 $solusi = '
                     <div class="flex flex-col items-start space-y-2">
@@ -292,7 +292,7 @@ class DiagnosaController extends Controller
                             <li>• Perhatikan perubahan pola makan, istirahat, mood dan perilaku ibu.</li>
                         </ul>
                     </div>';
-            } elseif ($score >= 5 && $score <= 9) {
+            } elseif ($score >= 10 && $score <= 13) {
                 $hasil = 'Risiko Rendah Baby Blues';
                 $solusi = '
                     <div class="flex flex-col items-start space-y-2">
