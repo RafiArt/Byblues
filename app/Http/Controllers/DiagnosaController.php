@@ -165,13 +165,13 @@ class DiagnosaController extends Controller
                     <div class="flex flex-col items-start space-y-2">
                         <span><strong>Rekomendasi Penanganan</strong>:</span>
                         <ul class="list-disc ml-6 space-y-2">
-                            <li>Lakukan konsultasi dengan psikiater/psikolog untuk evaluasi mendalam dan penanganan intensif.</li>
-                            <li>Ikuti jadwal terapi intensif atau terapi kognitif-perilaku, minimal 1-2 kali seminggu.</li>
-                            <li>Konsumsi obat farmakologis di bawah pengawasan ahli jika diperlukan.</li>
-                            <li>Lakukan pencatatan  perubahan mood dan perilaku setiap hari untuk evaluasi treatment.</li>
-                            <li>Praktikkan teknik relaksasi dan pernapasan.</li>
-                            <li>Fokus pada nutrisi seimbang dan istirahat yang cukup.</li>
-                            <li>Hindari isolasi sosial, tetap terhubung dengan support system.</li>
+                            <li>• Lakukan konsultasi dengan psikiater/psikolog untuk evaluasi mendalam dan penanganan intensif.</li>
+                            <li>• Ikuti jadwal terapi intensif atau terapi kognitif-perilaku, minimal 1-2 kali seminggu.</li>
+                            <li>• Konsumsi obat farmakologis di bawah pengawasan ahli jika diperlukan.</li>
+                            <li>• Lakukan pencatatan  perubahan mood dan perilaku setiap hari untuk evaluasi treatment.</li>
+                            <li>• Praktikkan teknik relaksasi dan pernapasan.</li>
+                            <li>• Fokus pada nutrisi seimbang dan istirahat yang cukup.</li>
+                            <li>• Hindari isolasi sosial, tetap terhubung dengan support system.</li>
                         </ul>
                     </div>';
             } elseif ($score >= 10 && $score <= 12) {
@@ -180,13 +180,13 @@ class DiagnosaController extends Controller
                     <div class="flex flex-col items-start space-y-2">
                         <span><strong>Rekomendasi Penanganan</strong>:</span>
                         <ul class="list-disc ml-6 space-y-2">
-                            <li>Catat gejala yang dialami dan buat jadwal konsultasi dengan profesional.</li>
-                            <li>Bergabung dengan support group ibu baru bila ada.</li>
-                            <li>Praktikkan manajemen stres (meditasi, yoga ringan).</li>
-                            <li>Dokumentasikan pola tidur, makan, dan pemicu emosional.</li>
-                            <li>Tetapkan rutinitas harian yang terstruktur.</li>
-                            <li>Batasi paparan informasi yang berpotensi meningkatkan kecemasan.</li>
-                            <li>Lakukan aktivitas menyenangkan minimal 30 menit sehari.</li>
+                            <li>• Catat gejala yang dialami dan buat jadwal konsultasi dengan profesional.</li>
+                            <li>• Bergabung dengan support group ibu baru bila ada.</li>
+                            <li>• Praktikkan manajemen stres (meditasi, yoga ringan).</li>
+                            <li>• Dokumentasikan pola tidur, makan, dan pemicu emosional.</li>
+                            <li>• Tetapkan rutinitas harian yang terstruktur.</li>
+                            <li>• Batasi paparan informasi yang berpotensi meningkatkan kecemasan.</li>
+                            <li>• Lakukan aktivitas menyenangkan minimal 30 menit sehari.</li>
                         </ul>
                     </div>';
             } elseif ($score >= 5 && $score <= 9) {
@@ -195,12 +195,12 @@ class DiagnosaController extends Controller
                     <div class="flex flex-col items-start space-y-2">
                         <span><strong>Rekomendasi Penanganan</strong>:</span>
                         <ul class="list-disc ml-6 space-y-2">
-                            <li>Praktikkan self-care secara rutin.</li>
-                            <li>Atur jadwal tidur selaras dengan bayi.</li>
-                            <li>Lakukan aktivitas yang menyenangkan.</li>
-                            <li>Komunikasikan perasaan dengan pasangan/keluarga.</li>
-                            <li>Tetapkan batasan dan prioritas.</li>
-                            <li>Terima bantuan yang ditawarkan.</li>
+                            <li>• Praktikkan self-care secara rutin.</li>
+                            <li>• Atur jadwal tidur selaras dengan bayi.</li>
+                            <li>• Lakukan aktivitas yang menyenangkan.</li>
+                            <li>• Komunikasikan perasaan dengan pasangan/keluarga.</li>
+                            <li>• Tetapkan batasan dan prioritas.</li>
+                            <li>• Terima bantuan yang ditawarkan.</li>
                         </ul>
                     </div>';
             } else {
@@ -209,10 +209,10 @@ class DiagnosaController extends Controller
                     <div class="flex flex-col items-start space-y-2">
                         <span><strong>Rekomendasi Penanganan</strong>:</span>
                         <ul class="list-disc ml-6 space-y-2">
-                            <li>Ikuti kelas prenatal dan persiapkan mental sejak kehamilan.</li>
-                            <li>Pertahankan pola makan sehat dan istirahat yang cukup.</li>
-                            <li>Bangun ekspektasi realistis tentang pengasuhan.</li>
-                            <li>Pelajari dan praktikkan teknik relaksasi secara rutin.</li>
+                            <li>• Ikuti kelas prenatal dan persiapkan mental sejak kehamilan.</li>
+                            <li>• Pertahankan pola makan sehat dan istirahat yang cukup.</li>
+                            <li>• Bangun ekspektasi realistis tentang pengasuhan.</li>
+                            <li>• Pelajari dan praktikkan teknik relaksasi secara rutin.</li>
                         </ul>
                     </div>';
             }
@@ -223,10 +223,10 @@ class DiagnosaController extends Controller
                     <div class="flex flex-col items-start space-y-2">
                         <span><strong>Rekomendasi Penanganan</strong>:</span>
                         <ul class="list-disc ml-6 space-y-2">
-                            <li>Dampingi istri dalam setiap sesi terapi dan konsultasi.</li>
-                            <li>Ambil alih sebagian besar tanggung jawab pengasuhan dan rumah tangga.</li>
-                            <li>Sediakan waktu istirahat dan pemulihan berkualitas.</li>
-                            <li>Pantau kondisi istri secara konsisten.</li>
+                            <li>• Dampingi istri dalam setiap sesi terapi dan konsultasi.</li>
+                            <li>• Ambil alih sebagian besar tanggung jawab pengasuhan dan rumah tangga.</li>
+                            <li>• Sediakan waktu istirahat dan pemulihan berkualitas.</li>
+                            <li>• Pantau kondisi istri secara konsisten.</li>
                         </ul>
                     </div>';
             } elseif ($score >= 10 && $score <= 12) {
@@ -235,11 +235,11 @@ class DiagnosaController extends Controller
                     <div class="flex flex-col items-start space-y-2">
                         <span><strong>Rekomendasi Penanganan</strong>:</span>
                         <ul class="list-disc ml-6 space-y-2">
-                            <li><strong>Dukungan Konsultasi</strong>: Bantu istri merencanakan dan mengatur jadwal konsultasi.</li>
-                            <li><strong>Pembagian Tugas</strong>: Ambil lebih banyak tanggung jawab rumah tangga.</li>
-                            <li>Berikan waktu khusus untuk mendengarkan tanpa menghakimi.</li>
-                            <li>Perhatikan perubahan mood dan perilaku istri.</li>
-                            <li>Berikan apresiasi dan dukungan positif</li>
+                            <li>• Bantu istri merencanakan dan mengatur jadwal konsultasi.</li>
+                            <li>• Ambil lebih banyak tanggung jawab rumah tangga.</li>
+                            <li>• Berikan waktu khusus untuk mendengarkan tanpa menghakimi.</li>
+                            <li>• Perhatikan perubahan mood dan perilaku istri.</li>
+                            <li>• Berikan apresiasi dan dukungan positif</li>
                         </ul>
                     </div>';
             } elseif ($score >= 5 && $score <= 9) {
@@ -248,10 +248,10 @@ class DiagnosaController extends Controller
                     <div class="flex flex-col items-start space-y-2">
                         <span><strong>Rekomendasi Penanganan</strong>:</span>
                         <ul class="list-disc ml-6 space-y-2">
-                            <li>Bantu perawatan bayi dan pekerjaan rumah tangga secara proaktif.</li>
-                            <li>Berikan apresiasi pada upaya istri.</li>
-                            <li>Pastikan istri mendapat waktu istirahat yang cukup.</li>
-                            <li>Ciptakan lingkungan positif dan mendukung.</li>
+                            <li>• Bantu perawatan bayi dan pekerjaan rumah tangga secara proaktif.</li>
+                            <li>• Berikan apresiasi pada upaya istri.</li>
+                            <li>• Pastikan istri mendapat waktu istirahat yang cukup.</li>
+                            <li>• Ciptakan lingkungan positif dan mendukung.</li>
                         </ul>
                     </div>';
             } else {
@@ -260,10 +260,10 @@ class DiagnosaController extends Controller
                     <div class="flex flex-col items-start space-y-2">
                         <span><strong>Rekomendasi Penanganan</strong>:</span>
                         <ul class="list-disc ml-6 space-y-2">
-                            <li>Pelajari fase kehamilan dan pasca melahirkan.</li>
-                            <li>Terlibat aktif dalam persiapan kelahiran dan perawatan bayi.</li>
-                            <li>Pelajari perubahan hormonal dan emosional yang akan dialami istri.</li>
-                            <li>Tunjukkan dukungan emosional dan jadilah pendengar yang baik.</li>
+                            <li>• Pelajari fase kehamilan dan pasca melahirkan.</li>
+                            <li>• Terlibat aktif dalam persiapan kelahiran dan perawatan bayi.</li>
+                            <li>• Pelajari perubahan hormonal dan emosional yang akan dialami istri.</li>
+                            <li>• Tunjukkan dukungan emosional dan jadilah pendengar yang baik.</li>
                         </ul>
                     </div>';
             }
@@ -274,10 +274,10 @@ class DiagnosaController extends Controller
                     <div class="flex flex-col items-start space-y-2">
                         <span><strong>Rekomendasi Penanganan</strong>:</span>
                         <ul class="list-disc ml-6 space-y-2">
-                            <li>Bantu pengasuhan bayi secara penuh.</li>
-                            <li>Koordinasi dengan tim medis untuk pemantauan.</li>
-                            <li>Ciptakan lingkungan yang aman dan nyaman.</li>
-                            <li>Hindari kritikan atau tekanan tambahan.</li>
+                            <li>• Bantu pengasuhan bayi secara penuh.</li>
+                            <li>• Koordinasi dengan tim medis untuk pemantauan.</li>
+                            <li>• Ciptakan lingkungan yang aman dan nyaman.</li>
+                            <li>• Hindari kritikan atau tekanan tambahan.</li>
                         </ul>
                     </div>';
             } elseif ($score >= 10 && $score <= 12) {
@@ -286,10 +286,10 @@ class DiagnosaController extends Controller
                     <div class="flex flex-col items-start space-y-2">
                         <span><strong>Rekomendasi Penanganan</strong>:</span>
                         <ul class="list-disc ml-6 space-y-2">
-                            <li>Bantu mengatur jadwal dan transportasi untuk konsultasi.</li>
-                            <li>Berikan bantuan intensif dalam perawatan bayi.</li>
-                            <li>Jadilah sistem pendukung yang stabil dan dapat diandalkan.</li>
-                            <li>Perhatikan perubahan pola makan, istirahat, mood dan perilaku ibu.</li>
+                            <li>• Bantu mengatur jadwal dan transportasi untuk konsultasi.</li>
+                            <li>• Berikan bantuan intensif dalam perawatan bayi.</li>
+                            <li>• Jadilah sistem pendukung yang stabil dan dapat diandalkan.</li>
+                            <li>• Perhatikan perubahan pola makan, istirahat, mood dan perilaku ibu.</li>
                         </ul>
                     </div>';
             } elseif ($score >= 5 && $score <= 9) {
@@ -298,10 +298,10 @@ class DiagnosaController extends Controller
                     <div class="flex flex-col items-start space-y-2">
                         <span><strong>Rekomendasi Penanganan</strong>:</span>
                         <ul class="list-disc ml-6 space-y-2">
-                            <li>Berikan bantuan sesuai kebutuhan tanpa memaksa.</li>
-                            <li>Tawarkan bantuan agar ibu bisa beristirahat.</li>
-                            <li>Hindari kritik dan komentar negatif.</li>
-                            <li>Bantu biar bisa jadi pendengar yang baik untuk ibu.</li>
+                            <li>• Berikan bantuan sesuai kebutuhan tanpa memaksa.</li>
+                            <li>• Tawarkan bantuan agar ibu bisa beristirahat.</li>
+                            <li>• Hindari kritik dan komentar negatif.</li>
+                            <li>• Bantu biar bisa jadi pendengar yang baik untuk ibu.</li>
                         </ul>
                     </div>';
             } else {
@@ -310,10 +310,10 @@ class DiagnosaController extends Controller
                     <div class="flex flex-col items-start space-y-2">
                         <span><strong>Rekomendasi Penanganan</strong>:</span>
                         <ul class="list-disc ml-6 space-y-2">
-                            <li>Berbagi pengalaman positif pengasuhan.</li>
-                            <li>Bantu mempersiapkan keperluan bayi.</li>
-                            <li>Berikan dukungan moral konstruktif.</li>
-                            <li>Hormati keputusan pengasuhan.</li>
+                            <li>• Berbagi pengalaman positif pengasuhan.</li>
+                            <li>• Bantu mempersiapkan keperluan bayi.</li>
+                            <li>• Berikan dukungan moral konstruktif.</li>
+                            <li>• Hormati keputusan pengasuhan.</li>
                         </ul>
                     </div>';
             }
