@@ -90,7 +90,7 @@
                         <p class="text-gray-600">Mengelola baby blues antara lain dengan istirahat yang cukup, mendapat dukungan sosial dari keluarga, dan melakukan aktivitas relaksasi. Jika gejalanya menetap atau memburuk, terapi atau pengobatan dari profesional mungkin diperlukan untuk mencegah kondisi yang lebih serius seperti depresi pascapersalinan.</p>
                     </div>
                     <div class="flex items-center justify-center lg:justify-end h-[250px]">
-                        <img src="{{ asset('2.svg') }}" alt="" class="h-full w-auto object-contain">
+                        <img src="{{ asset('2aa.svg') }}" alt="" class="h-full w-auto object-contain">
                     </div>
                 </div>
             </div>
@@ -102,7 +102,7 @@
                 <h1 class="text-center text-3xl lg:text-4xl font-bold mb-20">Bagaimana Cara Kerjanya?</h1>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-0 items-center">
                     <div class="flex justify-center">
-                        <img src="{{ asset('Tablet login-amico.svg') }}" alt="" class="w-[200px] lg:w-[20rem]">
+                        <img src="{{ asset('login-amico.svg') }}" alt="" class="w-[200px] lg:w-[20rem]">
                     </div>
                     <div class="hidden lg:flex items-center justify-center">
                         <h1 class="text-6xl lg:text-8xl font-[800] text-yellow-500">01.</h1>
