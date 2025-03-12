@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Diagnosa;
+use App\Models\News;
 use Spatie\Permission\Traits\HasRoles;
 use App\Models\ClickTracking;
 use App\Models\Link;
@@ -22,9 +23,11 @@ class DashboardController extends Controller
                 'tidak_ada_risiko' => Diagnosa::where('hasil', 'Tidak Ada Risiko Baby Blues')->count(),
                 'risiko_rendah' => Diagnosa::where('hasil', 'Risiko Rendah Baby Blues')->count(),
                 'risiko_sedang' => Diagnosa::where('hasil', 'Risiko Sedang Baby Blues')->count(),
-                'risiko_tinggi' => Diagnosa::where('hasil', 'Risiko Tinggi Baby Blues')->count()
+                'risiko_tinggi' => Diagnosa::where('hasil', 'Risiko Tinggi Baby Blues')->count(),
+                'total_users' => User::count(),  // Menambahkan jumlah user
+                'total_news' => News::count()    // Menambahkan jumlah berita
             ];
-        } else {
+        }else {
             $CountDiagnosis = (object) [
                 'total' => Diagnosa::where('user_id', $user->id)->count(),
                 'tidak_ada_risiko' => Diagnosa::where('user_id', $user->id)
