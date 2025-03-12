@@ -12,27 +12,42 @@ class DiagnosaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         session()->forget(['diagnosa_temp', 'diagnosa_tanggal']);
 
+        $search = $request->input('search');
         $user = Auth::user();
-        // Ambil data berdasarkan role
-        if ($user->roles[0]->name == 'administrator') {
-            $diagnosas = Diagnosa::with('user') // Include the users relationship
-                ->orderBy('created_at', 'desc')
-                ->paginate(10);
-        } else {
-            // If the role is user, retrieve data based on user_id
-            $diagnosas = Diagnosa::with('user') // Include the users relationship
-                ->where('user_id', $user->id)
-                ->orderBy('created_at', 'desc')
-                ->paginate(10);
+
+        // Start building the query
+        $query = Diagnosa::with('user');
+
+        // Apply search filter if search parameter exists
+        if ($request->filled('search')) {
+            $query->where(function($q) use ($search) {
+                // Search in the diagnosa results
+                $q->where('hasil', 'like', "%{$search}%")
+                  // OR search by user name through the relationship
+                  ->orWhereHas('user', function ($userQuery) use ($search) {
+                      $userQuery->where('name', 'like', '%' . $search . '%');
+                  });
+            });
         }
 
+        // Apply role-based filtering
+        if ($user->roles[0]->name != 'administrator') {
+            $query->where('user_id', $user->id);
+        }
 
-        // Kirim data ke view
-        return view('diagnosa.index', compact('diagnosas'));
+        // Get the results
+        $diagnosas = $query->orderBy('created_at', 'desc')
+                          ->paginate(10);
+
+        // When searching, maintain the search parameter across pagination
+        $diagnosas->appends(['search' => $search]);
+
+        // Send data to view
+        return view('diagnosa.index', compact('diagnosas', 'search'));
     }
 
 

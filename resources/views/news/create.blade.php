@@ -14,7 +14,7 @@
                     @enderror
                 </div>
 
-                <!-- Content Field -->
+                <!-- Content Field with TinyMCE -->
                 <div class="mb-4">
                     <label for="content" class="block text-gray-700 text-lg font-medium mb-2">Konten Berita</label>
                     <textarea class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 @error('content') border-red-500 @enderror" id="content" name="content" rows="5" required>{{ old('content') }}</textarea>
@@ -32,10 +32,10 @@
                     @enderror
                 </div>
 
-                <!-- Image URL Field -->
+                <!-- Image URL Field - Unchanged -->
                 <div class="mb-4">
                     <label for="image_url" class="block text-gray-700 text-lg font-medium mb-2">Unggah Gambar (Opsional)</label>
-                    <input type="file" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 @error('image_url') border-red-500 @enderror" id="image_url" name="image_url" accept="image/*" required>
+                    <input type="file" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 @error('image_url') border-red-500 @enderror" id="image_url" name="image_url" accept="image/*" >
                     @error('image_url')
                         <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
                     @enderror
@@ -51,11 +51,35 @@
                     <button type="submit" class="w-full sm:w-1/2 p-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
                         Simpan
                     </button>
-
                 </div>
             </form>
         </div>
     </div>
 
-
+    <!-- TinyMCE Script -->
+    @push('scripts')
+    <script src="https://cdn.tiny.cloud/1/o0x4w2fwg77f1tpb5g3lbsztykzdl06eruwt741zqmk5n98t/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#content',
+            height: 400,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount'
+            ],
+            toolbar: 'undo redo | formatselect | ' +
+                'bold italic backcolor | alignleft aligncenter ' +
+                'alignright alignjustify | bullist numlist outdent indent | ' +
+                'removeformat | help | image | table',
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
+            // Tambahkan ini untuk memastikan konten disimpan sebelum submit
+            setup: function (editor) {
+                editor.on('change', function () {
+                    editor.save();
+                });
+            }
+        });
+    </script>
+    @endpush
 </x-dashboard-layout>

@@ -158,9 +158,16 @@ class NewsController extends Controller
         // Mencari artikel berdasarkan ID
         $news = News::findOrFail($id);
 
-        // Mengirim data artikel ke view edit
-        return view('news.view', data: compact('news'));
+        // Ambil 3 berita terbaru selain berita yang sedang ditampilkan
+        $recommendedNews = News::where('id', '!=', $id)
+                            ->latest()
+                            ->take(3)
+                            ->get();
+
+        // Kirim data ke view
+        return view('news.view', compact('news', 'recommendedNews'));
     }
+
 
 
     public function destroy($id)

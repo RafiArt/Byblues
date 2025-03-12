@@ -169,7 +169,7 @@
                             @endif
                             <div class="p-5 flex-1">
                                 <h2 class="text-xl font-semibold mb-4">{{ $article->title }}</h2>
-                                <p class="text-gray-700 mb-1">{{ Str::limit($article->content, 20) }}</p>
+                                <p class="text-gray-700 mb-1">{!! Str::limit($article->content, 20) !!}</p>
                                 <a href="{{ route('news.show', $article->id) }}" class="text-blue-600 hover:underline">Read More</a>
                             </div>
                         </div>

@@ -15,7 +15,7 @@
                     @enderror
                 </div>
 
-                <!-- Content Field -->
+                <!-- Content Field with TinyMCE -->
                 <div class="mb-4">
                     <label for="content" class="block text-gray-700 text-lg font-medium mb-2">Konten Berita</label>
                     <textarea class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 @error('content') border-red-500 @enderror" id="content" name="content" rows="5" required>{{ old('content', $article->content) }}</textarea>
@@ -53,9 +53,34 @@
                     <button type="submit" class="w-full sm:w-1/2 p-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
                         Update
                     </button>
-
                 </div>
             </form>
         </div>
     </div>
+
+    <!-- TinyMCE Script -->
+    @push('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.10.5/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: '#content',
+            height: 400,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount'
+            ],
+            toolbar: 'undo redo | formatselect | ' +
+                'bold italic backcolor | alignleft aligncenter ' +
+                'alignright alignjustify | bullist numlist outdent indent | ' +
+                'removeformat | help | image | table',
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
+            setup: function (editor) {
+                editor.on('change', function () {
+                    editor.save();
+                });
+            }
+        });
+    </script>
+    @endpush
 </x-dashboard-layout>

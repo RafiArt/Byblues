@@ -24,9 +24,10 @@
             <!-- Input Tanggal - Only show on first category -->
             @if($kategoriList->search($currentKategori) === 0)
                 <div class="mb-4">
-                    <label for="tanggal" class="block text-sm font-medium text-gray-700">Tanggal dan Waktu</label>
+                    <label for="tanggal" class="block text-sm font-medium text-gray-700">Tanggal dan Waktu<span class="text-red-500">*</span></label>
                     <input type="datetime-local" id="tanggal" name="tanggal" value="{{ session('diagnosa_tanggal') }}"
-                        class="mt-1 block w-full max-w-sm rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50">
+                        class="mt-1 block w-full max-w-sm rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                        required>
                 </div>
             @else
                 <input type="hidden" name="tanggal" value="{{ session('diagnosa_tanggal') }}">

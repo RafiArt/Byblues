@@ -45,11 +45,11 @@
                         </td>
                         <td class="py-3 px-4 text-left">
                             <div class="flex items-center">
-                                {{ $article->title }}
+                                {{ Str::limit($article->title, 20) }}
                             </div>
                         </td>
                         <td class="py-3 px-4 text-left">
-                            {{ $article->content }}
+                            {!! Str::limit($article->content, 20) !!}
                         </td>
                         <td class="py-3 px-4 text-left">
                             {{ $article->author }}
