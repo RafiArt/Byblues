@@ -167,10 +167,10 @@ class DiagnosaController extends Controller
         // Calculate CF using the formula CF[h,e] = MB[h,e] - MD[h,e]
         $cf_value = $MB - $MD;
 
-        // Convert CF value to score range (0-20 scale for classification)
+        // Convert CF value to score range (0-30 scale for classification)
         // Hanya menggunakan nilai positif untuk menunjukkan risiko
         // Nilai negatif akan menjadi 0 (tidak ada risiko)
-        $score = max(0, $cf_value * 20);
+        $score = max(0, $cf_value * 30);
 
         // Determine risk level and recommendations
         if (Auth::user()->peran == 'Ibu') {
@@ -189,7 +189,7 @@ class DiagnosaController extends Controller
                             <li>• Hindari isolasi sosial, tetap terhubung dengan support system.</li>
                         </ul>
                     </div>';
-            } elseif ($score >= 14 && $score <= 19) {
+            } elseif ($score >= 14 && $score < 20) {
                 $hasil = 'Risiko Sedang Baby Blues';
                 $solusi = '
                     <div class="flex flex-col items-start space-y-2">
@@ -204,7 +204,7 @@ class DiagnosaController extends Controller
                             <li>• Lakukan aktivitas menyenangkan minimal 30 menit sehari.</li>
                         </ul>
                     </div>';
-            } elseif ($score >= 10 && $score <= 13) {
+            } elseif ($score >= 10 && $score < 14) {
                 $hasil = 'Risiko Rendah Baby Blues';
                 $solusi = '
                     <div class="flex flex-col items-start space-y-2">
@@ -244,7 +244,7 @@ class DiagnosaController extends Controller
                             <li>• Pantau kondisi istri secara konsisten.</li>
                         </ul>
                     </div>';
-            } elseif ($score >= 14 && $score <= 19) {
+            } elseif ($score >= 14 && $score < 20) {
                 $hasil = 'Risiko Sedang Baby Blues';
                 $solusi = '
                     <div class="flex flex-col items-start space-y-2">
@@ -257,7 +257,7 @@ class DiagnosaController extends Controller
                             <li>• Berikan apresiasi dan dukungan positif</li>
                         </ul>
                     </div>';
-            } elseif ($score >= 10 && $score <= 13) {
+            } elseif ($score >= 10 && $score < 14) {
                 $hasil = 'Risiko Rendah Baby Blues';
                 $solusi = '
                     <div class="flex flex-col items-start space-y-2">
@@ -295,7 +295,7 @@ class DiagnosaController extends Controller
                             <li>• Hindari kritikan atau tekanan tambahan.</li>
                         </ul>
                     </div>';
-            } elseif ($score >= 14 && $score <= 19) {
+            } elseif ($score >= 14 && $score < 20) {
                 $hasil = 'Risiko Sedang Baby Blues';
                 $solusi = '
                     <div class="flex flex-col items-start space-y-2">
@@ -307,7 +307,7 @@ class DiagnosaController extends Controller
                             <li>• Perhatikan perubahan pola makan, istirahat, mood dan perilaku ibu.</li>
                         </ul>
                     </div>';
-            } elseif ($score >= 10 && $score <= 13) {
+            } elseif ($score >= 10 && $score < 14) {
                 $hasil = 'Risiko Rendah Baby Blues';
                 $solusi = '
                     <div class="flex flex-col items-start space-y-2">
