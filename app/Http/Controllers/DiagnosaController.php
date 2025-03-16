@@ -172,6 +172,8 @@ class DiagnosaController extends Controller
         // Nilai negatif akan menjadi 0 (tidak ada risiko)
         $score = max(0, $cf_value * 30);
 
+        // dd($score);
+
         // Determine risk level and recommendations
         if (Auth::user()->peran == 'Ibu') {
             if ($score >= 20) {

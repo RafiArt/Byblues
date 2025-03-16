@@ -72,7 +72,7 @@
                             <span>Skor:</span>
                             @php
                                 $cf_value = $diagnosa->cf_value;
-                                $skor  =  $cf_value * 20;
+                                $skor  =  $cf_value * 30;
                             @endphp
                             <span class="ml-2 text-grey-600 font-semibold">{{ $skor }}</span>
                         </h1>
