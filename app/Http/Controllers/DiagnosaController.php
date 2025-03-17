@@ -167,10 +167,12 @@ class DiagnosaController extends Controller
         // Calculate CF using the formula CF[h,e] = MB[h,e] - MD[h,e]
         $cf_value = $MB - $MD;
 
-        // Convert CF value to score range (0-30 scale for classification)
-        // Hanya menggunakan nilai positif untuk menunjukkan risiko
-        // Nilai negatif akan menjadi 0 (tidak ada risiko)
-        $score = max(0, $cf_value * 30);
+
+        // Normalisasi CF dari (-1 hingga 1) menjadi (0 hingga 1)
+        $cf_normalized = ($cf_value + 1) / 2;
+
+        // Konversi ke skala 0–30
+        $score = $cf_normalized * 30;
 
         // dd($score);
 

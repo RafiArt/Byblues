@@ -72,7 +72,11 @@
                             <span>Skor:</span>
                             @php
                                 $cf_value = $diagnosa->cf_value;
-                                $skor  =  $cf_value * 30;
+                                // Normalisasi CF dari (-1 hingga 1) menjadi (0 hingga 1)
+                                $cf_normalized = ($cf_value + 1) / 2;
+
+                                // Konversi ke skala 0–30
+                                $skor  =  $cf_normalized * 30;
                             @endphp
                             <span class="ml-2 text-grey-600 font-semibold">{{ $skor }}</span>
                         </h1>
@@ -91,7 +95,7 @@
                     <h1 class="text-gray-700 font-semibold text-base flex flex-col items-start mt-2 space-y-2">
                         <span class="mt-2">Klasifikasikan ke dalam empat kategori sebagai berikut:</span>
                         <span class="flex items-center">
-                            • <strong class="ml-2">Tidak ada risiko babyblues:</strong> Jika akumulasi skor berada pada rentang 0-9.
+                            • <strong class="ml-2">Tidak ada risiko babyblues:</strong> Jika akumulasi skor berada pada 9 kebawah.
                         </span>
                         <span class="flex items-center">
                             • <strong class="ml-2">Risiko rendah babyblues:</strong> Jika akumulasi skor berada pada rentang 10-13.
