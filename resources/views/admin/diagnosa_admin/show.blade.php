@@ -105,7 +105,7 @@
                             • <strong class="ml-2">Risiko sedang babyblues:</strong> Jika akumulasi skor berada pada rentang 14-19.
                         </span>
                         <span class="flex items-center">
-                            • <strong class="ml-2">Risiko tinggi babyblues:</strong> Jika akumulasi skor berada pada rentang 20 atau lebih.
+                            • <strong class="ml-2">Risiko tinggi babyblues:</strong> Jika akumulasi skor berada pada rentang 20-30.
                         </span>
                     </h1>
                 </div>

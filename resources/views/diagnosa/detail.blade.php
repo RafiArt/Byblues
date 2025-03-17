@@ -95,7 +95,7 @@
                     <h1 class="text-gray-700 font-semibold text-base flex flex-col items-start mt-2 space-y-2">
                         <span class="mt-2">Klasifikasikan ke dalam empat kategori sebagai berikut:</span>
                         <span class="flex items-center">
-                            • <strong class="ml-2">Tidak ada risiko babyblues:</strong> Jika akumulasi skor berada pada 9 kebawah.
+                            • <strong class="ml-2">Tidak ada risiko babyblues:</strong> Jika akumulasi skor berada pada 0-9.
                         </span>
                         <span class="flex items-center">
                             • <strong class="ml-2">Risiko rendah babyblues:</strong> Jika akumulasi skor berada pada rentang 10-13.
@@ -104,7 +104,7 @@
                             • <strong class="ml-2">Risiko sedang babyblues:</strong> Jika akumulasi skor berada pada rentang 14-19.
                         </span>
                         <span class="flex items-center">
-                            • <strong class="ml-2">Risiko tinggi babyblues:</strong> Jika akumulasi skor berada pada rentang 20 atau lebih.
+                            • <strong class="ml-2">Risiko tinggi babyblues:</strong> Jika akumulasi skor berada pada rentang 20-30.
                         </span>
                     </h1>
                 </div>
