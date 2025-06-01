@@ -42,10 +42,11 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['role:user', 'auth'])->group(function () {
 
     // Diagnosa
+    Route::get('/diagnosa/start', [DiagnosaController::class, 'start'])->name('diagnosa.start');
+    Route::post('/diagnosa/start', [DiagnosaController::class, 'processStart'])->name('diagnosa.processStart');
     Route::resource('/diagnosa', DiagnosaController::class);
     Route::post('/diagnosa/save-temp', [DiagnosaController::class, 'saveTemp'])->name('diagnosa.saveTemp');
     Route::get('/diagnosa/detail/{id}', [DiagnosaController::class, 'show'])->name('diagnosa.show');
-
 
     });
 

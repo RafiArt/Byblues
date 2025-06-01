@@ -50,6 +50,24 @@ class DiagnosaController extends Controller
         return view('diagnosa.index', compact('diagnosas', 'search'));
     }
 
+    public function start()
+    {
+        // Clear any existing temporary data
+        session()->forget(['diagnosa_temp', 'diagnosa_tanggal']);
+
+        return view('diagnosa.confirmPage');
+    }
+
+    public function processStart(Request $request)
+    {
+        // Validate if user has agreed to continue
+        $request->validate([
+            'agree' => 'required|accepted'
+        ]);
+
+        return redirect()->route('diagnosa.create');
+    }
+
 
     /**
      * Show the form for creating a new resource.
